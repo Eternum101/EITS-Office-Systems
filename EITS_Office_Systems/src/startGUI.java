@@ -188,9 +188,6 @@ public class startGUI extends javax.swing.JFrame {
 
     private void signinButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinButtonMouseClicked
         // TODO add your handling code here:
-       if(signinButton.isSelected()){
-            System.out.println("test");
-        }
     }//GEN-LAST:event_signinButtonMouseClicked
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
@@ -205,11 +202,32 @@ public class startGUI extends javax.swing.JFrame {
             String username=txtEmail.getText();
             char[] pwd=txtPassword.getPassword();
             String password=new String(pwd);
+            
+            //Admin Login
             if(username.equals("admin")&&password.equals("password")){
                 dispose();
-                 signup_GUI s = new signup_GUI();
+                 adminMain_GUI s = new adminMain_GUI();
                  s.setVisible(true); 
             }
+            //User Login
+            else if (username.equals("user")&&password.equals("password")){
+                //JOptionPane.showMessageDialog(null, "Invalid login details","login error",JOptionPane.ERROR_MESSAGE);
+                dispose();
+                userMain_GUI s = new userMain_GUI();
+                 s.setVisible(true);
+                
+                }
+            //Case worker Login
+            else if (username.equals("caseworker")&&password.equals("password")){
+                //JOptionPane.showMessageDialog(null, "Invalid login details","login error",JOptionPane.ERROR_MESSAGE);
+                dispose();
+                caseworkerMain_GUI s = new caseworkerMain_GUI();
+                 s.setVisible(true);
+                
+                }
+            else if (username.equals("")&&password.equals("")){
+                //JOptionPane.showMessageDialog(null, "Invalid login details","login error",JOptionPane.ERROR_MESSAGE);
+                }
             else {
                 //JOptionPane.showMessageDialog(null, "Invalid login details","login error",JOptionPane.ERROR_MESSAGE);
                 dispose();
@@ -217,7 +235,10 @@ public class startGUI extends javax.swing.JFrame {
                  s.setVisible(true);
                 
                 }
+            
             }
+            
+            
         
         catch(Exception e){
             System.out.println(e.getMessage());
