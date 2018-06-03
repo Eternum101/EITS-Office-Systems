@@ -55,7 +55,7 @@ public class startGUI extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 55)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("WELCOME");
+        jLabel1.setText("WELCOM");
 
         signinButton.setBackground(new java.awt.Color(0, 104, 185));
         signinButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 20)); // NOI18N
