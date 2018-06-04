@@ -2,6 +2,7 @@
 import com.sun.glass.events.KeyEvent;
 import java.awt.Desktop;
 import javax.swing.JOptionPane;
+import java.sql.*; 
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,12 +15,16 @@ import javax.swing.JOptionPane;
  * @author 2104990817
  */
 public class startGUI extends javax.swing.JFrame {
+    Connection con = null; 
+    ResultSet rs = null; 
+    PreparedStatement ps = null; 
 
     /**
      * Creates new form startGUI
      */
     public startGUI() {
         initComponents();
+        con = DatabaseConnection.getConnection();
     }
     
 
@@ -216,7 +221,45 @@ public class startGUI extends javax.swing.JFrame {
 
     private void signinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinButtonActionPerformed
         try {
-            String username=txtEmail.getText();
+            
+            String sql = "SELECT * FROM users WHERE email=? AND password=?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, txtEmail.getText());
+            ps.setString(2, txtPassword.getText()); 
+            rs=ps.executeQuery();
+            if(rs.next()) {
+            dispose(); 
+            userMain_GUI s = new userMain_GUI();
+            s.setVisible(true);
+            }
+            
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage()); 
+            
+            {
+            }
+            }
+        
+        try {
+            String sql = "SELECT * FROM administrators WHERE email=? AND password=?"; 
+            ps = con.prepareStatement(sql);
+            ps.setString(1, txtEmail.getText());
+            ps.setString(2, txtPassword.getText()); 
+            rs=ps.executeQuery();
+            if(rs.next()) {
+                dispose(); 
+                adminMain_GUI s = new adminMain_GUI();
+                s.setVisible(true);
+            }
+            
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage()); 
+        }
+            
+            
+            /*String username=txtEmail.getText();
             char[] pwd=txtPassword.getPassword();
             String password=new String(pwd);
             
@@ -251,15 +294,7 @@ public class startGUI extends javax.swing.JFrame {
                 signinError_GUI s = new signinError_GUI();
                  s.setVisible(true);
                 
-                }
-            
-            }
-            
-            
-        
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+                }*/   
     }//GEN-LAST:event_signinButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed

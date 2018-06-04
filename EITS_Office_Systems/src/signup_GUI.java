@@ -4,18 +4,22 @@
  * and open the template in the editor.
  */
 import java.awt.Color;
+import java.sql.*;
 import javax.swing.JFrame;
 /**
  *
  * @author 2104990817
  */
 public class signup_GUI extends javax.swing.JFrame {
-
+    Connection con = null; 
+    ResultSet rs = null; 
+    PreparedStatement ps = null; 
     /**
      * Creates new form signup_GUI
      */
     public signup_GUI() {
         initComponents();
+        con = DatabaseConnection.getConnection();
     }
    
     
@@ -43,9 +47,9 @@ public class signup_GUI extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtEmail1 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
-        signinButton1 = new javax.swing.JButton();
+        signupButton1 = new javax.swing.JButton();
         txtInputvalues = new javax.swing.JLabel();
         xLabel1 = new javax.swing.JLabel();
         xLabel2 = new javax.swing.JLabel();
@@ -115,18 +119,18 @@ public class signup_GUI extends javax.swing.JFrame {
             }
         });
 
-        signinButton1.setBackground(new java.awt.Color(0, 25, 138));
-        signinButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 20)); // NOI18N
-        signinButton1.setForeground(new java.awt.Color(255, 255, 255));
-        signinButton1.setText("Sign Up");
-        signinButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        signupButton1.setBackground(new java.awt.Color(0, 25, 138));
+        signupButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 20)); // NOI18N
+        signupButton1.setForeground(new java.awt.Color(255, 255, 255));
+        signupButton1.setText("Sign Up");
+        signupButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                signinButton1MouseClicked(evt);
+                signupButton1MouseClicked(evt);
             }
         });
-        signinButton1.addActionListener(new java.awt.event.ActionListener() {
+        signupButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signinButton1ActionPerformed(evt);
+                signupButton1ActionPerformed(evt);
             }
         });
 
@@ -175,15 +179,15 @@ public class signup_GUI extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(signinButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(signupButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtFirstName)
-                            .addComponent(txtEmail1)
+                            .addComponent(txtEmail)
                             .addComponent(txtPassword)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(jSeparator2)
                             .addComponent(txtLastName)
                             .addComponent(jSeparator1))
                         .addGap(4, 4, 4)
@@ -224,7 +228,7 @@ public class signup_GUI extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(xLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
@@ -237,7 +241,7 @@ public class signup_GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(signinButton1)
+                .addComponent(signupButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(exitButton)
@@ -273,14 +277,36 @@ public class signup_GUI extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
-    private void signinButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinButton1MouseClicked
+    private void signupButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupButton1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_signinButton1MouseClicked
+    }//GEN-LAST:event_signupButton1MouseClicked
     
-    //Sign In Button
-    private void signinButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinButton1ActionPerformed
+    //Sign Up Button
+    private void signupButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButton1ActionPerformed
         // TODO add your handling code here:
-        try {
+         String FirstName = txtFirstName.getText(); 
+         String LastName = txtLastName.getText();
+         String Email = txtEmail.getText(); 
+         String Password = String.valueOf(txtPassword.getPassword());
+         try {
+             ps = con.prepareStatement("INSERT INTO users (fName, lName, email, password) VALUES(?,?,?,?)");
+             ps.setString(1, FirstName);
+             ps.setString(2, LastName);
+             ps.setString(3, Email);
+             ps.setString(4, Password);
+             ps.executeUpdate();
+             dispose();
+             thankyou_GUI s = new thankyou_GUI();
+             s.setVisible(true);
+             
+             } catch (Exception e) {
+            System.out.println(e.getMessage()); 
+         }
+         
+         
+        
+        
+        /*try {
             String firstname=txtFirstName.getText();
             String lastname=txtLastName.getText();
             String email=txtEmail1.getText();
@@ -313,8 +339,8 @@ public class signup_GUI extends javax.swing.JFrame {
         
         catch(Exception e){
             System.out.println(e.getMessage());
-        }
-    }//GEN-LAST:event_signinButton1ActionPerformed
+        }*/
+    }//GEN-LAST:event_signupButton1ActionPerformed
 
     private void txtLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastNameActionPerformed
         // TODO add your handling code here:
@@ -378,8 +404,8 @@ public class signup_GUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton returnButton;
-    private javax.swing.JButton signinButton1;
-    private javax.swing.JTextField txtEmail1;
+    private javax.swing.JButton signupButton1;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JLabel txtInputvalues;
     private javax.swing.JTextField txtLastName;

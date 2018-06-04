@@ -81,14 +81,14 @@
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="signinButton1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="signupButton1" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="returnButton" min="-2" pref="107" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="exitButton" min="-2" pref="107" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtFirstName" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtEmail1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
                               <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtLastName" alignment="0" max="32767" attributes="0"/>
@@ -141,7 +141,7 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtEmail1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="txtEmail" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="xLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -156,7 +156,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="signinButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="signupButton1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="exitButton" min="-2" max="-2" attributes="0"/>
@@ -277,14 +277,14 @@
             <Property name="text" type="java.lang.String" value="Last Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEmail1">
+        <Component class="javax.swing.JTextField" name="txtEmail">
         </Component>
         <Component class="javax.swing.JTextField" name="txtLastName">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLastNameActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="signinButton1">
+        <Component class="javax.swing.JButton" name="signupButton1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="8a" green="19" red="0" type="rgb"/>
@@ -298,8 +298,8 @@
             <Property name="text" type="java.lang.String" value="Sign Up"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="signinButton1MouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signinButton1ActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="signupButton1MouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signupButton1ActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="txtInputvalues">
