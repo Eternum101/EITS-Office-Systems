@@ -41,7 +41,9 @@ public class userMain_GUI extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(60, 60, 60));
         jPanel1.setToolTipText("");
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("User Data");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,7 +51,9 @@ public class userMain_GUI extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("User Data");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,7 +61,9 @@ public class userMain_GUI extends javax.swing.JFrame {
             }
         });
 
+        SignoutButton.setBackground(new java.awt.Color(0, 153, 255));
         SignoutButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        SignoutButton.setForeground(new java.awt.Color(255, 255, 255));
         SignoutButton.setText("Sign Out");
         SignoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +71,9 @@ public class userMain_GUI extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(51, 51, 51));
         jButton4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("User Data");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +82,7 @@ public class userMain_GUI extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("User Panel");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -93,7 +102,7 @@ public class userMain_GUI extends javax.swing.JFrame {
                         .addGap(68, 68, 68)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
+                        .addGap(142, 142, 142)
                         .addComponent(jLabel2)))
                 .addContainerGap(61, Short.MAX_VALUE))
         );

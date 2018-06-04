@@ -1,4 +1,5 @@
 
+import com.sun.glass.events.KeyEvent;
 import java.awt.Desktop;
 import javax.swing.JOptionPane;
 
@@ -71,6 +72,11 @@ public class startGUI extends javax.swing.JFrame {
                 signinButtonActionPerformed(evt);
             }
         });
+        signinButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                signinButtonKeyPressed(evt);
+            }
+        });
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -98,6 +104,12 @@ public class startGUI extends javax.swing.JFrame {
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitButtonActionPerformed(evt);
+            }
+        });
+
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyPressed(evt);
             }
         });
 
@@ -197,7 +209,6 @@ public class startGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void signinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinButtonActionPerformed
-        // TODO add your handling code here:
         try {
             String username=txtEmail.getText();
             char[] pwd=txtPassword.getPassword();
@@ -209,27 +220,27 @@ public class startGUI extends javax.swing.JFrame {
                  adminMain_GUI s = new adminMain_GUI();
                  s.setVisible(true); 
             }
+            
             //User Login
             else if (username.equals("user")&&password.equals("password")){
-                //JOptionPane.showMessageDialog(null, "Invalid login details","login error",JOptionPane.ERROR_MESSAGE);
                 dispose();
                 userMain_GUI s = new userMain_GUI();
                  s.setVisible(true);
-                
                 }
+            
             //Case worker Login
             else if (username.equals("caseworker")&&password.equals("password")){
-                //JOptionPane.showMessageDialog(null, "Invalid login details","login error",JOptionPane.ERROR_MESSAGE);
                 dispose();
                 caseworkerMain_GUI s = new caseworkerMain_GUI();
                  s.setVisible(true);
-                
                 }
+            
+            // If no input is entered signin will do nothing
             else if (username.equals("")&&password.equals("")){
-                //JOptionPane.showMessageDialog(null, "Invalid login details","login error",JOptionPane.ERROR_MESSAGE);
                 }
-            else {
-                //JOptionPane.showMessageDialog(null, "Invalid login details","login error",JOptionPane.ERROR_MESSAGE);
+            
+            //Sign in error message
+            else { 
                 dispose();
                 signinError_GUI s = new signinError_GUI();
                  s.setVisible(true);
@@ -262,6 +273,63 @@ public class startGUI extends javax.swing.JFrame {
         s.setVisible(true);
         
     }//GEN-LAST:event_signupButtonActionPerformed
+
+    private void signinButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_signinButtonKeyPressed
+        // TODO add your handling code here
+
+    }//GEN-LAST:event_signinButtonKeyPressed
+    
+    // Key Press Enter to sign in
+    private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            try {
+            String username=txtEmail.getText();
+            char[] pwd=txtPassword.getPassword();
+            String password=new String(pwd);
+            
+            //Admin Login
+            if(username.equals("admin")&&password.equals("password")){
+                dispose();
+                 adminMain_GUI s = new adminMain_GUI();
+                 s.setVisible(true); 
+            }
+            
+            //User Login
+            else if (username.equals("user")&&password.equals("password")){
+                dispose();
+                userMain_GUI s = new userMain_GUI();
+                 s.setVisible(true);
+                }
+            
+            //Case worker Login
+            else if (username.equals("caseworker")&&password.equals("password")){
+                dispose();
+                caseworkerMain_GUI s = new caseworkerMain_GUI();
+                 s.setVisible(true);
+                }
+            
+            // If no input is entered signin will do nothing
+            else if (username.equals("")&&password.equals("")){
+                }
+            
+            //Sign in error message
+            else {
+                dispose();
+                signinError_GUI s = new signinError_GUI();
+                 s.setVisible(true);
+                
+                }
+            
+            }
+            
+            
+        
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+            
+        }
+    }//GEN-LAST:event_txtPasswordKeyPressed
 
     /**
      * @param args the command line arguments

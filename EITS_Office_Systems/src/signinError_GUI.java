@@ -111,14 +111,16 @@ public class signinError_GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Return Button
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         // TODO add your handling code here:
         dispose();
         startGUI s = new startGUI();
         s.setVisible(true);
     }//GEN-LAST:event_returnButtonActionPerformed
-
+    
+    //Exit Button
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
         System.exit(0);

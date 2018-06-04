@@ -259,14 +259,15 @@ public class signup_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Return Button
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         // TODO add your handling code here:
         dispose();
         startGUI s = new startGUI();
         s.setVisible(true);
-        
     }//GEN-LAST:event_returnButtonActionPerformed
-
+    
+    //Exit Button
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
         System.exit(0);
@@ -275,7 +276,8 @@ public class signup_GUI extends javax.swing.JFrame {
     private void signinButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinButton1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_signinButton1MouseClicked
-
+    
+    //Sign In Button
     private void signinButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinButton1ActionPerformed
         // TODO add your handling code here:
         try {
@@ -329,6 +331,8 @@ public class signup_GUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    //Error message when input incorrect information
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
