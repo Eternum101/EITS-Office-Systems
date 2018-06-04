@@ -107,6 +107,12 @@ public class startGUI extends javax.swing.JFrame {
             }
         });
 
+        jSeparator1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jSeparator1PropertyChange(evt);
+            }
+        });
+
         txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtPasswordKeyPressed(evt);
@@ -330,6 +336,10 @@ public class startGUI extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_txtPasswordKeyPressed
+
+    private void jSeparator1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jSeparator1PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSeparator1PropertyChange
 
     /**
      * @param args the command line arguments
