@@ -31,7 +31,7 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jClientDataTable1 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         BackButton1 = new javax.swing.JButton();
 
@@ -56,7 +56,7 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Client Data");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jClientDataTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -64,12 +64,12 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
                 "ID", "First Name", "Last Name", "Email"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jClientDataTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                jClientDataTable1MouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jClientDataTable1);
 
         jTextField1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
@@ -148,9 +148,9 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
         s.setVisible(true);
     }//GEN-LAST:event_BackButtonActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void jClientDataTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jClientDataTable1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_jClientDataTable1MouseClicked
 
     private void BackButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton1ActionPerformed
         // TODO add your handling code here:
@@ -194,11 +194,11 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;
     private javax.swing.JButton BackButton1;
+    private javax.swing.JTable jClientDataTable1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
