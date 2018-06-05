@@ -12,20 +12,15 @@ public class UserList {
     
   private int userID; 
 
-  private String FirstName, LastName, Email, Password;
+  private String FirstName, LastName, Email;
 
-  public UserList(int userID, String fName, String lName, String email, String password){
+  public UserList(int userID, String fName, String lName, String email){
       
       this.userID = userID; 
       this.FirstName = fName;
       this.LastName = lName; 
       this.Email = email;
-      this.Password = password;
   }
-
-    UserList(int aInt, String string, String string0, String string1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
   public int getuserID() {
         return userID; 
@@ -41,10 +36,6 @@ public class UserList {
   
   public String getEmail() {
       return Email; 
-  }
-  
-  public String getPassword() {
-      return Password; 
   }
                     
 }

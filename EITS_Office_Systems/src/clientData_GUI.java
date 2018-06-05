@@ -2,9 +2,10 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -264,7 +265,7 @@ public class clientData_GUI extends javax.swing.JFrame {
         UserList userList; 
         while(rs.next()) {
             userList = new UserList(rs.getInt("userID"), rs.getString("fName"), rs.getString("lName")
-            , rs.getString("email"), rs.getString("password"));
+            , rs.getString("email"));
             usersList.add(userList);
         }
         
@@ -280,14 +281,13 @@ public class clientData_GUI extends javax.swing.JFrame {
     public void show_users() {
      ArrayList<UserList> list = getUserList();
      DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-     Object[] row = new Object[5];
+     Object[] row = new Object[4];
      
      for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
          row[0] = list.get(i).getuserID();
          row[1] = list.get(i).getFirstName();
          row[2] = list.get(i).getLastName();
          row[3] = list.get(i).getEmail();
-         row[4] = list.get(i).getPassword();
          model.addRow(row);
      } // end of for
     } // end of show_users
@@ -303,30 +303,14 @@ public class clientData_GUI extends javax.swing.JFrame {
              } else {    
                  JOptionPane.showMessageDialog(null, "Data Not " + message);
              } // end of if 
-        } catch (SQLException ex) {
-            
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
     
     private void jUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateButtonActionPerformed
         // TODO add your handling code here:
-        String query = "UPDATE `users` SET `fName`='"+this.jTextField_FirstName.getText()+
-                       "', `lName`='"+this.jTextField_LastName.getText()+
-                       "', `email`=" + this.jTextField_Email.getText() +
-                       " WHERE `userID` = "+ this.jTextField_ID.getText();
-        executeSQlQuery(query, "Updated");
-        
     }//GEN-LAST:event_jUpdateButtonActionPerformed
-
-    private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
-        // TODO add your handling code here:
-        String FirstName = jTextField_FirstName.getText(); 
-        String LastName = jTextField_LastName.getText();
-        String Email = jTextField_Email.getText(); 
-        String query = "INSERT INTO `users` (`fName`, `lName`, `email`)" 
-                + " VALUES ('"+FirstName+"', '" +LastName+"', " +Email+ ")";
-        executeSQlQuery(query,"Inserted");
-    }//GEN-LAST:event_jInsertButtonActionPerformed
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         // TODO add your handling code here:
@@ -353,6 +337,16 @@ public class clientData_GUI extends javax.swing.JFrame {
         jTextField_LastName.setText(model.getValueAt(i,2).toString());
         jTextField_Email.setText(model.getValueAt(i,3).toString());
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
+        // TODO add your handling code here:
+        String FirstName = jTextField_FirstName.getText();
+        String LastName = jTextField_LastName.getText();
+        String Email = jTextField_Email.getText();
+        String query = "INSERT INTO `users` (`fName`,`lName`,`email`) "
+                + " VALUES ('"+FirstName+"','"+LastName+"',"+Email+")";
+        executeSQlQuery(query,"Inserted"); 
+    }//GEN-LAST:event_jInsertButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -388,6 +382,7 @@ public class clientData_GUI extends javax.swing.JFrame {
             }
         });
     }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;
