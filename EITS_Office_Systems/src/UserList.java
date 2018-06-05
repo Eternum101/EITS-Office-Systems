@@ -9,73 +9,42 @@
  * @author 2101560216
  */
 public class UserList {
+    
+  private int userID; 
 
-  public UserList(int userID, String FirstName, String LastName, String Email, String Password){
-  
- 
+  private String FirstName, LastName, Email, Password;
+
+  public UserList(int userID, String fName, String lName, String email, String password){
+      
+      this.userID = userID; 
+      this.FirstName = fName;
+      this.LastName = lName; 
+      this.Email = email;
+      this.Password = password;
+  }
+
+    UserList(int aInt, String string, String string0, String string1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  public int getuserID() {
+        return userID; 
  }
- 
- 
-    /**
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the firstName
-     */
-    public String getFirstName() {
-        return firstName;
-    }
-
-    /**
-     * @param firstName the firstName to set
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    /**
-     * @return the lastName
-     */
-    public String getLastName() {
-        return lastName;
-    }
-
-    /**
-     * @param lastName the lastName to set
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    /**
-     * @return the Age
-     */
-    public int getAge() {
-        return Age;
-    }
-
-    /**
-     * @param Age the Age to set
-     */
-    public void setAge(int Age) {
-        this.Age = Age;
-    }
-    
-    private int id;
-    private String firstName;
-    private String lastName;
-    private int Age;
-    
+  
+  public String getFirstName() {
+      return FirstName; 
+  }
+  
+  public String getLastName() {
+      return LastName; 
+  }
+  
+  public String getEmail() {
+      return Email; 
+  }
+  
+  public String getPassword() {
+      return Password; 
+  }
+                    
 }
-   
