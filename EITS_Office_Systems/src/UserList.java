@@ -12,14 +12,15 @@ public class UserList {
     
   private int userID; 
 
-  private String FirstName, LastName, Email;
+  private String FirstName, LastName, Email, Password;
 
-  public UserList(int userID, String fName, String lName, String email){
+  public UserList(int userID, String fName, String lName, String email, String password){
       
       this.userID = userID; 
       this.FirstName = fName;
       this.LastName = lName; 
       this.Email = email;
+      this.Password = password; 
   }
 
   public int getuserID() {
@@ -36,6 +37,10 @@ public class UserList {
   
   public String getEmail() {
       return Email; 
+  }
+  
+  public String getPassword() {
+      return Password; 
   }
                     
 }

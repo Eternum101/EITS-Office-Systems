@@ -62,6 +62,8 @@ public class clientData_GUI extends javax.swing.JFrame {
         jTextField_FirstName = new javax.swing.JTextField();
         jTextField_LastName = new javax.swing.JTextField();
         jTextField_Email = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField_Password = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,7 +121,7 @@ public class clientData_GUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "First Name", "Last Name", "Email"
+                "ID", "First Name", "Last Name", "Email", "Password"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -133,6 +135,7 @@ public class clientData_GUI extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(1).setResizable(false);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
+            jTable1.getColumnModel().getColumn(4).setResizable(false);
         }
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -156,6 +159,10 @@ public class clientData_GUI extends javax.swing.JFrame {
                 jTextField_FirstNameActionPerformed(evt);
             }
         });
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Password");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -193,14 +200,19 @@ public class clientData_GUI extends javax.swing.JFrame {
                             .addComponent(jTextField_ID))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(92, Short.MAX_VALUE)
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(50, 50, 50)))
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -209,7 +221,9 @@ public class clientData_GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(18, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -230,15 +244,19 @@ public class clientData_GUI extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jTextField_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
                         .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -265,7 +283,7 @@ public class clientData_GUI extends javax.swing.JFrame {
         UserList userList; 
         while(rs.next()) {
             userList = new UserList(rs.getInt("userID"), rs.getString("fName"), rs.getString("lName")
-            , rs.getString("email"));
+            , rs.getString("email"), rs.getString("password"));
             usersList.add(userList);
         }
         
@@ -281,13 +299,14 @@ public class clientData_GUI extends javax.swing.JFrame {
     public void show_users() {
      ArrayList<UserList> list = getUserList();
      DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-     Object[] row = new Object[4];
+     Object[] row = new Object[5];
      
      for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
          row[0] = list.get(i).getuserID();
          row[1] = list.get(i).getFirstName();
          row[2] = list.get(i).getLastName();
          row[3] = list.get(i).getEmail();
+         row[4] = list.get(i).getPassword();
          model.addRow(row);
      } // end of for
     } // end of show_users
@@ -296,7 +315,7 @@ public class clientData_GUI extends javax.swing.JFrame {
         try {
             st = con.createStatement();
             if((st.executeUpdate(query))==1) {
-                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
                 model.setRowCount(0);
                 show_users();
                 JOptionPane.showMessageDialog(null, "Data " + message + " Sucessful");
@@ -309,7 +328,24 @@ public class clientData_GUI extends javax.swing.JFrame {
     }
     
     private void jUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateButtonActionPerformed
-        // TODO add your handling code here:
+         try {
+            // TODO add your handling code here:
+            int row = jTable1.getSelectedRow(); 
+            String value = (jTable1.getModel().getValueAt(row, 0).toString());
+            String sql = "UPDATE users SET fName=?, lName=?, email=?, password=? WHERE userID="+value;
+            PreparedStatement ps =con.prepareStatement(sql);
+            ps.setString(1,jTextField_FirstName.getText());
+            ps.setString(2,jTextField_LastName.getText());
+            ps.setString(3,jTextField_Email.getText());
+            ps.setString(4,jTextField_Password.getText());
+            ps.execute();
+            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+            model.setRowCount(0);
+            show_users();
+            JOptionPane.showMessageDialog(null, "Updated " + "Sucessfully");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_jUpdateButtonActionPerformed
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
@@ -336,16 +372,27 @@ public class clientData_GUI extends javax.swing.JFrame {
         jTextField_FirstName.setText(model.getValueAt(i,1).toString());
         jTextField_LastName.setText(model.getValueAt(i,2).toString());
         jTextField_Email.setText(model.getValueAt(i,3).toString());
+        jTextField_Password.setText(model.getValueAt(i,4).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
-        // TODO add your handling code here:
-        String FirstName = jTextField_FirstName.getText();
-        String LastName = jTextField_LastName.getText();
-        String Email = jTextField_Email.getText();
-        String query = "INSERT INTO `users` (`fName`,`lName`,`email`) "
-                + " VALUES ('"+FirstName+"','"+LastName+"',"+Email+")";
-        executeSQlQuery(query,"Inserted"); 
+        try {
+            // TODO add your handling code here:
+            String sql = "INSERT INTO users (fName, lName, email, password) "+
+                    " VALUES (?,?,?,?)";
+            PreparedStatement ps =con.prepareStatement(sql);
+            ps.setString(1,jTextField_FirstName.getText());
+            ps.setString(2,jTextField_LastName.getText());
+            ps.setString(3,jTextField_Email.getText());
+            ps.setString(4,jTextField_Password.getText());
+            ps.execute();
+            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+            model.setRowCount(0);
+            show_users();
+            JOptionPane.showMessageDialog(null, "Inserted " + "Sucessfully");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_jInsertButtonActionPerformed
 
     /**
@@ -393,6 +440,7 @@ public class clientData_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -401,6 +449,7 @@ public class clientData_GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_FirstName;
     private javax.swing.JTextField jTextField_ID;
     private javax.swing.JTextField jTextField_LastName;
+    private javax.swing.JTextField jTextField_Password;
     private javax.swing.JButton jUpdateButton;
     // End of variables declaration//GEN-END:variables
 }
