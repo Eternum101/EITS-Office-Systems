@@ -27,12 +27,13 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
     /**
      * Creates new form clientDataLite_GUI
      */
+            
     public clientDataLite_GUI() {
         initComponents();
         con = DatabaseConnection.getConnection();
         show_users_caseworker();
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,7 +50,7 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jClientDataTable1 = new javax.swing.JTable();
         jDisplayData = new javax.swing.JTextField();
-        BackButton1 = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,13 +111,13 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
             }
         });
 
-        BackButton1.setBackground(new java.awt.Color(0, 153, 255));
-        BackButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        BackButton1.setForeground(new java.awt.Color(255, 255, 255));
-        BackButton1.setText("Search");
-        BackButton1.addActionListener(new java.awt.event.ActionListener() {
+        searchButton.setBackground(new java.awt.Color(0, 153, 255));
+        searchButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        searchButton.setForeground(new java.awt.Color(255, 255, 255));
+        searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackButton1ActionPerformed(evt);
+                searchButtonActionPerformed(evt);
             }
         });
 
@@ -132,7 +133,7 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
                 .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BackButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jDisplayData))
@@ -163,7 +164,7 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
                     .addComponent(jDisplayData, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BackButton1)
+                    .addComponent(searchButton)
                     .addComponent(BackButton))
                 .addGap(46, 46, 46)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,13 +185,15 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public ArrayList<CaseWorker_UserList> getUserList() {
-        ArrayList<CaseWorker_UserList> usersList = new ArrayList<>();
+    public ArrayList<CaseWorker_UserList> getUserList(String ValToSearch) {
+        ArrayList<CaseWorker_UserList> usersList = new ArrayList<CaseWorker_UserList>();
+
         String sql = "SELECT * FROM users";
-    
-    try {
+
+    try {        
         st = con.createStatement();
-        rs = st.executeQuery(sql);
+        String searchQuery = "SELECT * FROM `users` WHERE CONCAT(`userID`,`fName`,`lName`,`email`)LIKE '%"+ValToSearch+"%'";
+        rs = st.executeQuery(searchQuery);
         CaseWorker_UserList userList; 
         while(rs.next()) {
             userList = new CaseWorker_UserList(rs.getInt("userID"), rs.getString("fName"), rs.getString("lName")
@@ -199,7 +202,7 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
         }
         
     }   catch (SQLException ex) {            
-    
+        System.out.println(ex.getMessage());
     }            
     
     return usersList; 
@@ -207,8 +210,9 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
     }
     
     public void show_users_caseworker() {
-     ArrayList<CaseWorker_UserList> list = getUserList();
-     DefaultTableModel model = (DefaultTableModel) jClientDataTable1.getModel();
+     ArrayList<CaseWorker_UserList> list = getUserList(jDisplayData.getText());
+     DefaultTableModel model = new DefaultTableModel();
+     model.setColumnIdentifiers(new Object[]{"userID","fName","lName","email"});
      Object[] row = new Object[4];
      
      for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
@@ -218,12 +222,13 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
          row[3] = list.get(i).getEmail();
          model.addRow(row);
      } // end of for
+     jClientDataTable1.setModel(model);
     } // end of show_users
     
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         // TODO add your handling code here:
         dispose();
-        adminMain_GUI s = new adminMain_GUI();
+        caseworkerMain_GUI s = new caseworkerMain_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_BackButtonActionPerformed
 
@@ -231,13 +236,14 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jClientDataTable1MouseClicked
 
-    private void BackButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton1ActionPerformed
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BackButton1ActionPerformed
+        
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     private void jDisplayDataKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDisplayDataKeyReleased
         // TODO add your handling code here:
-      
+      show_users_caseworker();
     }//GEN-LAST:event_jDisplayDataKeyReleased
 
     /**
@@ -277,7 +283,6 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;
-    private javax.swing.JButton BackButton1;
     private javax.swing.JTable jClientDataTable1;
     private javax.swing.JTextField jDisplayData;
     private javax.swing.JLabel jLabel2;
@@ -285,5 +290,6 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton searchButton;
     // End of variables declaration//GEN-END:variables
 }
