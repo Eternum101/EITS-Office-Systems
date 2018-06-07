@@ -2,7 +2,12 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,6 +30,7 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
     public clientDataLite_GUI() {
         initComponents();
         con = DatabaseConnection.getConnection();
+        show_users_caseworker();
     }
 
     /**
@@ -42,7 +48,7 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jClientDataTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        jDisplayData = new javax.swing.JTextField();
         BackButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
@@ -74,15 +80,35 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
             new String [] {
                 "ID", "First Name", "Last Name", "Email"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jClientDataTable1.getTableHeader().setReorderingAllowed(false);
         jClientDataTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jClientDataTable1MouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jClientDataTable1);
+        if (jClientDataTable1.getColumnModel().getColumnCount() > 0) {
+            jClientDataTable1.getColumnModel().getColumn(0).setResizable(false);
+            jClientDataTable1.getColumnModel().getColumn(1).setResizable(false);
+            jClientDataTable1.getColumnModel().getColumn(2).setResizable(false);
+            jClientDataTable1.getColumnModel().getColumn(3).setResizable(false);
+        }
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jDisplayData.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jDisplayData.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jDisplayDataKeyReleased(evt);
+            }
+        });
 
         BackButton1.setBackground(new java.awt.Color(0, 153, 255));
         BackButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -109,7 +135,7 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
                         .addComponent(BackButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField1))
+                    .addComponent(jDisplayData))
                 .addContainerGap(314, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -134,7 +160,7 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
+                    .addComponent(jDisplayData, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BackButton1)
@@ -158,6 +184,42 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public ArrayList<CaseWorker_UserList> getUserList() {
+        ArrayList<CaseWorker_UserList> usersList = new ArrayList<>();
+        String sql = "SELECT * FROM users";
+    
+    try {
+        st = con.createStatement();
+        rs = st.executeQuery(sql);
+        CaseWorker_UserList userList; 
+        while(rs.next()) {
+            userList = new CaseWorker_UserList(rs.getInt("userID"), rs.getString("fName"), rs.getString("lName")
+            , rs.getString("email"));
+            usersList.add(userList);
+        }
+        
+    }   catch (SQLException ex) {            
+    
+    }            
+    
+    return usersList; 
+   
+    }
+    
+    public void show_users_caseworker() {
+     ArrayList<CaseWorker_UserList> list = getUserList();
+     DefaultTableModel model = (DefaultTableModel) jClientDataTable1.getModel();
+     Object[] row = new Object[4];
+     
+     for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
+         row[0] = list.get(i).getuserID();
+         row[1] = list.get(i).getFirstName();
+         row[2] = list.get(i).getLastName();
+         row[3] = list.get(i).getEmail();
+         model.addRow(row);
+     } // end of for
+    } // end of show_users
+    
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         // TODO add your handling code here:
         dispose();
@@ -172,6 +234,11 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
     private void BackButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BackButton1ActionPerformed
+
+    private void jDisplayDataKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDisplayDataKeyReleased
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_jDisplayDataKeyReleased
 
     /**
      * @param args the command line arguments
@@ -212,11 +279,11 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
     private javax.swing.JButton BackButton;
     private javax.swing.JButton BackButton1;
     private javax.swing.JTable jClientDataTable1;
+    private javax.swing.JTextField jDisplayData;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
