@@ -229,7 +229,7 @@ public class startGUI extends javax.swing.JFrame {
             rs=ps.executeQuery();
             if(rs.next()) {
             dispose(); 
-            userMain_GUI s = new userMain_GUI();
+            clientIndustryList_GUI s = new clientIndustryList_GUI();
             s.setVisible(true);
             }
             
@@ -273,7 +273,7 @@ public class startGUI extends javax.swing.JFrame {
             //User Login
             else if (username.equals("user")&&password.equals("password")){
                 dispose();
-                userMain_GUI s = new userMain_GUI();
+                clientMain_GUI s = new clientMain_GUI();
                  s.setVisible(true);
                 }
             
@@ -338,7 +338,7 @@ public class startGUI extends javax.swing.JFrame {
             //User Login
             else if (username.equals("user")&&password.equals("password")){
                 dispose();
-                userMain_GUI s = new userMain_GUI();
+                clientIndustryList_GUI s = new clientIndustryList_GUI();
                  s.setVisible(true);
                 }
             
