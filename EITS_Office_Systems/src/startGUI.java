@@ -268,6 +268,21 @@ public class startGUI extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e.getMessage()); 
         }
+        
+        try {
+            String sql = "SELECT * FROM caseworkers WHERE email=? AND password=?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, txtEmail.getText());
+            ps.setString(2, txtPassword.getText());
+            rs=ps.executeQuery();
+            if(rs.next()) {
+                dispose();
+                caseworkerMain_GUI s = new caseworkerMain_GUI();
+                s.setVisible(true);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
             
             
             /*String username=txtEmail.getText();
