@@ -18,6 +18,9 @@ public class startGUI extends javax.swing.JFrame {
     Connection con = null; 
     ResultSet rs = null; 
     PreparedStatement ps = null; 
+    PreparedStatement users = null;
+    PreparedStatement admins = null;
+    PreparedStatement caseworkers = null;
 
     /**
      * Creates new form startGUI
@@ -250,9 +253,11 @@ public class startGUI extends javax.swing.JFrame {
                 caseworkerMain_GUI s = new caseworkerMain_GUI();
                 s.setVisible(true);
             }
+            rs.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        
         
         
         /*String username=txtEmail.getText();
@@ -294,21 +299,44 @@ public class startGUI extends javax.swing.JFrame {
     }
     
     //Login Test (https://stackoverflow.com/questions/9696572/queries-returning-multiple-result-sets?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
-   /* private void adminLogin() {
+    /*private void adminLogin() {
         try {
             String sql = "SELECT * FROM administrators WHERE email=? AND password=?";
             String sq = "SELECT * FROM users WHERE email=? AND password=?";
             String se = "SELECT * FROM caseworkers WHERE email=? AND password=?";
-            ps = con.prepareStatement(sql);
-            ps = con.prepareStatement(sq);
-            ps = con.prepareStatement(se);
-            ps.setString(1, txtEmail.getText());
-            ps.setString(2, txtPassword.getText());
-            rs=ps.executeQuery();
+            admins = con.prepareStatement(sql);
+            users = con.prepareStatement(sq);  
+            caseworkers = con.prepareStatement(se);
+            
+            admins.setString(1, txtEmail.getText());
+            admins.setString(2, txtPassword.getText());
+            
+            users.setString(1, txtEmail.getText());
+            users.setString(2, txtPassword.getText());
+            
+            caseworkers.setString(1, txtEmail.getText());
+            caseworkers.setString(2, txtPassword.getText());
+            
+            rs=admins.executeQuery(sql);
             if(rs.next()) {
                 dispose();
                 adminMain_GUI s = new adminMain_GUI();
                 s.setVisible(true);
+                rs.close();
+            }
+             rs=users.executeQuery(sq);
+            if(rs.next()) {
+                dispose();
+                clientCourseList_GUI s = new clientCourseList_GUI();
+                s.setVisible(true);
+                rs.close();
+            }
+             rs=caseworkers.executeQuery(se);
+            if(rs.next()) {
+                dispose();
+                caseworkerMain_GUI s = new caseworkerMain_GUI();
+                s.setVisible(true);
+                rs.close();
             }
             
             else {
@@ -324,7 +352,7 @@ public class startGUI extends javax.swing.JFrame {
         }
     }
     */
-    private void adminLogin() {
+     private void adminLogin() {
         try {
             String sql = "SELECT * FROM administrators WHERE email=? AND password=?";
             ps = con.prepareStatement(sql);
@@ -336,12 +364,12 @@ public class startGUI extends javax.swing.JFrame {
                 adminMain_GUI s = new adminMain_GUI();
                 s.setVisible(true);
             }
-            else {
+            /*else {
                 dispose();
                 signinError_GUI s = new signinError_GUI();
                 s.setVisible(true);
         
-        }
+        }*/
             
             
         } catch (Exception e) {
@@ -397,7 +425,7 @@ public class startGUI extends javax.swing.JFrame {
     
     // Key Press Enter to sign in
     private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
-        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+        /*if(evt.getKeyCode()== KeyEvent.VK_ENTER){
             try {
             String username=txtEmail.getText();
             char[] pwd=txtPassword.getPassword();
@@ -444,7 +472,7 @@ public class startGUI extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
             
-        }
+        }*/
     }//GEN-LAST:event_txtPasswordKeyPressed
 
     /**
