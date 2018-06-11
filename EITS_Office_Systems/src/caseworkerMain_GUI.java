@@ -27,10 +27,10 @@ public class caseworkerMain_GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        clientAttendanceButton = new javax.swing.JButton();
         clientDataButton = new javax.swing.JButton();
         SignoutButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        clientProgressButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -41,13 +41,13 @@ public class caseworkerMain_GUI extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(60, 60, 60));
         jPanel1.setToolTipText("");
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Course Data");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        clientAttendanceButton.setBackground(new java.awt.Color(51, 51, 51));
+        clientAttendanceButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        clientAttendanceButton.setForeground(new java.awt.Color(255, 255, 255));
+        clientAttendanceButton.setText("Client Attendance");
+        clientAttendanceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clientAttendanceButtonActionPerformed(evt);
             }
         });
 
@@ -71,13 +71,13 @@ public class caseworkerMain_GUI extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(51, 51, 51));
-        jButton4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Industry Data");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        clientProgressButton.setBackground(new java.awt.Color(51, 51, 51));
+        clientProgressButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        clientProgressButton.setForeground(new java.awt.Color(255, 255, 255));
+        clientProgressButton.setText("Client progress");
+        clientProgressButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                clientProgressButtonActionPerformed(evt);
             }
         });
 
@@ -109,13 +109,13 @@ public class caseworkerMain_GUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 145, Short.MAX_VALUE)
+                .addGap(0, 130, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(clientProgressButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(clientAttendanceButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(clientDataButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(SignoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -125,9 +125,9 @@ public class caseworkerMain_GUI extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addComponent(clientDataButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(clientAttendanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(clientProgressButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SignoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(83, Short.MAX_VALUE))
@@ -147,9 +147,12 @@ public class caseworkerMain_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void clientAttendanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientAttendanceButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        dispose();
+        clientAttendance_GUI s = new clientAttendance_GUI();
+        s.setVisible(true);
+    }//GEN-LAST:event_clientAttendanceButtonActionPerformed
 
     private void clientDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientDataButtonActionPerformed
         // TODO add your handling code here:
@@ -165,9 +168,12 @@ public class caseworkerMain_GUI extends javax.swing.JFrame {
         s.setVisible(true);
     }//GEN-LAST:event_SignoutButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void clientProgressButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientProgressButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        dispose();
+        clientProgress_GUI s = new clientProgress_GUI();
+        s.setVisible(true);
+    }//GEN-LAST:event_clientProgressButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,9 +212,9 @@ public class caseworkerMain_GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SignoutButton;
+    private javax.swing.JButton clientAttendanceButton;
     private javax.swing.JButton clientDataButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton clientProgressButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;

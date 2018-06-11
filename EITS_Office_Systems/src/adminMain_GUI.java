@@ -29,10 +29,10 @@ public class adminMain_GUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         ClientButton = new javax.swing.JButton();
         SignoutButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        courseListButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        unitListButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,13 +61,13 @@ public class adminMain_GUI extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(51, 51, 51));
-        jButton4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Course List");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        courseListButton.setBackground(new java.awt.Color(51, 51, 51));
+        courseListButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        courseListButton.setForeground(new java.awt.Color(255, 255, 255));
+        courseListButton.setText("Course List");
+        courseListButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                courseListButtonActionPerformed(evt);
             }
         });
 
@@ -95,13 +95,13 @@ public class adminMain_GUI extends javax.swing.JFrame {
                 .addGap(39, 39, 39))
         );
 
-        jButton5.setBackground(new java.awt.Color(51, 51, 51));
-        jButton5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Unit List");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        unitListButton.setBackground(new java.awt.Color(51, 51, 51));
+        unitListButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        unitListButton.setForeground(new java.awt.Color(255, 255, 255));
+        unitListButton.setText("Unit List");
+        unitListButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                unitListButtonActionPerformed(evt);
             }
         });
 
@@ -114,8 +114,8 @@ public class adminMain_GUI extends javax.swing.JFrame {
                 .addGap(159, 159, 159)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ClientButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(courseListButton, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                    .addComponent(unitListButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(SignoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -126,9 +126,9 @@ public class adminMain_GUI extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(ClientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(courseListButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(unitListButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SignoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(102, Short.MAX_VALUE))
@@ -162,19 +162,19 @@ public class adminMain_GUI extends javax.swing.JFrame {
         s.setVisible(true);
     }//GEN-LAST:event_SignoutButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void courseListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseListButtonActionPerformed
         // TODO add your handling code here:
         dispose();
         clientCourseListAdmin_GUI s = new clientCourseListAdmin_GUI();
         s.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_courseListButtonActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void unitListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitListButtonActionPerformed
         // TODO add your handling code here:
         dispose();
         clientUnitListAdmin_GUI s = new clientUnitListAdmin_GUI();
         s.setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_unitListButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,10 +214,10 @@ public class adminMain_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ClientButton;
     private javax.swing.JButton SignoutButton;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton courseListButton;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton unitListButton;
     // End of variables declaration//GEN-END:variables
 }
