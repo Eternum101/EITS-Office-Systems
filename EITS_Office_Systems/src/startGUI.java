@@ -231,44 +231,14 @@ public class startGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void signinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinButtonActionPerformed
-        try {
-            
-            String sql = "SELECT * FROM users WHERE email=? AND password=?";
-            ps = con.prepareStatement(sql);
-            ps.setString(1, txtEmail.getText());
-            ps.setString(2, txtPassword.getText()); 
-            rs=ps.executeQuery();
-            if(rs.next()) {
-            dispose(); 
-            clientIndustryList_GUI s = new clientIndustryList_GUI();
-            s.setVisible(true);
-            }
-            
-            
-        } catch (Exception e) {
-            System.out.println(e.getMessage()); 
-            
-            {
-            }
-            }
+        userLogin();
         
-        try {
-            String sql = "SELECT * FROM administrators WHERE email=? AND password=?"; 
-            ps = con.prepareStatement(sql);
-            ps.setString(1, txtEmail.getText());
-            ps.setString(2, txtPassword.getText()); 
-            rs=ps.executeQuery();
-            if(rs.next()) {
-                dispose(); 
-                adminMain_GUI s = new adminMain_GUI();
-                s.setVisible(true);
-            }
-            
-            
-        } catch (Exception e) {
-            System.out.println(e.getMessage()); 
-        }
+        adminLogin();
         
+        caseworkerLogin();   
+    }//GEN-LAST:event_signinButtonActionPerformed
+
+    private void caseworkerLogin() {
         try {
             String sql = "SELECT * FROM caseworkers WHERE email=? AND password=?";
             ps = con.prepareStatement(sql);
@@ -283,45 +253,87 @@ public class startGUI extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-            
-            
-            /*String username=txtEmail.getText();
-            char[] pwd=txtPassword.getPassword();
-            String password=new String(pwd);
-            
-            //Admin Login
-            if(username.equals("admin")&&password.equals("password")){
+        
+        
+        /*String username=txtEmail.getText();
+        char[] pwd=txtPassword.getPassword();
+        String password=new String(pwd);
+        
+        //Admin Login
+        if(username.equals("admin")&&password.equals("password")){
+        dispose();
+        adminMain_GUI s = new adminMain_GUI();
+        s.setVisible(true);
+        }
+        
+        //User Login
+        else if (username.equals("user")&&password.equals("password")){
+        dispose();
+        clientMain_GUI s = new clientMain_GUI();
+        s.setVisible(true);
+        }
+        
+        //Case worker Login
+        else if (username.equals("caseworker")&&password.equals("password")){
+        dispose();
+        caseworkerMain_GUI s = new caseworkerMain_GUI();
+        s.setVisible(true);
+        }
+        
+        // If no input is entered signin will do nothing
+        else if (username.equals("")&&password.equals("")){
+        }
+        
+        //Sign in error message
+        else {
+        dispose();
+        signinError_GUI s = new signinError_GUI();
+        s.setVisible(true);
+        
+        }*/
+    }
+
+    private void adminLogin() {
+        try {
+            String sql = "SELECT * FROM administrators WHERE email=? AND password=?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, txtEmail.getText());
+            ps.setString(2, txtPassword.getText());
+            rs=ps.executeQuery();
+            if(rs.next()) {
                 dispose();
-                 adminMain_GUI s = new adminMain_GUI();
-                 s.setVisible(true); 
+                adminMain_GUI s = new adminMain_GUI();
+                s.setVisible(true);
             }
             
-            //User Login
-            else if (username.equals("user")&&password.equals("password")){
-                dispose();
-                clientMain_GUI s = new clientMain_GUI();
-                 s.setVisible(true);
-                }
             
-            //Case worker Login
-            else if (username.equals("caseworker")&&password.equals("password")){
-                dispose();
-                caseworkerMain_GUI s = new caseworkerMain_GUI();
-                 s.setVisible(true);
-                }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void userLogin() {
+        try {
             
-            // If no input is entered signin will do nothing
-            else if (username.equals("")&&password.equals("")){
-                }
-            
-            //Sign in error message
-            else { 
+            String sql = "SELECT * FROM users WHERE email=? AND password=?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, txtEmail.getText());
+            ps.setString(2, txtPassword.getText());
+            rs=ps.executeQuery();
+            if(rs.next()) {
                 dispose();
-                signinError_GUI s = new signinError_GUI();
-                 s.setVisible(true);
-                
-                }*/   
-    }//GEN-LAST:event_signinButtonActionPerformed
+                clientCourseList_GUI s = new clientCourseList_GUI();
+                s.setVisible(true);
+            }
+            
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            
+            {
+            }
+        }
+    }
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
@@ -364,7 +376,7 @@ public class startGUI extends javax.swing.JFrame {
             //User Login
             else if (username.equals("user")&&password.equals("password")){
                 dispose();
-                clientIndustryList_GUI s = new clientIndustryList_GUI();
+                clientCourseList_GUI s = new clientCourseList_GUI();
                  s.setVisible(true);
                 }
             

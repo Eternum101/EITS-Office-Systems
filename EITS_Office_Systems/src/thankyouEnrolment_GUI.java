@@ -148,7 +148,7 @@ public class thankyouEnrolment_GUI extends javax.swing.JFrame {
     private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
         // TODO add your handling code here:
         dispose();
-        clientIndustryList_GUI s = new clientIndustryList_GUI();
+        clientCourseList_GUI s = new clientCourseList_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_backButton2MouseClicked
 
