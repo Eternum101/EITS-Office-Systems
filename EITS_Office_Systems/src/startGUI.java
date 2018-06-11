@@ -292,7 +292,38 @@ public class startGUI extends javax.swing.JFrame {
         
         }*/
     }
-
+    
+    //Login Test (https://stackoverflow.com/questions/9696572/queries-returning-multiple-result-sets?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
+   /* private void adminLogin() {
+        try {
+            String sql = "SELECT * FROM administrators WHERE email=? AND password=?";
+            String sq = "SELECT * FROM users WHERE email=? AND password=?";
+            String se = "SELECT * FROM caseworkers WHERE email=? AND password=?";
+            ps = con.prepareStatement(sql);
+            ps = con.prepareStatement(sq);
+            ps = con.prepareStatement(se);
+            ps.setString(1, txtEmail.getText());
+            ps.setString(2, txtPassword.getText());
+            rs=ps.executeQuery();
+            if(rs.next()) {
+                dispose();
+                adminMain_GUI s = new adminMain_GUI();
+                s.setVisible(true);
+            }
+            
+            else {
+                dispose();
+                signinError_GUI s = new signinError_GUI();
+                s.setVisible(true);
+        
+        }
+            
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    */
     private void adminLogin() {
         try {
             String sql = "SELECT * FROM administrators WHERE email=? AND password=?";
@@ -305,6 +336,12 @@ public class startGUI extends javax.swing.JFrame {
                 adminMain_GUI s = new adminMain_GUI();
                 s.setVisible(true);
             }
+            else {
+                dispose();
+                signinError_GUI s = new signinError_GUI();
+                s.setVisible(true);
+        
+        }
             
             
         } catch (Exception e) {
