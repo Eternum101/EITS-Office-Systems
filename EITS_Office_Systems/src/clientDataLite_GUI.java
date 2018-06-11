@@ -222,7 +222,7 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
     public void show_users_caseworker() {
      ArrayList<CaseWorker_UserList> list = getUserList(jDisplayData.getText());
      DefaultTableModel model = new DefaultTableModel();
-     model.setColumnIdentifiers(new Object[]{"userID","fName","lName","email"});
+     model.setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Email"});
      Object[] row = new Object[4];
      
      for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
@@ -303,10 +303,8 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jDisplayData;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
