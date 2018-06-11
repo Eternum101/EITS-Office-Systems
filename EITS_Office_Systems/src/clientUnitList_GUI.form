@@ -183,23 +183,7 @@
                 <Component class="javax.swing.JList" name="jList1">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="15">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                        <StringItem index="4" value="Item 5"/>
-                        <StringItem index="5" value="Item 1"/>
-                        <StringItem index="6" value="Item 2"/>
-                        <StringItem index="7" value="Item 3"/>
-                        <StringItem index="8" value="Item 4"/>
-                        <StringItem index="9" value="Item 5"/>
-                        <StringItem index="10" value="Item 1"/>
-                        <StringItem index="11" value="Item 2"/>
-                        <StringItem index="12" value="Item 3"/>
-                        <StringItem index="13" value="Item 4"/>
-                        <StringItem index="14" value="Item 5"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -259,7 +243,6 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="backButton3MouseMoved"/>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="backButton3MouseClicked"/>
               </Events>
             </Component>

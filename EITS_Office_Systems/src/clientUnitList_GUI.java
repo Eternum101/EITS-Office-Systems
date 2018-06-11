@@ -1,3 +1,12 @@
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,12 +18,17 @@
  * @author Jakob
  */
 public class clientUnitList_GUI extends javax.swing.JFrame {
+    Connection con = null; 
+    ResultSet rs = null; 
+    PreparedStatement ps = null; 
 
     /**
      * Creates new form clientCourseList_GUI
      */
     public clientUnitList_GUI() {
         initComponents();
+        con = DatabaseConnection.getConnection();
+        ListUnits(); 
     }
 
     /**
@@ -82,11 +96,6 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -118,11 +127,6 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
         jPanel3.setForeground(new java.awt.Color(153, 153, 153));
 
         backButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/back.png"))); // NOI18N
-        backButton3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                backButton3MouseMoved(evt);
-            }
-        });
         backButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backButton3MouseClicked(evt);
@@ -199,16 +203,31 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ListUnits() {
+        DefaultListModel m = new DefaultListModel(); 
+        try {
+            String sql = "SELECT * FROM units WHERE courses_id=2";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery(); 
+            
+        while (rs.next()) {
+            String id = rs.getString("id");
+            String units = rs.getString("unitDesc");
+            m.addElement(id); 
+            m.addElement(units); 
+        }
+            jList1.setModel(m); 
+        } catch (SQLException ex) {
+            
+        }
+    }
+    
     private void enrolButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrolButtonActionPerformed
         // TODO add your handling code here:
         dispose();
         thankyouEnrolment_GUI s = new thankyouEnrolment_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_enrolButtonActionPerformed
-
-    private void backButton3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton3MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backButton3MouseMoved
 
     private void backButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton3MouseClicked
         // TODO add your handling code here:
