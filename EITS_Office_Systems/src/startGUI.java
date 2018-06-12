@@ -234,72 +234,11 @@ public class startGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void signinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinButtonActionPerformed
-        userLogin();
-        
-        adminLogin();
-        
-        caseworkerLogin();   
+        Login();
     }//GEN-LAST:event_signinButtonActionPerformed
 
-    private void caseworkerLogin() {
-        try {
-            String sql = "SELECT * FROM caseworkers WHERE email=? AND password=?";
-            ps = con.prepareStatement(sql);
-            ps.setString(1, txtEmail.getText());
-            ps.setString(2, txtPassword.getText());
-            rs=ps.executeQuery();
-            if(rs.next()) {
-                dispose();
-                caseworkerMain_GUI s = new caseworkerMain_GUI();
-                s.setVisible(true);
-            }
-            rs.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        
-        
-        
-        /*String username=txtEmail.getText();
-        char[] pwd=txtPassword.getPassword();
-        String password=new String(pwd);
-        
-        //Admin Login
-        if(username.equals("admin")&&password.equals("password")){
-        dispose();
-        adminMain_GUI s = new adminMain_GUI();
-        s.setVisible(true);
-        }
-        
-        //User Login
-        else if (username.equals("user")&&password.equals("password")){
-        dispose();
-        clientMain_GUI s = new clientMain_GUI();
-        s.setVisible(true);
-        }
-        
-        //Case worker Login
-        else if (username.equals("caseworker")&&password.equals("password")){
-        dispose();
-        caseworkerMain_GUI s = new caseworkerMain_GUI();
-        s.setVisible(true);
-        }
-        
-        // If no input is entered signin will do nothing
-        else if (username.equals("")&&password.equals("")){
-        }
-        
-        //Sign in error message
-        else {
-        dispose();
-        signinError_GUI s = new signinError_GUI();
-        s.setVisible(true);
-        
-        }*/
-    }
-    
-    //Login Test (https://stackoverflow.com/questions/9696572/queries-returning-multiple-result-sets?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
-    /*private void adminLogin() {
+
+    private void Login() {
         try {
             String sql = "SELECT * FROM administrators WHERE email=? AND password=?";
             String sq = "SELECT * FROM users WHERE email=? AND password=?";
@@ -310,96 +249,51 @@ public class startGUI extends javax.swing.JFrame {
             
             admins.setString(1, txtEmail.getText());
             admins.setString(2, txtPassword.getText());
-            
             users.setString(1, txtEmail.getText());
             users.setString(2, txtPassword.getText());
-            
             caseworkers.setString(1, txtEmail.getText());
             caseworkers.setString(2, txtPassword.getText());
-            
-            rs=admins.executeQuery(sql);
+            boolean isValid=false;
+            rs=admins.executeQuery();
             if(rs.next()) {
                 dispose();
                 adminMain_GUI s = new adminMain_GUI();
                 s.setVisible(true);
+                isValid=true;
                 rs.close();
-            }
-             rs=users.executeQuery(sq);
-            if(rs.next()) {
-                dispose();
-                clientCourseList_GUI s = new clientCourseList_GUI();
-                s.setVisible(true);
-                rs.close();
-            }
-             rs=caseworkers.executeQuery(se);
+            } 
+            
+             rs=caseworkers.executeQuery();
             if(rs.next()) {
                 dispose();
                 caseworkerMain_GUI s = new caseworkerMain_GUI();
                 s.setVisible(true);
+                //signinError_GUI.setVisible(false);
+                isValid=true;
                 rs.close();
             }
-            
-            else {
-                dispose();
-                signinError_GUI s = new signinError_GUI();
-                s.setVisible(true);
-        
-        }
-            
-            
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    */
-     private void adminLogin() {
-        try {
-            String sql = "SELECT * FROM administrators WHERE email=? AND password=?";
-            ps = con.prepareStatement(sql);
-            ps.setString(1, txtEmail.getText());
-            ps.setString(2, txtPassword.getText());
-            rs=ps.executeQuery();
-            if(rs.next()) {
-                dispose();
-                adminMain_GUI s = new adminMain_GUI();
-                s.setVisible(true);
-            }
-            /*else {
-                dispose();
-                signinError_GUI s = new signinError_GUI();
-                s.setVisible(true);
-        
-        }*/
-            
-            
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    private void userLogin() {
-        try {
-            
-            String sql = "SELECT * FROM users WHERE email=? AND password=?";
-            ps = con.prepareStatement(sql);
-            ps.setString(1, txtEmail.getText());
-            ps.setString(2, txtPassword.getText());
-            rs=ps.executeQuery();
-            if(rs.next()) {
+             rs=users.executeQuery();
+             if(rs.next()) {
                 dispose();
                 clientCourseList_GUI s = new clientCourseList_GUI();
                 s.setVisible(true);
+                isValid=true;
+                rs.close();
             }
+
+            if(!isValid) {
+                dispose();
+                signinError_GUI s = new signinError_GUI();
+                s.setVisible(true);
+        }
             
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            
-            {
-            }
         }
     }
-
+    
+     
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
         System.exit(0);
