@@ -105,9 +105,9 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         );
 
         clearButton1.setBackground(new java.awt.Color(0, 153, 255));
-        clearButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        clearButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         clearButton1.setForeground(new java.awt.Color(255, 255, 255));
-        clearButton1.setText("Clear");
+        clearButton1.setText("CLEAR");
         clearButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButton1ActionPerformed(evt);
@@ -129,9 +129,9 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         });
 
         jInsertButton.setBackground(new java.awt.Color(51, 51, 51));
-        jInsertButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jInsertButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jInsertButton.setForeground(new java.awt.Color(255, 255, 255));
-        jInsertButton.setText("Insert");
+        jInsertButton.setText("INSERT");
         jInsertButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jInsertButtonActionPerformed(evt);
@@ -139,9 +139,9 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         });
 
         jUpdateButton.setBackground(new java.awt.Color(51, 51, 51));
-        jUpdateButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jUpdateButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
-        jUpdateButton.setText("Update");
+        jUpdateButton.setText("UPDATE");
         jUpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jUpdateButtonActionPerformed(evt);
@@ -149,9 +149,9 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         });
 
         jDeleteButton.setBackground(new java.awt.Color(51, 51, 51));
-        jDeleteButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jDeleteButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
-        jDeleteButton.setText("Delete");
+        jDeleteButton.setText("DELETE");
         jDeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jDeleteButtonActionPerformed(evt);

@@ -71,14 +71,14 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(51, 51, 51));
         jPanel6.setForeground(new java.awt.Color(153, 153, 153));
 
-        backButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/back.png"))); // NOI18N
+        backButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/return_28px.png"))); // NOI18N
         backButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backButton2MouseClicked(evt);
             }
         });
 
-        ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
+        ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit_28px.png"))); // NOI18N
         ExitButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ExitButtonMouseClicked(evt);
@@ -94,11 +94,15 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
+<<<<<<< HEAD:EITS_Office_Systems/src/EITS/clientIndustryListAdmin_GUI.java
                 .addGap(39, 39, 39)
+=======
+                .addGap(20, 20, 20)
+>>>>>>> ced0a1ca4fbe2888d1f7f6184d5c466fd7c350b2:EITS_Office_Systems/src/clientIndustryListAdmin.java
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(backButton2)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(ExitButton)
                 .addContainerGap())
         );
@@ -114,9 +118,9 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
         );
 
         jInsertButton.setBackground(new java.awt.Color(51, 51, 51));
-        jInsertButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jInsertButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jInsertButton.setForeground(new java.awt.Color(255, 255, 255));
-        jInsertButton.setText("Insert");
+        jInsertButton.setText("INSERT");
         jInsertButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jInsertButtonActionPerformed(evt);
@@ -124,9 +128,9 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
         });
 
         jUpdateButton.setBackground(new java.awt.Color(51, 51, 51));
-        jUpdateButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jUpdateButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
-        jUpdateButton.setText("Update");
+        jUpdateButton.setText("UPDATE");
         jUpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jUpdateButtonActionPerformed(evt);
@@ -134,9 +138,9 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
         });
 
         jDeleteButton.setBackground(new java.awt.Color(51, 51, 51));
-        jDeleteButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jDeleteButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
-        jDeleteButton.setText("Delete");
+        jDeleteButton.setText("DELETE");
         jDeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jDeleteButtonActionPerformed(evt);
@@ -148,9 +152,9 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
         jLabel3.setText("Industry Name:");
 
         clearButton1.setBackground(new java.awt.Color(0, 153, 255));
-        clearButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        clearButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         clearButton1.setForeground(new java.awt.Color(255, 255, 255));
-        clearButton1.setText("Clear");
+        clearButton1.setText("CLEAR");
         clearButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButton1ActionPerformed(evt);
@@ -193,9 +197,15 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD:EITS_Office_Systems/src/EITS/clientIndustryListAdmin_GUI.java
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
+=======
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+>>>>>>> ced0a1ca4fbe2888d1f7f6184d5c466fd7c350b2:EITS_Office_Systems/src/clientIndustryListAdmin.java
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,12 +226,17 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD:EITS_Office_Systems/src/EITS/clientIndustryListAdmin_GUI.java
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
+=======
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+>>>>>>> ced0a1ca4fbe2888d1f7f6184d5c466fd7c350b2:EITS_Office_Systems/src/clientIndustryListAdmin.java
                         .addComponent(clearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
                         .addComponent(jLabel4)
@@ -236,8 +251,16 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+<<<<<<< HEAD:EITS_Office_Systems/src/EITS/clientIndustryListAdmin_GUI.java
                         .addComponent(jDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                        .addComponent(jDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
+>>>>>>> ced0a1ca4fbe2888d1f7f6184d5c466fd7c350b2:EITS_Office_Systems/src/clientIndustryListAdmin.java
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

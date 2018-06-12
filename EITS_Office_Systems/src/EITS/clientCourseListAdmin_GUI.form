@@ -82,6 +82,10 @@
                           <Component id="jSelectIndustryComboBox" min="-2" pref="140" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="clearButton1" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD:EITS_Office_Systems/src/EITS/clientCourseListAdmin_GUI.form
+=======
+                          <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+>>>>>>> ced0a1ca4fbe2888d1f7f6184d5c466fd7c350b2:EITS_Office_Systems/src/clientCourseListAdmin_GUI.form
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -94,6 +98,7 @@
                   <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD:EITS_Office_Systems/src/EITS/clientCourseListAdmin_GUI.form
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="clearButton1" min="-2" pref="27" max="-2" attributes="0"/>
@@ -124,6 +129,29 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jDeleteButton" min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
+=======
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="clearButton1" min="-2" pref="27" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextField_ID" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextField_FirstName" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jInsertButton" min="-2" pref="46" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jUpdateButton" min="-2" pref="46" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jDeleteButton" min="-2" pref="46" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+>>>>>>> ced0a1ca4fbe2888d1f7f6184d5c466fd7c350b2:EITS_Office_Systems/src/clientCourseListAdmin_GUI.form
                       </Group>
                       <Component id="jScrollPane3" alignment="0" min="-2" pref="403" max="-2" attributes="0"/>
                   </Group>
@@ -147,7 +175,11 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD:EITS_Office_Systems/src/EITS/clientCourseListAdmin_GUI.form
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+=======
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+>>>>>>> ced0a1ca4fbe2888d1f7f6184d5c466fd7c350b2:EITS_Office_Systems/src/clientCourseListAdmin_GUI.form
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="backButton2" min="-2" max="-2" attributes="0"/>
