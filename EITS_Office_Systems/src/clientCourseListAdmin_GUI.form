@@ -81,7 +81,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="clearButton1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -94,8 +94,8 @@
                   <EmptySpace type="separate" pref="59" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="clearButton1" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="clearButton1" min="-2" pref="27" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jTextField_ID" min="-2" max="-2" attributes="0"/>
@@ -271,7 +271,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="backButton2" min="-2" max="-2" attributes="0"/>
@@ -328,7 +328,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Course List"/>
+                <Property name="text" type="java.lang.String" value="COURSE LIST"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -339,12 +339,12 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="18" style="0"/>
+              <Font name="Tw Cen MT Condensed Extra Bold" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Insert"/>
+            <Property name="text" type="java.lang.String" value="INSERT"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jInsertButtonActionPerformed"/>
@@ -356,12 +356,12 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="18" style="0"/>
+              <Font name="Tw Cen MT Condensed Extra Bold" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Update"/>
+            <Property name="text" type="java.lang.String" value="UPDATE"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jUpdateButtonActionPerformed"/>
@@ -373,12 +373,12 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="18" style="0"/>
+              <Font name="Tw Cen MT Condensed Extra Bold" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Delete"/>
+            <Property name="text" type="java.lang.String" value="DELETE"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jDeleteButtonActionPerformed"/>
@@ -419,12 +419,12 @@
               <Color blue="ff" green="99" red="0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="18" style="0"/>
+              <Font name="Tw Cen MT Condensed Extra Bold" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Clear"/>
+            <Property name="text" type="java.lang.String" value="CLEAR"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButton1ActionPerformed"/>

@@ -82,7 +82,7 @@ public class signup_GUI extends javax.swing.JFrame {
         returnButton.setBackground(new java.awt.Color(102, 102, 102));
         returnButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 20)); // NOI18N
         returnButton.setForeground(new java.awt.Color(255, 255, 255));
-        returnButton.setText("Return");
+        returnButton.setText("RETURN");
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
@@ -92,7 +92,7 @@ public class signup_GUI extends javax.swing.JFrame {
         exitButton.setBackground(new java.awt.Color(0, 0, 0));
         exitButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 20)); // NOI18N
         exitButton.setForeground(new java.awt.Color(255, 255, 255));
-        exitButton.setText("Exit");
+        exitButton.setText("EXIT");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitButtonActionPerformed(evt);
@@ -118,7 +118,7 @@ public class signup_GUI extends javax.swing.JFrame {
         signupButton1.setBackground(new java.awt.Color(0, 25, 138));
         signupButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 20)); // NOI18N
         signupButton1.setForeground(new java.awt.Color(255, 255, 255));
-        signupButton1.setText("Sign Up");
+        signupButton1.setText("SIGN UP");
         signupButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 signupButton1MouseClicked(evt);

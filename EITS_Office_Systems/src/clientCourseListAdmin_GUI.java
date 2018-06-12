@@ -154,14 +154,14 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Course List");
+        jLabel2.setText("COURSE LIST");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(71, 71, 71)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(backButton2)
@@ -183,9 +183,9 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         );
 
         jInsertButton.setBackground(new java.awt.Color(51, 51, 51));
-        jInsertButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jInsertButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jInsertButton.setForeground(new java.awt.Color(255, 255, 255));
-        jInsertButton.setText("Insert");
+        jInsertButton.setText("INSERT");
         jInsertButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jInsertButtonActionPerformed(evt);
@@ -193,9 +193,9 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         });
 
         jUpdateButton.setBackground(new java.awt.Color(51, 51, 51));
-        jUpdateButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jUpdateButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
-        jUpdateButton.setText("Update");
+        jUpdateButton.setText("UPDATE");
         jUpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jUpdateButtonActionPerformed(evt);
@@ -203,9 +203,9 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         });
 
         jDeleteButton.setBackground(new java.awt.Color(51, 51, 51));
-        jDeleteButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jDeleteButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
-        jDeleteButton.setText("Delete");
+        jDeleteButton.setText("DELETE");
         jDeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jDeleteButtonActionPerformed(evt);
@@ -227,9 +227,9 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         jLabel5.setText("ID");
 
         clearButton1.setBackground(new java.awt.Color(0, 153, 255));
-        clearButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        clearButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         clearButton1.setForeground(new java.awt.Color(255, 255, 255));
-        clearButton1.setText("Clear");
+        clearButton1.setText("CLEAR");
         clearButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButton1ActionPerformed(evt);
@@ -261,7 +261,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
                         .addGap(121, 121, 121))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(clearButton1)
-                        .addGap(157, 157, 157))))
+                        .addGap(155, 155, 155))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,8 +270,8 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
                 .addGap(18, 59, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(clearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
+                        .addComponent(clearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
