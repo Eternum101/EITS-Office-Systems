@@ -1,3 +1,5 @@
+package EITS;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,21 +10,23 @@
  *
  * @author 2101560216
  */
-public class CaseWorker_UserList {
+public class UserList {
+    
   private int userID; 
 
-  private String FirstName, LastName, Email;
+  private String FirstName, LastName, Email, Password;
 
-  public CaseWorker_UserList(int userID, String fName, String lName, String email){
+  public UserList(int userID, String fName, String lName, String email, String password){
       
       this.userID = userID; 
       this.FirstName = fName;
       this.LastName = lName; 
-      this.Email = email; 
+      this.Email = email;
+      this.Password = password; 
   }
- 
+
   public int getuserID() {
-      return userID; 
+        return userID; 
  }
   
   public String getFirstName() {
@@ -37,4 +41,8 @@ public class CaseWorker_UserList {
       return Email; 
   }
   
+  public String getPassword() {
+      return Password; 
+  }
+                    
 }
