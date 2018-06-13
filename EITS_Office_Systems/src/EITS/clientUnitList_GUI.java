@@ -225,10 +225,18 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
     }
     
     private void enrolButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrolButtonActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        thankyouEnrolment_GUI s = new thankyouEnrolment_GUI();
-        s.setVisible(true);
+
+        try {
+            String sql = "UPDATE users SET courses_id = 2 WHERE userID = '";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.execute();
+            dispose();
+            thankyouEnrolment_GUI s = new thankyouEnrolment_GUI();
+            s.setVisible(true); 
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(clientUnitList_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_enrolButtonActionPerformed
 
     private void backButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton3MouseClicked

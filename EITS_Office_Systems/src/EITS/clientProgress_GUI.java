@@ -47,14 +47,14 @@ public class clientProgress_GUI extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "First Name ", "Last Name", "Unit", "Result", "Note"
+                "First Name ", "Last Name", "Course", "Unit Complete", "Result", "Note"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -69,6 +69,7 @@ public class clientProgress_GUI extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(2).setResizable(false);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
             jTable1.getColumnModel().getColumn(4).setResizable(false);
+            jTable1.getColumnModel().getColumn(5).setResizable(false);
         }
 
         jTextField1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
