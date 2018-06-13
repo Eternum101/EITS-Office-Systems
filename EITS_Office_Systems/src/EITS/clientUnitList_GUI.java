@@ -208,7 +208,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
     private void ListUnits() {
         DefaultListModel m = new DefaultListModel(); 
         try {
-            String sql = "SELECT * FROM units WHERE courses_id=2";
+            String sql = "SELECT * FROM units WHERE courses_id = 2";
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery(); 
             
@@ -227,7 +227,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
     private void enrolButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrolButtonActionPerformed
 
         try {
-            String sql = "UPDATE users SET courses_id = 2 WHERE userID = '";
+            String sql = "UPDATE users SET courses_id = 2 WHERE userID = ''";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.execute();
             dispose();

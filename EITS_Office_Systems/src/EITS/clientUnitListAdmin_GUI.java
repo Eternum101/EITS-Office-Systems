@@ -206,10 +206,9 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
                         .addGap(63, 63, 63)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jDeleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jUpdateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jDeleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jUpdateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField_UnitDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
                             .addComponent(jLabel3)
                             .addComponent(jTextField_CourseID, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
@@ -286,7 +285,7 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
     private void clearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton1ActionPerformed
         // TODO add your handling code here:
         dispose();
-        clientData_GUI s = new clientData_GUI();
+        clientUnitListAdmin_GUI s = new clientUnitListAdmin_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_clearButton1ActionPerformed
 

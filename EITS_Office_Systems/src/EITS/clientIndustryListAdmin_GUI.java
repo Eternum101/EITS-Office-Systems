@@ -361,7 +361,7 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
     private void clearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton1ActionPerformed
         // TODO add your handling code here:
         dispose();
-        clientData_GUI s = new clientData_GUI();
+        clientIndustryListAdmin_GUI s = new clientIndustryListAdmin_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_clearButton1ActionPerformed
 
