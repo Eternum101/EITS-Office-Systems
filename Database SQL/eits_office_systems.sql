@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2018 at 12:17 AM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 5.5.30
+-- Generation Time: Jun 13, 2018 at 11:29 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -160,22 +162,25 @@ INSERT INTO `units` (`id`, `unitDesc`, `courses_id`) VALUES
 
 CREATE TABLE `users` (
   `userID` int(11) NOT NULL,
+  `courses_id` int(11) DEFAULT NULL,
+  `units_id` varchar(10) DEFAULT NULL,
   `fName` varchar(45) NOT NULL,
   `lName` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `loginDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `loginDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userID`, `fName`, `lName`, `email`, `password`, `loginDate`) VALUES
-(1, 'Bob', 'Ross', 'bob@gmail.com', '1234', '2018-06-10 23:47:44'),
-(2, 'Jimmy', 'Neutron', 'jimmy@gmail.com', 'jimmy', '2018-06-10 23:47:44'),
-(3, 'Wayne', 'Smithy', 'wayne@gmail.com', 'wayne', '2018-06-10 23:47:44'),
-(4, 'Alex', 'Vassiliou', 'alexander.peter.vassiliou@gmail.com', '1234', '2018-06-10 23:47:44');
+INSERT INTO `users` (`userID`, `courses_id`, `units_id`, `fName`, `lName`, `email`, `password`, `loginDate`) VALUES
+(1, 2, NULL, 'Bob', 'Ross', 'bob@gmail.com', '1234', 'Wed Jun 13 15:53:47 AEST 2018'),
+(2, NULL, NULL, 'Jimmy', 'Neutron', 'jimmy@gmail.com', 'jimmy', 'Wed Jun 13 18:50:00 AEST 2018'),
+(3, 2, NULL, 'Wayne', 'Smithy', 'wayne@gmail.com', 'wayne', '2018-06-11 09:47:44'),
+(4, 1, NULL, 'Alex', 'Vassiliou', 'alexander.peter.vassiliou@gmail.com', '1234', '2018-06-11 09:47:44'),
+(5, NULL, NULL, 'Joe', 'Doe', 'joe@gmail.com', 'joey', 'Wed Jun 13 13:43:59 AEST 2018');
 
 --
 -- Indexes for dumped tables
@@ -226,26 +231,32 @@ ALTER TABLE `users`
 --
 ALTER TABLE `administrators`
   MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `caseworkers`
 --
 ALTER TABLE `caseworkers`
   MODIFY `caseworkerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `industries`
 --
 ALTER TABLE `industries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
