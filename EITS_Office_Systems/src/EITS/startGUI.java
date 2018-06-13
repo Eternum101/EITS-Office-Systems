@@ -4,7 +4,8 @@ package EITS;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Desktop;
 import javax.swing.JOptionPane;
-import java.sql.*; 
+import java.sql.*;
+import java.util.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -268,6 +269,12 @@ public class startGUI extends javax.swing.JFrame {
             }
              rs=users.executeQuery();
              if(rs.next()) {
+                int userID = rs.getInt("userID");
+                userID = userID;
+                Date current = new Date();
+                String date = "UPDATE users SET loginDate = '" + current +"' WHERE userID ='" + userID + "';";
+                PreparedStatement ps = con.prepareStatement(date);
+                ps.execute();
                 dispose();
                 clientCourseList_GUI s = new clientCourseList_GUI();
                 s.setVisible(true);

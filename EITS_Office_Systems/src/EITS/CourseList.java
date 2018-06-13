@@ -11,11 +11,14 @@ package EITS;
  * @author Brayden
  */
 public class CourseList {
+    
   private int id;
   
   private int industries_id;
 
-  private String code, title;
+  private String code;
+          
+  private String title; 
   
   public CourseList(int ID, int industries_id, String code, String title){
       
@@ -24,36 +27,24 @@ public class CourseList {
       this.code = code;
       this.title = title; 
   } 
+
+    CourseList(String string, String string0, int aInt, String string1, int aInt0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
   
 public int getID() {
     return id; 
  }
 
-public void setID(int ID) {
-    this.id = ID;
-}
-
 public int getIndustryID() {
     return industries_id; 
  }
-
-public void setIndustryID(int industries_id) {
-    this.industries_id = industries_id;
-}
   
 public String getCode() {
     return code; 
   }
-
-public void setCode(String code) {
-    this.code = code; 
-}
   
 public String getTitle() {
     return title; 
   }
-
-public void setTitle() {
-    this.title = title; 
-}
 }

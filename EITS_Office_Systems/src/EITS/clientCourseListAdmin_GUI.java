@@ -5,8 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -55,7 +57,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         jTextField_ID = new javax.swing.JTextField();
         clearButton1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jIndustryListTable = new javax.swing.JTable();
+        jCourseListTable = new javax.swing.JTable();
         jTextField_Code = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextField_Title = new javax.swing.JTextField();
@@ -163,29 +165,15 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
             }
         });
 
-        jIndustryListTable.setModel(new javax.swing.table.DefaultTableModel(
+        jCourseListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Industry ID", "Code", "Title"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
-        });
-        jScrollPane3.setViewportView(jIndustryListTable);
-        if (jIndustryListTable.getColumnModel().getColumnCount() > 0) {
-            jIndustryListTable.getColumnModel().getColumn(0).setResizable(false);
-            jIndustryListTable.getColumnModel().getColumn(1).setResizable(false);
-            jIndustryListTable.getColumnModel().getColumn(2).setResizable(false);
-            jIndustryListTable.getColumnModel().getColumn(3).setResizable(false);
-        }
+        ));
+        jScrollPane3.setViewportView(jCourseListTable);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,7 +183,6 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Title:");
 
-        jSelectIndustryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Industry" }));
         jSelectIndustryComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jSelectIndustryComboBoxActionPerformed(evt);
@@ -285,21 +272,40 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void SelectComboBox() {
-        try {
-        String sql = "SELECT * FROM industries";
-        ps = con.prepareStatement(sql);
-        rs = ps.executeQuery();
         
-        while(rs.next()) {
-            String industry = rs.getString("industryDesc");
-            jSelectIndustryComboBox.addItem(industry);
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT `ID`, `INDUSTRYDESC` FROM `industries`");
+            while(rs.next()){
+                jSelectIndustryComboBox.addItem(rs.getString("INDUSTRYDESC"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(clientCourseListAdmin_GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
-    }   catch (SQLException ex) {
-            
     }
-    }
+   
+    public ArrayList<CourseList> getCourseList() {
+        ArrayList<CourseList> coursesList = new ArrayList<>();
+        String sql = "SELECT * FROM courses";
     
+    try {
+        st = con.createStatement();
+        rs = st.executeQuery(sql);
+        CourseList courseList; 
+        while(rs.next()) {
+            courseList = new CourseList(rs.getInt("id"), rs.getInt("industries_id"), 
+            rs.getString("code"), rs.getString("title"));
+            coursesList.add(courseList);
+        }
+        
+    }   catch (SQLException ex) {            
+    
+    }            
+    
+    return coursesList; 
+   
+    }
+     
     private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
         // TODO add your handling code here:
         dispose();
@@ -332,7 +338,17 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_clearButton1ActionPerformed
 
     private void jSelectIndustryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSelectIndustryComboBoxActionPerformed
-        // TODO add your handling code here:
+     ArrayList<CourseList> list = getCourseList();
+     DefaultTableModel model = (DefaultTableModel) jSelectIndustryComboBox.getSelectedItem();
+     Object[] row = new Object[4];
+     
+     for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
+         row[0] = list.get(i).getID();
+         row[1] = list.get(i).getIndustryID();
+         row[2] = list.get(i).getCode();
+         row[3] = list.get(i).getTitle();
+         model.addRow(row);
+     } // end of for                                   
     }//GEN-LAST:event_jSelectIndustryComboBoxActionPerformed
 
     /**
@@ -375,8 +391,8 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel backButton2;
     private javax.swing.JButton clearButton1;
+    private javax.swing.JTable jCourseListTable;
     private javax.swing.JButton jDeleteButton;
-    private javax.swing.JTable jIndustryListTable;
     private javax.swing.JButton jInsertButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
