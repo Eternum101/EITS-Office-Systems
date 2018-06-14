@@ -20,17 +20,37 @@ import javax.swing.DefaultListModel;
  * @author Jakob
  */
 public class clientUnitList_GUI extends javax.swing.JFrame {
+    User myUser;
+    int CourseID;
     Connection con = null; 
     ResultSet rs = null; 
-    PreparedStatement ps = null; 
+    PreparedStatement ps = null;
 
     /**
      * Creates new form clientCourseList_GUI
      */
-    public clientUnitList_GUI() {
+    public clientUnitList_GUI(User user, int Course_ID) {
         initComponents();
         con = DatabaseConnection.getConnection();
-        ListUnits(); 
+        ListUnits();
+        myUser = user;
+        CourseID = Course_ID;
+        this.nameLabel.setText(myUser.getFirstName());
+        this.nameLabel2.setText(myUser.getLastName());
+    }
+    
+    public clientUnitList_GUI(User user) {
+        initComponents();
+        con = DatabaseConnection.getConnection();
+        ListUnits();
+        myUser = user;
+        this.nameLabel.setText(myUser.getFirstName());
+        this.nameLabel2.setText(myUser.getLastName());
+    }
+    
+    
+    public clientUnitList_GUI() {
+    initComponents();
     }
 
     /**
@@ -53,6 +73,9 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
         backButton3 = new javax.swing.JLabel();
         ExitButton = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        nameLabel2 = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -172,6 +195,15 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
                 .addComponent(jLabel2))
         );
 
+        nameLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        nameLabel2.setText("nameLabel");
+
+        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        nameLabel.setText("nameLabel");
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Logged in as: ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -181,14 +213,31 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(145, 145, 145))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 24, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nameLabel)
+                            .addComponent(nameLabel2)
+                            .addComponent(jLabel3))
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -227,8 +276,9 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
     private void enrolButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrolButtonActionPerformed
 
         try {
-            String sql = "UPDATE users SET courses_id = 2 WHERE userID = ''";
-            PreparedStatement ps = con.prepareStatement(sql);
+            int userID = myUser.getMyUser();
+            String sql = "UPDATE `users` SET `courses_id` = " + CourseID + " WHERE `userID` = " + userID + "";
+            PreparedStatement ps = con.prepareStatement(sql); 
             ps.execute();
             dispose();
             thankyouEnrolment_GUI s = new thankyouEnrolment_GUI();
@@ -293,11 +343,28 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
     private javax.swing.JButton enrolButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel nameLabel2;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the myUser
+     */
+    public User getMyUser() {
+        return myUser;
+    }
+
+    /**
+     * @param myUser the myUser to set
+     */
+    public void setMyUser(User myUser) {
+        this.myUser = myUser;
+    }
 }

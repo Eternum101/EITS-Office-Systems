@@ -24,6 +24,7 @@ public class startGUI extends javax.swing.JFrame {
     PreparedStatement users = null;
     PreparedStatement admins = null;
     PreparedStatement caseworkers = null;
+    private User myUser; 
 
     /**
      * Creates new form startGUI
@@ -31,6 +32,11 @@ public class startGUI extends javax.swing.JFrame {
     public startGUI() {
         initComponents();
         con = DatabaseConnection.getConnection();
+    }
+    
+    public startGUI(User my_User) {
+        initComponents();
+        myUser = my_User; 
     }
     
 
@@ -241,7 +247,6 @@ public class startGUI extends javax.swing.JFrame {
             admins = con.prepareStatement(sql);
             users = con.prepareStatement(sq);  
             caseworkers = con.prepareStatement(se);
-            
             admins.setString(1, txtEmail.getText());
             admins.setString(2, txtPassword.getText());
             users.setString(1, txtEmail.getText());
@@ -269,14 +274,21 @@ public class startGUI extends javax.swing.JFrame {
             }
              rs=users.executeQuery();
              if(rs.next()) {
+                User track = new User(); 
                 int userID = rs.getInt("userID");
-                userID = userID;
+                // This is a demo
+                track.setMyUser(rs.getInt("userID"));
+                track.setCourseID(rs.getInt("courses_id"));
+                track.setFirstName(rs.getString("fName"));
+                track.setLastName(rs.getString("lName"));
+                track.setMyEmail(rs.getString("email"));
+                track.setMyPassword(rs.getString("password"));
                 Date current = new Date();
                 String date = "UPDATE users SET loginDate = '" + current +"' WHERE userID ='" + userID + "';";
                 PreparedStatement ps = con.prepareStatement(date);
                 ps.execute();
                 dispose();
-                clientCourseList_GUI s = new clientCourseList_GUI();
+                clientCourseList_GUI s = new clientCourseList_GUI(track);
                 s.setVisible(true);
                 isValid=true;
                 rs.close();
@@ -418,4 +430,18 @@ public class startGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the myUser
+     */
+    public User getMyUser() {
+        return myUser;
+   }
+
+    /**
+     * @param myUser the myUser to set
+     */
+    public void setMyUser(User myUser) {
+        this.myUser = myUser;
+    }
 }
