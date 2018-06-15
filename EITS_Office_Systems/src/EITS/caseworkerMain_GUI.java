@@ -76,7 +76,7 @@ public class caseworkerMain_GUI extends javax.swing.JFrame {
         clientProgressButton.setBackground(new java.awt.Color(51, 51, 51));
         clientProgressButton.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         clientProgressButton.setForeground(new java.awt.Color(255, 255, 255));
-        clientProgressButton.setText("Client progress");
+        clientProgressButton.setText("Client Progress");
         clientProgressButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clientProgressButtonActionPerformed(evt);

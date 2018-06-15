@@ -1,5 +1,14 @@
 package EITS;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,12 +20,17 @@ package EITS;
  * @author 2104990817
  */
 public class clientProgress_GUI extends javax.swing.JFrame {
-
+    Connection con = null; 
+    ResultSet rs = null; 
+    PreparedStatement ps = null; 
+    Statement st = null;
     /**
      * Creates new form clientProgress_GUI
      */
     public clientProgress_GUI() {
         initComponents();
+        con = DatabaseConnection.getConnection();
+        DisplayProgress();
     }
 
     /**
@@ -30,7 +44,7 @@ public class clientProgress_GUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jProgressTable = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -45,31 +59,32 @@ public class clientProgress_GUI extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(60, 60, 60));
         jPanel1.setToolTipText("");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jProgressTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "First Name ", "Last Name", "Course", "Unit Complete", "Result", "Note"
+                "Student ID", "First Name ", "Last Name", "Course", "Unit Complete", "Result", "Note"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
+        jProgressTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jProgressTable);
+        if (jProgressTable.getColumnModel().getColumnCount() > 0) {
+            jProgressTable.getColumnModel().getColumn(0).setResizable(false);
+            jProgressTable.getColumnModel().getColumn(1).setResizable(false);
+            jProgressTable.getColumnModel().getColumn(2).setResizable(false);
+            jProgressTable.getColumnModel().getColumn(3).setResizable(false);
+            jProgressTable.getColumnModel().getColumn(4).setResizable(false);
+            jProgressTable.getColumnModel().getColumn(5).setResizable(false);
+            jProgressTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
         jTextField1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -171,6 +186,32 @@ public class clientProgress_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void DisplayProgress() {
+        try {
+            ps = con.prepareStatement("SELECT `userID`, fName, lName, title, units_id, results, "
+                    + "notes FROM `users` "
+                    + "INNER JOIN courses AS ctab on ctab.id = `courses_id`");
+            rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) jProgressTable.getModel();
+            
+            Object[] row;
+            
+            while(rs.next()) {
+                row = new Object[7];
+                row[0] = rs.getInt(1);
+                row[1] = rs.getString(2);
+                row[2] = rs.getString(3);
+                row[3] = rs.getString(4);
+                row[4] = rs.getString(5);
+                row[5] = rs.getString(6);
+                row[6] = rs.getString(7);
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(clientProgress_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
         // TODO add your handling code here:
 
@@ -230,8 +271,8 @@ public class clientProgress_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTable jProgressTable;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
