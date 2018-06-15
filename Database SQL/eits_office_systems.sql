@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2018 at 06:36 AM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 5.5.30
+-- Generation Time: Jun 15, 2018 at 04:04 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -60,7 +62,8 @@ CREATE TABLE `caseworkers` (
 --
 
 INSERT INTO `caseworkers` (`caseworkerID`, `fName`, `lName`, `email`, `password`) VALUES
-(1, 'Benjamin ', 'Clarke', 'benjamin@gmail.com', 'benji');
+(1, 'Benjamin ', 'Clarke', 'benjamin@gmail.com', 'benji'),
+(2, 'Lachlan', 'John', 'lachlan@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -161,24 +164,26 @@ INSERT INTO `units` (`id`, `unitDesc`, `courses_id`) VALUES
 CREATE TABLE `users` (
   `userID` int(11) NOT NULL,
   `courses_id` int(11) DEFAULT NULL,
-  `units_id` varchar(10) DEFAULT NULL,
+  `units_id` varchar(10) NOT NULL DEFAULT 'N/A',
   `fName` varchar(45) NOT NULL,
   `lName` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `loginDate` varchar(255) DEFAULT NULL
+  `loginDate` varchar(255) DEFAULT NULL,
+  `results` varchar(45) NOT NULL DEFAULT 'N/A',
+  `notes` varchar(255) NOT NULL DEFAULT 'N/A'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userID`, `courses_id`, `units_id`, `fName`, `lName`, `email`, `password`, `loginDate`) VALUES
-(1, 2, NULL, 'Bob', 'Ross', 'bob@gmail.com', '1234', 'Thu Jun 14 11:18:49 AEST 2018'),
-(2, 2, NULL, 'Jimmy', 'Neutron', 'jimmy@gmail.com', 'jimmy', 'Thu Jun 14 13:44:14 AEST 2018'),
-(3, 2, NULL, 'Wayne', 'Smithy', 'wayne@gmail.com', 'wayne', '2018-06-11 09:47:44'),
-(4, 1, NULL, 'Alex', 'Vassiliou', 'alexander.peter.vassiliou@gmail.com', '1234', '2018-06-11 09:47:44'),
-(5, 1, NULL, 'Joe', 'Doe', 'joe@gmail.com', 'joey', 'Thu Jun 14 14:30:13 AEST 2018');
+INSERT INTO `users` (`userID`, `courses_id`, `units_id`, `fName`, `lName`, `email`, `password`, `loginDate`, `results`, `notes`) VALUES
+(1, 2, 'N/A', 'Bob', 'Ross', 'bob@gmail.com', '1234', 'Fri Jun 15 19:23:32 AEST 2018', 'N/A', 'N/A'),
+(2, 2, 'N/A', 'Jimmy', 'Neutron', 'jimmy@gmail.com', 'jimmy', 'Thu Jun 14 13:44:14 AEST 2018', 'N/A', 'N/A'),
+(3, 2, 'N/A', 'Wayne', 'Smithy', 'wayne@gmail.com', 'wayne', '2018-06-11 09:47:44', 'N/A', 'N/A'),
+(4, 1, 'N/A', 'Alex', 'Vassiliou', 'alexander.peter.vassiliou@gmail.com', '1234', '2018-06-11 09:47:44', 'N/A', 'N/A'),
+(5, 1, 'N/A', 'Joe', 'Doe', 'joe@gmail.com', 'joey', 'Fri Jun 15 13:46:29 AEST 2018', 'N/A', 'N/A');
 
 --
 -- Indexes for dumped tables
@@ -229,26 +234,32 @@ ALTER TABLE `users`
 --
 ALTER TABLE `administrators`
   MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `caseworkers`
 --
 ALTER TABLE `caseworkers`
-  MODIFY `caseworkerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `caseworkerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `industries`
 --
 ALTER TABLE `industries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
