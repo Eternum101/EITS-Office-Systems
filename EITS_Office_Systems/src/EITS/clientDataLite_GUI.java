@@ -201,6 +201,7 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
         ArrayList<CaseWorker_UserList> usersList = new ArrayList<CaseWorker_UserList>();
 
         String sql = "SELECT * FROM users";
+        
 
     try {        
         st = con.createStatement();

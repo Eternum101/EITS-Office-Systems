@@ -22,6 +22,10 @@ public class CaseWorker_UserList {
       this.LastName = lName; 
       this.Email = email; 
   }
+
+    CaseWorker_UserList(int aInt, String string, String string0, String string1, String string2, String string3) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
  
   public int getuserID() {
       return userID; 

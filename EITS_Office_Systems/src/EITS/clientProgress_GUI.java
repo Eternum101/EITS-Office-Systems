@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -190,9 +191,57 @@ public class clientProgress_GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // Test code, feel like it is close to working but still not display and no errors
+    /* 
+    public ArrayList<CaseWorker_ProgressList> getProgressList(String ValToSearch) {
+        ArrayList<CaseWorker_ProgressList> progressLists = new ArrayList<CaseWorker_ProgressList>();
+    try {        
+        st = con.createStatement();
+        String searchQuery = "SELECT `userID`, `fName`, `lName`, `title`, `units_id`, `results`, "
+                    + "`notes` FROM `users` "
+                    + "INNER JOIN courses AS ctab on ctab.id = `courses_id` LIKE '%"+ValToSearch+"%'";
+        //String searchQuery = "SELECT * FROM `users` WHERE CONCAT(`userID`,`fName`,`lName`,`email`)LIKE '%"+ValToSearch+"%'";
+        rs = st.executeQuery(searchQuery);
+        CaseWorker_ProgressList progressList; 
+        while(rs.next()) {
+            progressList = new CaseWorker_ProgressList(rs.getInt("userID"), rs.getString("fName"), rs.getString("lName")
+            , rs.getString("title"), rs.getInt("units_id"), rs.getString("results"), rs.getString("note"));
+            progressLists.add(progressList);
+        }
+        
+    }   catch (SQLException ex) {            
+        System.out.println(ex.getMessage());
+    }            
+    
+    return progressLists; 
+   
+    }
+    
+    public void show_ProgressList_caseworker() {
+     ArrayList<CaseWorker_ProgressList> list = getProgressList(jDisplayData.getText());
+     DefaultTableModel model = new DefaultTableModel();
+     model.setColumnIdentifiers(new Object[]{"Student ID","First Name","Last Name","Course","Unit Complete", "Result", "Note"});
+     Object[] row = new Object[8];
+     
+     for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
+         row[0] = list.get(i).getUserID();
+         row[1] = list.get(i).getFirstName();
+         row[2] = list.get(i).getLastName();
+         row[3] = list.get(i).getTitle();
+         row[4] = list.get(i).getUnitsID();
+         row[5] = list.get(i).getResults();
+         row[6] = list.get(i).getTitle();
+         row[7] = list.get(i).getNote();
+         
+         model.addRow(row);
+     } // end of for
+     jProgressTable.setModel(model);
+    } */
+    
     public void DisplayProgress() {
-        try {
+        
+        
+         try {
             ps = con.prepareStatement("SELECT `userID`, fName, lName, title, units_id, results, "
                     + "notes FROM `users` "
                     + "INNER JOIN courses AS ctab on ctab.id = `courses_id`");
@@ -214,8 +263,8 @@ public class clientProgress_GUI extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(clientProgress_GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+        } 
+    } 
     
     private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
         // TODO add your handling code here:
@@ -236,7 +285,7 @@ public class clientProgress_GUI extends javax.swing.JFrame {
 
     private void jDisplayDataKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDisplayDataKeyReleased
         // TODO add your handling code here:
-        DisplayProgress();
+        //show_ProgressList_caseworker();
     }//GEN-LAST:event_jDisplayDataKeyReleased
 
     /**
