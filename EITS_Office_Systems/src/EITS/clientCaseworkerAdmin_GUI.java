@@ -1,47 +1,36 @@
-package EITS;
-
-
-
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList; 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package EITS;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
- * @author 2104990817
+ * @author Brayden
  */
-public class clientData_GUI extends javax.swing.JFrame {
+public class clientCaseworkerAdmin_GUI extends javax.swing.JFrame {
     Connection con = null; 
     ResultSet rs = null; 
     PreparedStatement ps = null; 
     Statement st = null; 
     /**
-     * Creates new form clientData_GUI
+     * Creates new form clientCaseworkerAdmin
      */
-    public clientData_GUI() {
+    public clientCaseworkerAdmin_GUI() {
         initComponents();
         con = DatabaseConnection.getConnection();
-        show_users();
-        //Drag and drop
-        //this.jTable1.setDragEnabled(true);
-       // this.jTextField1.setDragEnabled(true);
-        
+        show_caseworkers();
     }
 
     /**
@@ -56,9 +45,8 @@ public class clientData_GUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jUpdateButton = new javax.swing.JButton();
         jInsertButton = new javax.swing.JButton();
-        jDeleteButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jDisplayCaseworkerTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -103,17 +91,7 @@ public class clientData_GUI extends javax.swing.JFrame {
             }
         });
 
-        jDeleteButton.setBackground(new java.awt.Color(51, 51, 51));
-        jDeleteButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
-        jDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
-        jDeleteButton.setText("DELETE");
-        jDeleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jDeleteButtonActionPerformed(evt);
-            }
-        });
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jDisplayCaseworkerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -129,19 +107,12 @@ public class clientData_GUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jDisplayCaseworkerTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                jDisplayCaseworkerTableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-        }
+        jScrollPane1.setViewportView(jDisplayCaseworkerTable);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -203,7 +174,7 @@ public class clientData_GUI extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("CLIENT DATA");
+        jLabel2.setText("CASEWORKER DATA");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -236,12 +207,9 @@ public class clientData_GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jDeleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jUpdateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,12 +233,13 @@ public class clientData_GUI extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jTextField1)
                                         .addComponent(jTextField_FirstName)
-                                        .addComponent(jTextField_ID, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE))
+                                        .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(clearButton1)
-                        .addGap(81, 81, 81)))
+                        .addGap(89, 89, 89)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -284,9 +253,9 @@ public class clientData_GUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
+                        .addGap(26, 26, 26)
                         .addComponent(clearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -310,10 +279,8 @@ public class clientData_GUI extends javax.swing.JFrame {
                             .addComponent(jTextField_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -331,36 +298,36 @@ public class clientData_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public ArrayList<UserList> getUserList() {
-        ArrayList<UserList> usersList = new ArrayList<>();
-        String sql = "SELECT * FROM users";
+    public ArrayList<CaseworkerList> getCaseworkerList() {
+        ArrayList<CaseworkerList> caseworkersList = new ArrayList<>();
+        String sql = "SELECT * FROM caseworkers";
     
     try {
         st = con.createStatement();
         rs = st.executeQuery(sql);
-        UserList userList; 
+        CaseworkerList caseworkerList; 
         while(rs.next()) {
-            userList = new UserList(rs.getInt("userID"), rs.getString("fName"), rs.getString("lName")
-            , rs.getString("email"), rs.getString("password"));
-            usersList.add(userList);
+            caseworkerList = new CaseworkerList(rs.getInt("caseworkerID"), rs.getString("fName"), rs.getString("lName")
+                ,rs.getString("email"), rs.getString("password"));
+            caseworkersList.add(caseworkerList);
         }
         
     }   catch (SQLException ex) {            
     
     }            
     
-    return usersList; 
+    return caseworkersList; 
    
     }
     
     
-    public void show_users() {
-     ArrayList<UserList> list = getUserList();
-     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    public void show_caseworkers() {
+     ArrayList<CaseworkerList> list = getCaseworkerList();
+     DefaultTableModel model = (DefaultTableModel) jDisplayCaseworkerTable.getModel();
      Object[] row = new Object[5];
      
      for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
-         row[0] = list.get(i).getuserID();
+         row[0] = list.get(i).getCaseworkerID();
          row[1] = list.get(i).getFirstName();
          row[2] = list.get(i).getLastName();
          row[3] = list.get(i).getEmail();
@@ -373,9 +340,9 @@ public class clientData_GUI extends javax.swing.JFrame {
         try {
             st = con.createStatement();
             if((st.executeUpdate(query))==1) {
-                DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+                DefaultTableModel model = (DefaultTableModel)jDisplayCaseworkerTable.getModel();
                 model.setRowCount(0);
-                show_users();
+                show_caseworkers();
                 JOptionPane.showMessageDialog(null, "Data " + message + " Sucessful");
              } else {    
                  JOptionPane.showMessageDialog(null, "Data Not " + message);
@@ -386,65 +353,60 @@ public class clientData_GUI extends javax.swing.JFrame {
     }
     
     private void jUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateButtonActionPerformed
-         try {
+        try {
             // TODO add your handling code here:
-            int row = jTable1.getSelectedRow(); 
-            String value = (jTable1.getModel().getValueAt(row, 0).toString());
-            String sql = "UPDATE users SET fName=?, lName=?, email=?, password=? WHERE userID="+value;
-            PreparedStatement ps =con.prepareStatement(sql);
+            int row = jDisplayCaseworkerTable.getSelectedRow();
+            String value = (jDisplayCaseworkerTable.getModel().getValueAt(row, 0).toString());
+            String sql = "UPDATE caseworkers SET fName=?, lName=?, email=?, password=? WHERE caseworkerID="+value;
+            PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1,jTextField_FirstName.getText());
             ps.setString(2,jTextField_LastName.getText());
             ps.setString(3,jTextField_Email.getText());
             ps.setString(4,jTextField_Password.getText());
             ps.execute();
-            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+            DefaultTableModel model = (DefaultTableModel)jDisplayCaseworkerTable.getModel();
             model.setRowCount(0);
-            show_users();
+            show_caseworkers();
             JOptionPane.showMessageDialog(null, "Updated " + "Sucessfully");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_jUpdateButtonActionPerformed
 
-    private void jDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteButtonActionPerformed
-        String query = "DELETE FROM `users` WHERE userID = " + this.jTextField_ID.getText();
-        executeSQlQuery(query, "Deleted"); 
-    }//GEN-LAST:event_jDeleteButtonActionPerformed
-
-    private void jTextField_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_FirstNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_FirstNameActionPerformed
-
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-        int i = jTable1.getSelectedRow(); 
-        TableModel model= jTable1.getModel();
-        jTextField_ID.setText(model.getValueAt(i,0).toString());
-        jTextField_FirstName.setText(model.getValueAt(i,1).toString());
-        jTextField_LastName.setText(model.getValueAt(i,2).toString());
-        jTextField_Email.setText(model.getValueAt(i,3).toString());
-        jTextField_Password.setText(model.getValueAt(i,4).toString());
-    }//GEN-LAST:event_jTable1MouseClicked
-
     private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
         try {
             // TODO add your handling code here:
-            String sql = "INSERT INTO users (fName, lName, email, password) "+
-                    " VALUES (?,?,?,?)";
+            String sql = "INSERT INTO caseworkers (fName, lName, email, password) "+
+            " VALUES (?,?,?,?)";
             PreparedStatement ps =con.prepareStatement(sql);
             ps.setString(1,jTextField_FirstName.getText());
             ps.setString(2,jTextField_LastName.getText());
             ps.setString(3,jTextField_Email.getText());
             ps.setString(4,jTextField_Password.getText());
             ps.execute();
-            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+            DefaultTableModel model = (DefaultTableModel)jDisplayCaseworkerTable.getModel();
             model.setRowCount(0);
-            show_users();
+            show_caseworkers();
             JOptionPane.showMessageDialog(null, "Inserted " + "Sucessfully");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_jInsertButtonActionPerformed
+
+    private void jDisplayCaseworkerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDisplayCaseworkerTableMouseClicked
+        // TODO add your handling code here:
+        int i = jDisplayCaseworkerTable.getSelectedRow();
+        TableModel model= jDisplayCaseworkerTable.getModel();
+        jTextField_ID.setText(model.getValueAt(i,0).toString());
+        jTextField_FirstName.setText(model.getValueAt(i,1).toString());
+        jTextField_LastName.setText(model.getValueAt(i,2).toString());
+        jTextField_Email.setText(model.getValueAt(i,3).toString());
+        jTextField_Password.setText(model.getValueAt(i,4).toString());
+    }//GEN-LAST:event_jDisplayCaseworkerTableMouseClicked
+
+    private void jTextField_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_FirstNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_FirstNameActionPerformed
 
     private void clearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton1ActionPerformed
         // TODO add your handling code here:
@@ -455,7 +417,6 @@ public class clientData_GUI extends javax.swing.JFrame {
 
     private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
         // TODO add your handling code here:
-
     }//GEN-LAST:event_backButton2MouseMoved
 
     private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
@@ -487,30 +448,32 @@ public class clientData_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(clientData_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(clientCaseworkerAdmin_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(clientData_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(clientCaseworkerAdmin_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(clientData_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(clientCaseworkerAdmin_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(clientData_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(clientCaseworkerAdmin_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new clientData_GUI().setVisible(true);
+                new clientCaseworkerAdmin_GUI().setVisible(true);
             }
         });
     }
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel backButton2;
     private javax.swing.JButton clearButton1;
-    private javax.swing.JButton jDeleteButton;
+    private javax.swing.JTable jDisplayCaseworkerTable;
     private javax.swing.JButton jInsertButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -521,7 +484,6 @@ public class clientData_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField_Email;
     private javax.swing.JTextField jTextField_FirstName;
