@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -152,7 +153,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Select Industry:");
+        jLabel3.setText("Industry ID:");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,11 +174,11 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Industry ID", "Industry Name", "Code", "Title"
+                "ID", "Industry ID", "Code", "Title"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -185,13 +186,17 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
             }
         });
         jCourseListTable.getTableHeader().setReorderingAllowed(false);
+        jCourseListTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCourseListTableMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jCourseListTable);
         if (jCourseListTable.getColumnModel().getColumnCount() > 0) {
             jCourseListTable.getColumnModel().getColumn(0).setResizable(false);
             jCourseListTable.getColumnModel().getColumn(1).setResizable(false);
             jCourseListTable.getColumnModel().getColumn(2).setResizable(false);
             jCourseListTable.getColumnModel().getColumn(3).setResizable(false);
-            jCourseListTable.getColumnModel().getColumn(4).setResizable(false);
         }
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -201,12 +206,6 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Title:");
-
-        jSelectIndustryComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jSelectIndustryComboBoxActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -219,22 +218,23 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel5)
-                                .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel4)
-                                .addComponent(jTextField_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
                         .addGap(28, 28, 28)
                         .addComponent(clearButton1))
-                    .addComponent(jSelectIndustryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4)
+                    .addComponent(jTextField_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSelectIndustryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
         jPanel1Layout.setVerticalGroup(
@@ -244,32 +244,31 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(clearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(clearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSelectIndustryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(8, 8, 8)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(11, 11, 11)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)
+                        .addGap(23, 23, 23)
                         .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -290,9 +289,9 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         
         try {
             st = con.createStatement();
-            rs = st.executeQuery("SELECT `id`, `IndustryDesc` FROM `industries`");
+            rs = st.executeQuery("SELECT `id` FROM `industries`");
             while(rs.next()){
-                jSelectIndustryComboBox.addItem(rs.getString("IndustryDesc"));
+                jSelectIndustryComboBox.addItem(rs.getString("id"));
                 
             }
         } catch (SQLException ex) {
@@ -302,8 +301,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
    
     public ArrayList<CourseList> getCourseList() {
         ArrayList<CourseList> coursesList = new ArrayList<>();
-        String sql = "SELECT `id`, industries_id, industryDesc, code, title FROM `courses`"
-                + "INNER JOIN industries as itab on itab.id = `industries_id`";
+        String sql = "SELECT * FROM courses";
     
     try {
         st = con.createStatement();
@@ -311,7 +309,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         CourseList courseList; 
         while(rs.next()) {
             courseList = new CourseList(rs.getInt("id"), rs.getInt("industries_id"), 
-            rs.getString("industryDesc"), rs.getString("code"), rs.getString("title"));
+            rs.getString("code"), rs.getString("title"));
             coursesList.add(courseList);
         }
         
@@ -322,6 +320,37 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
     return coursesList; 
    
     }
+    
+    public void course_list() {
+        ArrayList<CourseList> list = getCourseList();
+        DefaultTableModel model = (DefaultTableModel) jCourseListTable.getModel();
+        Object[] row = new Object[4];
+     
+     for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
+         row[0] = list.get(i).getID();
+         row[1] = list.get(i).getIndustryID();
+         row[2] = list.get(i).getCode();
+         row[3] = list.get(i).getTitle();
+         model.addRow(row);
+     } // end of for
+    } // end of show_users
+    
+    public void executeSQlQuery(String query, String message) {
+        try {
+            st = con.createStatement();
+            if((st.executeUpdate(query))==1) {
+                DefaultTableModel model = (DefaultTableModel)jCourseListTable.getModel();
+                model.setRowCount(0);
+                getCourseList();
+                JOptionPane.showMessageDialog(null, "Data " + message + " Sucessful");
+             } else {    
+                 JOptionPane.showMessageDialog(null, "Data Not " + message);
+             } // end of if 
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
      
     private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
         // TODO add your handling code here:
@@ -336,15 +365,48 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitButtonMouseClicked
 
     private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
-
+        try {
+            // TODO add your handling code here:
+            String sql = "INSERT INTO courses (industries_id, code, title) "+
+                    " VALUES (?,?,?)";
+            PreparedStatement ps =con.prepareStatement(sql);
+            ps.setObject(1,jSelectIndustryComboBox.getSelectedItem());
+            ps.setString(2,jTextField_Code.getText());
+            ps.setString(3,jTextField_Title.getText());
+            ps.execute();
+            DefaultTableModel model = (DefaultTableModel)jCourseListTable.getModel();
+            model.setRowCount(0);
+            course_list();
+            JOptionPane.showMessageDialog(null, "Inserted " + "Sucessfully");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_jInsertButtonActionPerformed
 
     private void jUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateButtonActionPerformed
-
+        try {
+            // TODO add your handling code here:
+            int row = jCourseListTable.getSelectedRow(); 
+            String value = (jCourseListTable.getModel().getValueAt(row, 0).toString());
+            String sql = "UPDATE courses SET id=?, industries_id=?, code=?, title=? WHERE id="+value;
+            PreparedStatement ps =con.prepareStatement(sql);
+            ps.setString(1,jTextField_ID.getText());
+            ps.setObject(2,jSelectIndustryComboBox.getSelectedItem());
+            ps.setString(3,jTextField_Code.getText());
+            ps.setString(4,jTextField_Title.getText());
+            ps.execute();
+            DefaultTableModel model = (DefaultTableModel)jCourseListTable.getModel();
+            model.setRowCount(0);
+            course_list();
+            JOptionPane.showMessageDialog(null, "Updated " + "Sucessfully");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_jUpdateButtonActionPerformed
 
     private void jDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteButtonActionPerformed
-
+        String query = "DELETE FROM `courses` WHERE id = " + this.jTextField_ID.getText();
+        executeSQlQuery(query, "Deleted");
     }//GEN-LAST:event_jDeleteButtonActionPerformed
 
     private void clearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton1ActionPerformed
@@ -354,40 +416,16 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         s.setVisible(true);
     }//GEN-LAST:event_clearButton1ActionPerformed
 
-    private void jSelectIndustryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSelectIndustryComboBoxActionPerformed
-                                 
-    }//GEN-LAST:event_jSelectIndustryComboBoxActionPerformed
-
-    public void course_list() {
-        ArrayList<CourseList> list = getCourseList();
-        DefaultTableModel model = (DefaultTableModel) jCourseListTable.getModel();
-        Object[] row = new Object[4];
-     
-     for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
-         row[0] = list.get(i).getIndustryID();
-         row[1] = list.get(i).getIndustryDesc();
-         row[2] = list.get(i).getCode();
-         row[3] = list.get(i).getTitle();
-         model.addRow(row);
-     } // end of for
-    } // end of show_users
-    
-    public void executeSQlQuery(String query, String message) {
-        try {
-            st = con.createStatement();
-            if((st.executeUpdate(query))==1) {
-                DefaultTableModel model = (DefaultTableModel)jCourseListTable.getModel();
-                model.setRowCount(0);
-                course_list();
-                JOptionPane.showMessageDialog(null, "Data " + message + " Sucessful");
-             } else {    
-                 JOptionPane.showMessageDialog(null, "Data Not " + message);
-             } // end of if 
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    
+    private void jCourseListTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCourseListTableMouseClicked
+        // TODO add your handling code here:
+        int i = jCourseListTable.getSelectedRow();
+        TableModel model= jCourseListTable.getModel();
+        jTextField_ID.setText(model.getValueAt(i,0).toString());
+        jSelectIndustryComboBox.setSelectedItem(model.getValueAt(i,1).toString());
+        jTextField_Code.setText(model.getValueAt(i,2).toString());
+        jTextField_Title.setText(model.getValueAt(i,3).toString());
+    }//GEN-LAST:event_jCourseListTableMouseClicked
+ 
     /**
      * @param args the command line arguments
      */

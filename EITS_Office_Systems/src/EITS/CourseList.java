@@ -15,18 +15,15 @@ public class CourseList {
   private int id;
   
   private int industries_id;
-  
-  private String industryDesc;
 
   private String code;
           
   private String title; 
   
-  public CourseList(int ID, int industries_id, String industryDesc, String code, String title){
+  public CourseList(int ID, int industries_id, String code, String title){
       
       this.id = ID;
       this.industries_id = industries_id;
-      this.industryDesc = industryDesc;
       this.code = code;
       this.title = title; 
   } 
@@ -42,10 +39,6 @@ public int getID() {
 public int getIndustryID() {
     return industries_id; 
  }
-
-public String getIndustryDesc() {
-    return industryDesc; 
-}
   
 public String getCode() {
     return code; 
