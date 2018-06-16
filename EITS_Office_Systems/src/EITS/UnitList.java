@@ -12,14 +12,14 @@ package EITS;
 public class UnitList {
     
     private int id;
-    private String code; 
+    private String name; 
     private String unitDesc;
     private int courses_id;
     
-public UnitList(int ID, String code, String unitDesc, int courses_id) {
+public UnitList(int ID, String name, String unitDesc, int courses_id) {
     
     this.id = ID;
-    this.code = code;
+    this.name = name;
     this.unitDesc = unitDesc; 
     this.courses_id = courses_id;
     
@@ -42,15 +42,15 @@ public UnitList(int ID, String code, String unitDesc, int courses_id) {
     /**
      * @return the code
      */
-    public String getCode() {
-        return code;
+    public String getName() {
+        return name;
     }
 
     /**
      * @param code the code to set
      */
-    public void setCode(String code) {
-        this.code = code;
+    public void setName(String code) {
+        this.name = name;
     }
 
     /**

@@ -13,15 +13,15 @@ package EITS;
 public class CaseWorker_ProgressList {
   private int userID; 
 
-  private String FirstName, LastName, Title, unitsID, Results, Note;
+  private String FirstName, LastName, Title, Name, Results, Note;
 
-  public CaseWorker_ProgressList(int userID, String fName, String lName, String title, String units_id, String results, String note){
+  public CaseWorker_ProgressList(int userID, String fName, String lName, String title, String name, String results, String note){
       
       this.userID = userID; 
       this.FirstName = fName;
       this.LastName = lName; 
       this.Title = title; 
-      this.unitsID = units_id;
+      this.Name = name;
       this.Results = results;
       this.Note = note;
   }
@@ -36,8 +36,8 @@ public class CaseWorker_ProgressList {
     /**
      * @return the unitsID
      */
-    public String getUnitsID() {
-        return unitsID;
+    public String getName() {
+        return Name;
     }
 
     /**

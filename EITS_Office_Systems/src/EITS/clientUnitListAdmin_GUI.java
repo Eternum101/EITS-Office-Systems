@@ -321,7 +321,7 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         rs = st.executeQuery(sql);
         UnitList unitList; 
         while(rs.next()) {
-            unitList = new UnitList(rs.getInt("ID"), rs.getString("code"), rs.getString("unitDesc"), rs.getInt("courses_id"));
+            unitList = new UnitList(rs.getInt("ID"), rs.getString("name"), rs.getString("unitDesc"), rs.getInt("courses_id"));
             unitsList.add(unitList);
         }
         
@@ -340,7 +340,7 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
      
      for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
          row[0] = list.get(i).getId();
-         row[1] = list.get(i).getCode();
+         row[1] = list.get(i).getName();
          row[2] = list.get(i).getUnitDesc();
          row[3] = list.get(i).getCourses_id();
          model.addRow(row);
@@ -393,7 +393,7 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
     private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
         try {
             // TODO add your handling code here:
-            String sql = "INSERT INTO units (code, unitDesc, courses_id) "+
+            String sql = "INSERT INTO units (name, unitDesc, courses_id) "+
                     " VALUES (?,?,?)";
             PreparedStatement ps =con.prepareStatement(sql);
             ps.setString(1,jTextField_UnitCode.getText());
@@ -414,7 +414,7 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
             // TODO add your handling code here:
             int row = jUnitListTable.getSelectedRow(); 
             String value = (jUnitListTable.getModel().getValueAt(row, 0).toString());
-            String sql = "UPDATE units SET id=?, code=?, unitDesc=?, courses_id=? WHERE id="+value;
+            String sql = "UPDATE units SET id=?, name=?, unitDesc=?, courses_id=? WHERE id="+value;
             PreparedStatement ps =con.prepareStatement(sql);
             ps.setString(1,jTextField_ID.getText());
             ps.setString(2,jTextField_UnitCode.getText());

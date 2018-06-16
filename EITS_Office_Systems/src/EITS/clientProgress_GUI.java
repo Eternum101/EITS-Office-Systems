@@ -198,15 +198,16 @@ public class clientProgress_GUI extends javax.swing.JFrame {
         ArrayList<CaseWorker_ProgressList> progressLists = new ArrayList<CaseWorker_ProgressList>();
     try {        
         st = con.createStatement();
-        String searchQuery = "SELECT `userID`, `fName`, `lName`, `title`, `units_id`, `results`, "
-                    + "`notes` FROM `users` "
-                    + "INNER JOIN courses AS ctab on ctab.id = `courses_id` LIKE '%"+ValToSearch+"%'";
+        String searchQuery = "SELECT `userID`, `fName`, `lName`, `title`, `name`, `results`, `notes` FROM `users` "
+                + "INNER JOIN courses AS ctab on ctab.id = `courses_id` "
+                + "INNER JOIN units as utab on utab.id = `units_id`"
+        + "LIKE '%"+ValToSearch+"%'";
         //String searchQuery = "SELECT * FROM `users` WHERE CONCAT(`userID`,`fName`,`lName`,`email`)LIKE '%"+ValToSearch+"%'";
         rs = st.executeQuery(searchQuery);
         CaseWorker_ProgressList progressList; 
         while(rs.next()) {
             progressList = new CaseWorker_ProgressList(rs.getInt("userID"), rs.getString("fName"), rs.getString("lName")
-            , rs.getString("title"), rs.getString("units_id"), rs.getString("results"), rs.getString("notes"));
+            , rs.getString("title"), rs.getString("name"), rs.getString("results"), rs.getString("notes"));
             progressLists.add(progressList);
         }
         
@@ -229,7 +230,7 @@ public class clientProgress_GUI extends javax.swing.JFrame {
          row[1] = list.get(i).getFirstName();
          row[2] = list.get(i).getLastName();
          row[3] = list.get(i).getTitle();
-         row[4] = list.get(i).getUnitsID();
+         row[4] = list.get(i).getName();
          row[5] = list.get(i).getResults();
          row[6] = list.get(i).getNote();
          

@@ -255,7 +255,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
             rs = ps.executeQuery(); 
             
         while (rs.next()) {
-            String id = rs.getString("code");
+            String id = rs.getString("name");
             String units = rs.getString("unitDesc");
             m.addElement(id); 
             m.addElement(units); 
