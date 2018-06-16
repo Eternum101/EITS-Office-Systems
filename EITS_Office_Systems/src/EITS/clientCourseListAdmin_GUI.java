@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -32,6 +33,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         initComponents();
         con = DatabaseConnection.getConnection();
         SelectComboBox();
+        course_list();
     }
 
     /**
@@ -51,7 +53,6 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         jInsertButton = new javax.swing.JButton();
         jUpdateButton = new javax.swing.JButton();
         jDeleteButton = new javax.swing.JButton();
-        jTextField_IndustryID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextField_ID = new javax.swing.JTextField();
@@ -151,7 +152,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Industry ID:");
+        jLabel3.setText("Select Industry:");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,19 +173,12 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Industry ID"
+                "ID", "Industry ID", "Industry Name", "Code", "Title"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -195,6 +189,9 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         if (jCourseListTable.getColumnModel().getColumnCount() > 0) {
             jCourseListTable.getColumnModel().getColumn(0).setResizable(false);
             jCourseListTable.getColumnModel().getColumn(1).setResizable(false);
+            jCourseListTable.getColumnModel().getColumn(2).setResizable(false);
+            jCourseListTable.getColumnModel().getColumn(3).setResizable(false);
+            jCourseListTable.getColumnModel().getColumn(4).setResizable(false);
         }
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -219,16 +216,15 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField_IndustryID, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel5)
                                 .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -238,7 +234,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
                                 .addComponent(jLabel6)))
                         .addGap(28, 28, 28)
                         .addComponent(clearButton1))
-                    .addComponent(jSelectIndustryComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSelectIndustryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
         jPanel1Layout.setVerticalGroup(
@@ -248,8 +244,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSelectIndustryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(26, 26, 26)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -258,7 +253,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_IndustryID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSelectIndustryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -274,7 +269,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -307,7 +302,8 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
    
     public ArrayList<CourseList> getCourseList() {
         ArrayList<CourseList> coursesList = new ArrayList<>();
-        String sql = "SELECT * FROM courses";
+        String sql = "SELECT `id`, industries_id, industryDesc, code, title FROM `courses`"
+                + "INNER JOIN industries as itab on itab.id = `industries_id`";
     
     try {
         st = con.createStatement();
@@ -315,7 +311,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         CourseList courseList; 
         while(rs.next()) {
             courseList = new CourseList(rs.getInt("id"), rs.getInt("industries_id"), 
-            rs.getString("code"), rs.getString("title"));
+            rs.getString("industryDesc"), rs.getString("code"), rs.getString("title"));
             coursesList.add(courseList);
         }
         
@@ -359,19 +355,39 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_clearButton1ActionPerformed
 
     private void jSelectIndustryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSelectIndustryComboBoxActionPerformed
-      ArrayList<CourseList> list = getCourseList();
-     DefaultTableModel model = (DefaultTableModel) jSelectIndustryComboBox.getSelectedItem();
-     Object[] row = new Object[4];
+                                 
+    }//GEN-LAST:event_jSelectIndustryComboBoxActionPerformed
+
+    public void course_list() {
+        ArrayList<CourseList> list = getCourseList();
+        DefaultTableModel model = (DefaultTableModel) jCourseListTable.getModel();
+        Object[] row = new Object[4];
      
      for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
-         row[0] = list.get(i).getID();
-         row[1] = list.get(i).getIndustryID();
+         row[0] = list.get(i).getIndustryID();
+         row[1] = list.get(i).getIndustryDesc();
          row[2] = list.get(i).getCode();
          row[3] = list.get(i).getTitle();
          model.addRow(row);
-     } // end of for                                 
-    }//GEN-LAST:event_jSelectIndustryComboBoxActionPerformed
-
+     } // end of for
+    } // end of show_users
+    
+    public void executeSQlQuery(String query, String message) {
+        try {
+            st = con.createStatement();
+            if((st.executeUpdate(query))==1) {
+                DefaultTableModel model = (DefaultTableModel)jCourseListTable.getModel();
+                model.setRowCount(0);
+                course_list();
+                JOptionPane.showMessageDialog(null, "Data " + message + " Sucessful");
+             } else {    
+                 JOptionPane.showMessageDialog(null, "Data Not " + message);
+             } // end of if 
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -426,7 +442,6 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jSelectIndustryComboBox;
     private javax.swing.JTextField jTextField_Code;
     private javax.swing.JTextField jTextField_ID;
-    private javax.swing.JTextField jTextField_IndustryID;
     private javax.swing.JTextField jTextField_Title;
     private javax.swing.JButton jUpdateButton;
     // End of variables declaration//GEN-END:variables

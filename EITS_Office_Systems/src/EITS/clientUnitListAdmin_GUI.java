@@ -1,5 +1,17 @@
 package EITS;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,12 +23,18 @@ package EITS;
  * @author 2104990817
  */
 public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
-
+    Connection con = null; 
+    ResultSet rs = null; 
+    PreparedStatement ps = null; 
+    Statement st = null;
     /**
      * Creates new form ClientCourseListAdmin_GUI
      */
     public clientUnitListAdmin_GUI() {
         initComponents();
+        con = DatabaseConnection.getConnection();
+        show_units();
+        SelectComboBox();
     }
 
     /**
@@ -37,15 +55,16 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextField_ID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField_UnitDesc = new javax.swing.JTextField();
+        jTextField_UnitCode = new javax.swing.JTextField();
         jInsertButton = new javax.swing.JButton();
         jUpdateButton = new javax.swing.JButton();
         jDeleteButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jUnitListTable = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
-        jTextField_CourseID = new javax.swing.JTextField();
-        jSelectCourseComboBox = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField_UnitDesc = new javax.swing.JTextField();
+        jCourseComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,9 +141,9 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Unit Description:");
 
-        jTextField_UnitDesc.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_UnitCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_UnitDescActionPerformed(evt);
+                jTextField_UnitCodeActionPerformed(evt);
             }
         });
 
@@ -163,15 +182,20 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Unit Description", "Course ID"
+                "ID", "Code", "Unit Description", "Course ID"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jUnitListTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jUnitListTableMouseClicked(evt);
             }
         });
         jScrollPane3.setViewportView(jUnitListTable);
@@ -179,19 +203,22 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
             jUnitListTable.getColumnModel().getColumn(0).setResizable(false);
             jUnitListTable.getColumnModel().getColumn(1).setResizable(false);
             jUnitListTable.getColumnModel().getColumn(2).setResizable(false);
+            jUnitListTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Course ID:");
 
-        jTextField_CourseID.addActionListener(new java.awt.event.ActionListener() {
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Code:");
+
+        jTextField_UnitDesc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_CourseIDActionPerformed(evt);
+                jTextField_UnitDescActionPerformed(evt);
             }
         });
-
-        jSelectCourseComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Course" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -199,57 +226,62 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(46, 46, 46)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
+                        .addGap(60, 60, 60)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5)
                             .addComponent(jDeleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jUpdateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_UnitDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField_CourseID, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField_ID, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                            .addComponent(jSelectCourseComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jTextField_ID, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                            .addComponent(jTextField_UnitDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField_UnitCode, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                            .addComponent(jInsertButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCourseComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
+                        .addGap(108, 108, 108)
                         .addComponent(clearButton1)))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(clearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSelectCourseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel5))
+                            .addComponent(clearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField_UnitCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_UnitDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_CourseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jCourseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -266,6 +298,71 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void SelectComboBox() {
+        
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT `id` FROM `courses`");
+            while(rs.next()){
+                jCourseComboBox.addItem(rs.getString("id"));
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(clientUnitListAdmin_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public ArrayList<UnitList> getUnitList() {
+        ArrayList<UnitList> unitsList = new ArrayList<>();
+        String sql = "SELECT * FROM units";
+    
+    try {
+        st = con.createStatement();
+        rs = st.executeQuery(sql);
+        UnitList unitList; 
+        while(rs.next()) {
+            unitList = new UnitList(rs.getInt("ID"), rs.getString("code"), rs.getString("unitDesc"), rs.getInt("courses_id"));
+            unitsList.add(unitList);
+        }
+        
+    }   catch (SQLException ex) {            
+    
+    }            
+    
+    return unitsList; 
+   
+    }
+    
+    public void show_units() {
+     ArrayList<UnitList> list = getUnitList();
+     DefaultTableModel model = (DefaultTableModel) jUnitListTable.getModel();
+     Object[] row = new Object[4];
+     
+     for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
+         row[0] = list.get(i).getId();
+         row[1] = list.get(i).getCode();
+         row[2] = list.get(i).getUnitDesc();
+         row[3] = list.get(i).getCourses_id();
+         model.addRow(row);
+     } // end of for
+    } // end of show_users
+    
+    public void executeSQlQuery(String query, String message) {
+        try {
+            st = con.createStatement();
+            if((st.executeUpdate(query))==1) {
+                DefaultTableModel model = (DefaultTableModel)jUnitListTable.getModel();
+                model.setRowCount(0);
+                show_units();
+                JOptionPane.showMessageDialog(null, "Data " + message + " Sucessful");
+             } else {    
+                 JOptionPane.showMessageDialog(null, "Data Not " + message);
+             } // end of if 
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
     private void backButton3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton3MouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_backButton3MouseMoved
@@ -289,25 +386,68 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         s.setVisible(true);
     }//GEN-LAST:event_clearButton1ActionPerformed
 
-    private void jTextField_UnitDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_UnitDescActionPerformed
+    private void jTextField_UnitCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_UnitCodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_UnitDescActionPerformed
+    }//GEN-LAST:event_jTextField_UnitCodeActionPerformed
 
     private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
-
+        try {
+            // TODO add your handling code here:
+            String sql = "INSERT INTO units (code, unitDesc, courses_id) "+
+                    " VALUES (?,?,?)";
+            PreparedStatement ps =con.prepareStatement(sql);
+            ps.setString(1,jTextField_UnitCode.getText());
+            ps.setString(2,jTextField_UnitDesc.getText());
+            ps.setObject(3,jCourseComboBox.getSelectedItem());
+            ps.execute();
+            DefaultTableModel model = (DefaultTableModel)jUnitListTable.getModel();
+            model.setRowCount(0);
+            show_units();
+            JOptionPane.showMessageDialog(null, "Inserted " + "Sucessfully");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_jInsertButtonActionPerformed
 
     private void jUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateButtonActionPerformed
-
+        try {
+            // TODO add your handling code here:
+            int row = jUnitListTable.getSelectedRow(); 
+            String value = (jUnitListTable.getModel().getValueAt(row, 0).toString());
+            String sql = "UPDATE units SET id=?, code=?, unitDesc=?, courses_id=? WHERE id="+value;
+            PreparedStatement ps =con.prepareStatement(sql);
+            ps.setString(1,jTextField_ID.getText());
+            ps.setString(2,jTextField_UnitCode.getText());
+            ps.setString(3,jTextField_UnitDesc.getText());
+            ps.setObject(4,jCourseComboBox.getSelectedItem());
+            ps.execute();
+            DefaultTableModel model = (DefaultTableModel)jUnitListTable.getModel();
+            model.setRowCount(0);
+            show_units();
+            JOptionPane.showMessageDialog(null, "Updated " + "Sucessfully");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_jUpdateButtonActionPerformed
 
     private void jDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteButtonActionPerformed
-
+        String query = "DELETE FROM `units` WHERE id = " + this.jTextField_ID.getText();
+        executeSQlQuery(query, "Deleted");
     }//GEN-LAST:event_jDeleteButtonActionPerformed
 
-    private void jTextField_CourseIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_CourseIDActionPerformed
+    private void jUnitListTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jUnitListTableMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_CourseIDActionPerformed
+        int i = jUnitListTable.getSelectedRow();
+        TableModel model= jUnitListTable.getModel();
+        jTextField_ID.setText(model.getValueAt(i,0).toString());
+        jTextField_UnitCode.setText(model.getValueAt(i,1).toString());
+        jTextField_UnitDesc.setText(model.getValueAt(i,2).toString());
+        jCourseComboBox.setSelectedItem(model.getValueAt(i,3).toString());
+    }//GEN-LAST:event_jUnitListTableMouseClicked
+
+    private void jTextField_UnitDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_UnitDescActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_UnitDescActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,18 +491,19 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel backButton3;
     private javax.swing.JButton clearButton1;
+    private javax.swing.JComboBox<String> jCourseComboBox;
     private javax.swing.JButton jDeleteButton;
     private javax.swing.JButton jInsertButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JComboBox<String> jSelectCourseComboBox;
-    private javax.swing.JTextField jTextField_CourseID;
     private javax.swing.JTextField jTextField_ID;
+    private javax.swing.JTextField jTextField_UnitCode;
     private javax.swing.JTextField jTextField_UnitDesc;
     private javax.swing.JTable jUnitListTable;
     private javax.swing.JButton jUpdateButton;
