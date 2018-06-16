@@ -295,9 +295,9 @@ public class startGUI extends javax.swing.JFrame {
             }
 
             if(!isValid) {
-                dispose();
                 signinError_GUI s = new signinError_GUI();
                 s.setVisible(true);
+                dispose();
         }
             
             

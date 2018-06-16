@@ -299,9 +299,9 @@ public class signup_GUI extends javax.swing.JFrame {
              ps.setString(3, Email);
              ps.setString(4, Password);
              ps.executeUpdate();
-             dispose();
              thankyou_GUI s = new thankyou_GUI();
              s.setVisible(true);
+             dispose();
              
              } catch (Exception e) {
             System.out.println(e.getMessage()); 

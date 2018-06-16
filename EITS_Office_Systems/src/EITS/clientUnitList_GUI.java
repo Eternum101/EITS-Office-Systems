@@ -36,7 +36,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
         myUser = user;
         CourseID = Course_ID;
         this.nameLabel.setText(myUser.getFirstName());
-        this.nameLabel2.setText(myUser.getLastName());
+        
     }
     
     public clientUnitList_GUI(User user) {
@@ -45,7 +45,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
         ListUnits();
         myUser = user;
         this.nameLabel.setText(myUser.getFirstName());
-        this.nameLabel2.setText(myUser.getLastName());
+        
     }
     
     
@@ -68,12 +68,11 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         enrolButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jList2 = new javax.swing.JList<>();
         jPanel3 = new javax.swing.JPanel();
         backButton3 = new javax.swing.JLabel();
         ExitButton = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        nameLabel2 = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -121,7 +120,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(jList2);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -195,9 +194,6 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
                 .addComponent(jLabel2))
         );
 
-        nameLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        nameLabel2.setText("nameLabel");
-
         nameLabel.setForeground(new java.awt.Color(255, 255, 255));
         nameLabel.setText("nameLabel");
 
@@ -218,8 +214,6 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -235,7 +229,6 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nameLabel)
-                            .addComponent(nameLabel2)
                             .addComponent(jLabel3))
                         .addContainerGap())))
         );
@@ -267,7 +260,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
             m.addElement(id); 
             m.addElement(units); 
         }
-            jList1.setModel(m); 
+            jList2.setModel(m); 
         } catch (SQLException ex) {
             
         }
@@ -292,7 +285,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
     private void backButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton3MouseClicked
         // TODO add your handling code here:
         dispose();
-        clientCourseList_GUI s = new clientCourseList_GUI();
+        clientCourseList_GUI s = new clientCourseList_GUI(myUser);
         s.setVisible(true);
     }//GEN-LAST:event_backButton3MouseClicked
 
@@ -344,14 +337,13 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JLabel nameLabel2;
     // End of variables declaration//GEN-END:variables
 
     /**

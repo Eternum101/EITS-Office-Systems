@@ -3,9 +3,10 @@ package EITS;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.SQLException; 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -28,24 +29,25 @@ public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
      */
     public clientUnitListAlternate_GUI(User user, int Course_ID) {
         initComponents();
+        con = DatabaseConnection.getConnection();
+        ListUnits();
         myUser = user;
         CourseID = Course_ID;
-        con = DatabaseConnection.getConnection();
-        //this.nameLabel.setText(myUser.getFirstName());
-        //this.nameLabel2.setText(myUser.getLastName());
+        this.nameLabel.setText(myUser.getFirstName());
+        
     }
     public clientUnitListAlternate_GUI(User user) {
         initComponents();
-        myUser = user;
         con = DatabaseConnection.getConnection();
-        //this.nameLabel.setText(myUser.getFirstName());
-        //this.nameLabel2.setText(myUser.getLastName());
+        ListUnits();
+        myUser = user;
+        this.nameLabel.setText(myUser.getFirstName());
     }
-
-    private clientUnitListAlternate_GUI() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public clientUnitListAlternate_GUI() {
+    initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,15 +59,17 @@ public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        backButton2 = new javax.swing.JLabel();
         ExitButton = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        backButton = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabelmain = new javax.swing.JLabel();
         enrolButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList<>();
+        jLabel3 = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,18 +80,6 @@ public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(51, 51, 51));
         jPanel6.setForeground(new java.awt.Color(153, 153, 153));
 
-        backButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SignOutwhite_28px.png"))); // NOI18N
-        backButton2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                backButton2MouseMoved(evt);
-            }
-        });
-        backButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                backButton2MouseClicked(evt);
-            }
-        });
-
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit_28px.png"))); // NOI18N
         ExitButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -97,32 +89,39 @@ public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("COURSE LIST");
+        jLabel2.setText("UNIT LIST");
+
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/return_28px.png"))); // NOI18N
+        backButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(346, Short.MAX_VALUE)
+                .addGap(153, 153, 153)
                 .addComponent(jLabel2)
-                .addGap(287, 287, 287)
-                .addComponent(backButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backButton)
                 .addGap(18, 18, 18)
                 .addComponent(ExitButton)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ExitButton)
-                    .addComponent(backButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backButton)
+                    .addComponent(ExitButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(220, 220, 220));
@@ -162,7 +161,7 @@ public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setViewportView(jList2);
+        jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -189,23 +188,45 @@ public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Logged in as: ");
+
+        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        nameLabel.setText("nameLabel");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144))
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(144, 144, 144))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 34, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(nameLabel))
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,18 +242,26 @@ public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backButton2MouseMoved
-
-    private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
-        // TODO add your handling code here:
-        dispose();
-        startGUI s = new startGUI();
-        s.setVisible(true);
-    }//GEN-LAST:event_backButton2MouseClicked
-
+    
+        private void ListUnits() {
+        DefaultListModel n = new DefaultListModel(); 
+        try {
+            String sq = "SELECT * FROM units WHERE courses_id = 1";
+            ps = con.prepareStatement(sq);
+            rs = ps.executeQuery(); 
+            
+        while (rs.next()) {
+            String id = rs.getString("id");
+            String units = rs.getString("unitDesc");
+            n.addElement(id); 
+            n.addElement(units); 
+        }
+            jList1.setModel(n); 
+        } catch (SQLException ex) {
+            
+        }
+    }
+    
     private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
         // TODO add your handling code here:
         System.exit(0);
@@ -245,14 +274,21 @@ public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
             String sql = "UPDATE `users` SET `courses_id` = " + CourseID + " WHERE `userID` = " + userID + "";
             PreparedStatement ps = con.prepareStatement(sql); 
             ps.execute();
-            dispose();
             thankyouEnrolment_GUI s = new thankyouEnrolment_GUI();
             s.setVisible(true); 
+            dispose();
             
         } catch (SQLException ex) {
             Logger.getLogger(clientUnitList_GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_enrolButton2ActionPerformed
+
+    private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseClicked
+        // TODO add your handling code here:
+        clientCourseList_GUI s = new clientCourseList_GUI(myUser);
+        s.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_backButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -291,15 +327,17 @@ public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ExitButton;
-    private javax.swing.JLabel backButton2;
+    private javax.swing.JLabel backButton;
     private javax.swing.JButton enrolButton2;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelmain;
-    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables
 }
