@@ -19,7 +19,7 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
         initComponents();
         myUser = user;
         this.nameLabel.setText(myUser.getFirstName());
-        this.nameLabel2.setText(myUser.getLastName());
+        
     }
     
     public clientCourseList_GUI() {
@@ -48,7 +48,6 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
         ExitButton = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        nameLabel2 = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -195,9 +194,6 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Logged in as: ");
 
-        nameLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        nameLabel2.setText("nameLabel");
-
         nameLabel.setForeground(new java.awt.Color(255, 255, 255));
         nameLabel.setText("nameLabel");
 
@@ -214,14 +210,9 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3)
-                        .addGap(59, 59, 59)
-                        .addComponent(nameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(242, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(100, 100, 100)
-                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(731, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,13 +223,8 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(nameLabel2))
+                    .addComponent(nameLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(474, Short.MAX_VALUE)
-                    .addComponent(nameLabel)
-                    .addContainerGap()))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -336,7 +322,6 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JLabel nameLabel2;
     // End of variables declaration//GEN-END:variables
 
     /**

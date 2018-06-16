@@ -184,44 +184,44 @@ public class adminMain_GUI extends javax.swing.JFrame {
 
     private void ClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientButtonActionPerformed
         // TODO add your handling code here:
-        dispose();
         clientData_GUI s = new clientData_GUI();
         s.setVisible(true);
+        dispose();
     }//GEN-LAST:event_ClientButtonActionPerformed
 
     private void SignoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignoutButtonActionPerformed
         // TODO add your handling code here:
-        dispose();
         startGUI s = new startGUI();
         s.setVisible(true);
+        dispose();
     }//GEN-LAST:event_SignoutButtonActionPerformed
 
     private void courseListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseListButtonActionPerformed
         // TODO add your handling code here:
-        dispose();
         clientCourseListAdmin_GUI s = new clientCourseListAdmin_GUI();
         s.setVisible(true);
+        dispose();
     }//GEN-LAST:event_courseListButtonActionPerformed
 
     private void unitListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitListButtonActionPerformed
         // TODO add your handling code here:
-        dispose();
         clientUnitListAdmin_GUI s = new clientUnitListAdmin_GUI();
         s.setVisible(true);
+        dispose();
     }//GEN-LAST:event_unitListButtonActionPerformed
 
     private void industryListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industryListButtonActionPerformed
         // TODO add your handling code here:
-        dispose();
         clientIndustryListAdmin_GUI s = new clientIndustryListAdmin_GUI();
         s.setVisible(true);
+        dispose();
     }//GEN-LAST:event_industryListButtonActionPerformed
 
     private void caseworkerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caseworkerButtonActionPerformed
         // TODO add your handling code here:
-        dispose();
         clientCaseworkerAdmin_GUI s = new clientCaseworkerAdmin_GUI();
         s.setVisible(true);
+        dispose();
     }//GEN-LAST:event_caseworkerButtonActionPerformed
 
     /**
