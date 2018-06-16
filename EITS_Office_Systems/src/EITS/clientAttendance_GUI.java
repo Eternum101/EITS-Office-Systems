@@ -1,5 +1,14 @@
 package EITS;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,12 +20,17 @@ package EITS;
  * @author 2104990817
  */
 public class clientAttendance_GUI extends javax.swing.JFrame {
-
+    Connection con = null; 
+    ResultSet rs = null; 
+    PreparedStatement ps = null; 
+    Statement st = null;
     /**
      * Creates new form clientAttendance_GUI
      */
     public clientAttendance_GUI() {
         initComponents();
+        con = DatabaseConnection.getConnection();
+        DisplayAttendance();
     }
 
     /**
@@ -30,7 +44,7 @@ public class clientAttendance_GUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jAttendanceTable = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -45,22 +59,30 @@ public class clientAttendance_GUI extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(60, 60, 60));
         jPanel1.setToolTipText("");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jAttendanceTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "First Name ", "Last Name", "Date", "Time ", "Attended"
+                "Student ID", "First Name ", "Last Name", "Course", "Time Attended"
             }
-        ));
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jAttendanceTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jAttendanceTable);
+        if (jAttendanceTable.getColumnModel().getColumnCount() > 0) {
+            jAttendanceTable.getColumnModel().getColumn(0).setResizable(false);
+            jAttendanceTable.getColumnModel().getColumn(1).setResizable(false);
+            jAttendanceTable.getColumnModel().getColumn(2).setResizable(false);
+            jAttendanceTable.getColumnModel().getColumn(3).setResizable(false);
+            jAttendanceTable.getColumnModel().getColumn(4).setResizable(false);
         }
 
         jTextField1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -162,6 +184,31 @@ public class clientAttendance_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void DisplayAttendance() {
+        
+        
+         try {
+            ps = con.prepareStatement("SELECT `userID`, fName, lName, title, loginDate FROM `users` "
+            + "INNER JOIN courses as ctab on ctab.id = `courses_id`");
+            rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) jAttendanceTable.getModel();
+            
+            Object[] row;
+            
+            while(rs.next()) {
+                row = new Object[6];
+                row[0] = rs.getInt(1);
+                row[1] = rs.getString(2);
+                row[2] = rs.getString(3);
+                row[3] = rs.getString(4);
+                row[4] = rs.getString(5);
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(clientAttendance_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }
+    
     private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_backButton2MouseMoved
@@ -216,12 +263,12 @@ public class clientAttendance_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel backButton2;
+    private javax.swing.JTable jAttendanceTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

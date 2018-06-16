@@ -12,11 +12,10 @@ package EITS;
  */
 public class CaseWorker_ProgressList {
   private int userID; 
-  private int unitsID;
 
-  private String FirstName, LastName, Title, Results, Note;
+  private String FirstName, LastName, Title, unitsID, Results, Note;
 
-  public CaseWorker_ProgressList(int userID, String fName, String lName, String title, int units_id, String results, String note){
+  public CaseWorker_ProgressList(int userID, String fName, String lName, String title, String units_id, String results, String note){
       
       this.userID = userID; 
       this.FirstName = fName;
@@ -37,7 +36,7 @@ public class CaseWorker_ProgressList {
     /**
      * @return the unitsID
      */
-    public int getUnitsID() {
+    public String getUnitsID() {
         return unitsID;
     }
 

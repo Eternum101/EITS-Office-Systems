@@ -31,7 +31,8 @@ public class clientProgress_GUI extends javax.swing.JFrame {
     public clientProgress_GUI() {
         initComponents();
         con = DatabaseConnection.getConnection();
-        DisplayProgress();
+        show_ProgressList_caseworker();
+        //DisplayProgress();
     }
 
     /**
@@ -192,7 +193,7 @@ public class clientProgress_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     // Test code, feel like it is close to working but still not display and no errors
-    /* 
+    
     public ArrayList<CaseWorker_ProgressList> getProgressList(String ValToSearch) {
         ArrayList<CaseWorker_ProgressList> progressLists = new ArrayList<CaseWorker_ProgressList>();
     try {        
@@ -205,7 +206,7 @@ public class clientProgress_GUI extends javax.swing.JFrame {
         CaseWorker_ProgressList progressList; 
         while(rs.next()) {
             progressList = new CaseWorker_ProgressList(rs.getInt("userID"), rs.getString("fName"), rs.getString("lName")
-            , rs.getString("title"), rs.getInt("units_id"), rs.getString("results"), rs.getString("note"));
+            , rs.getString("title"), rs.getString("units_id"), rs.getString("results"), rs.getString("notes"));
             progressLists.add(progressList);
         }
         
@@ -221,7 +222,7 @@ public class clientProgress_GUI extends javax.swing.JFrame {
      ArrayList<CaseWorker_ProgressList> list = getProgressList(jDisplayData.getText());
      DefaultTableModel model = new DefaultTableModel();
      model.setColumnIdentifiers(new Object[]{"Student ID","First Name","Last Name","Course","Unit Complete", "Result", "Note"});
-     Object[] row = new Object[8];
+     Object[] row = new Object[7];
      
      for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
          row[0] = list.get(i).getUserID();
@@ -230,15 +231,14 @@ public class clientProgress_GUI extends javax.swing.JFrame {
          row[3] = list.get(i).getTitle();
          row[4] = list.get(i).getUnitsID();
          row[5] = list.get(i).getResults();
-         row[6] = list.get(i).getTitle();
-         row[7] = list.get(i).getNote();
+         row[6] = list.get(i).getNote();
          
          model.addRow(row);
      } // end of for
      jProgressTable.setModel(model);
-    } */
+    } 
     
-    public void DisplayProgress() {
+    /*public void DisplayProgress() {
         
         
          try {
@@ -264,7 +264,7 @@ public class clientProgress_GUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(clientProgress_GUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
-    } 
+    } */
     
     private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
         // TODO add your handling code here:
@@ -285,7 +285,7 @@ public class clientProgress_GUI extends javax.swing.JFrame {
 
     private void jDisplayDataKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDisplayDataKeyReleased
         // TODO add your handling code here:
-        //show_ProgressList_caseworker();
+        show_ProgressList_caseworker();
     }//GEN-LAST:event_jDisplayDataKeyReleased
 
     /**
