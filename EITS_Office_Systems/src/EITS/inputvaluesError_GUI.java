@@ -7,8 +7,10 @@ package EITS;
  */
 
 /**
- *
- * @author 2104990817
+ *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@purpose This page is the unit list page which displays all the units within the selected course. 
+ *@version control 1.0
+ *@date 10/06/2018
  */
 public class inputvaluesError_GUI extends javax.swing.JFrame {
 

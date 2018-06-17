@@ -18,8 +18,10 @@ import javax.swing.table.TableModel;
  */
 
 /**
- *
- * @author Brayden
+ *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@purpose This pages is the industry list admin page which allows admins to insert, update and delete existing or new industries in the database
+ *@version control 1.0
+ *@date 10/06/2018
  */
 public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
     Connection con = null; 

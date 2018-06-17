@@ -7,8 +7,10 @@ package EITS;
  */
 
 /**
- *
- * @author 2104990817
+ *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@purpose This page is the main panel display for caseworkers after they have successfully logged in.
+ *@version control 1.0
+ *@date 10/06/2018
  */
 public class caseworkerMain_GUI extends javax.swing.JFrame {
 

@@ -15,8 +15,10 @@ import javax.swing.DefaultListModel;
  */
 
 /**
- *
- * @author 2101560216
+ *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@purpose This page is the unit list admin page and displays all the units for each course for the admin to insert, update, and delete original or new units
+ *@version control 1.0
+ *@date 10/06/2018
  */
 public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
     User myUser;

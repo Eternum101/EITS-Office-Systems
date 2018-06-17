@@ -9,8 +9,10 @@ import java.awt.Color;
 import java.sql.*;
 import javax.swing.JFrame;
 /**
- *
- * @author 2104990817
+ *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@purpose The functionality for the signup page is to allow a user to input their first name, last name, email and password and for it to be registered inside the database to be later used to login with.
+ *@version control 1.0
+ *@date 10/06/2018
  */
 public class signup_GUI extends javax.swing.JFrame {
     Connection con = null; 

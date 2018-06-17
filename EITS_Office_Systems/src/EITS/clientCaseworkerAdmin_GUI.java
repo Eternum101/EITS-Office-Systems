@@ -16,8 +16,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 /**
- *
- * @author Brayden
+ *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@purpose This page allows a caseworker to only view and search the client data but does not allow them to insert, update or delete any information. 
+ *@version control 1.0
+ *@date 10/06/2018
  */
 public class clientCaseworkerAdmin_GUI extends javax.swing.JFrame {
     Connection con = null; 
