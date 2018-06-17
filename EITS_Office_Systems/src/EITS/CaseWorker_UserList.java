@@ -8,7 +8,7 @@ package EITS;
 
 /**
  *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
- *@purpose This shows a list of the users in the caseworker tab.
+ *@purpose This is a class that displays a list of users in the clientDataLite_GUI intended for caseworkers.
  *@version control 1.0
  *@date 10/06/2018
  */

@@ -8,7 +8,7 @@ package EITS;
 
 /**
  *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
- *@purpose This tab shows the list of industries.
+ *@purpose This is a class that displays a list of industries in the clientIndustryListAdmin_GUI intended for Admins.
  *@version control 1.0
  *@date 10/06/2018
  */

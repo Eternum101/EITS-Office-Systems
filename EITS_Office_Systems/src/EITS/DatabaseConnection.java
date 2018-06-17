@@ -8,7 +8,7 @@ package EITS;
 
 /**
  *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
- *@purpose This is the tab for the database connection.
+ *@purpose This is a class that allows for the database to connected to the application.
  *@version control 1.0
  *@date 10/06/2018
  */
