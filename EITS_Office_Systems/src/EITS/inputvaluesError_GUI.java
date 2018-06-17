@@ -141,7 +141,7 @@ public class inputvaluesError_GUI extends javax.swing.JFrame {
     private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
         // TODO add your handling code here:
         dispose();
-        startGUI s = new startGUI();
+        signup_GUI s = new signup_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_backButton2MouseClicked
 
