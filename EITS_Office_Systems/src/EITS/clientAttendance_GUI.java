@@ -172,8 +172,8 @@ public class clientAttendance_GUI extends javax.swing.JFrame {
         
         
          try {
-            ps = con.prepareStatement("SELECT `userID`, fName, lName, title, loginDate FROM `users` "
-            + "INNER JOIN courses as ctab on ctab.id = `courses_id`");
+            ps = con.prepareStatement("SELECT `userID`, fName, lName, titles, loginDate FROM `users` "
+            + "INNER JOIN course as ctab on ctab.id = `courses_id`");
             rs = ps.executeQuery();
             DefaultTableModel model = (DefaultTableModel) jAttendanceTable.getModel();
             

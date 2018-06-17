@@ -182,7 +182,7 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Code", "Unit Description", "Course ID"
+                "ID", "Name", "Unit Description", "Course ID"
             }
         ) {
             boolean[] canEdit = new boolean [] {
