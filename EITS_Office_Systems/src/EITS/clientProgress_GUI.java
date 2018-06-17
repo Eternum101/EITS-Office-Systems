@@ -31,8 +31,8 @@ public class clientProgress_GUI extends javax.swing.JFrame {
     public clientProgress_GUI() {
         initComponents();
         con = DatabaseConnection.getConnection();
-        show_ProgressList_caseworker();
-        //DisplayProgress();
+        DisplayProgress();
+       
     }
 
     /**
@@ -47,8 +47,6 @@ public class clientProgress_GUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jProgressTable = new javax.swing.JTable();
-        jDisplayData = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         backButton2 = new javax.swing.JLabel();
         ExitButton = new javax.swing.JLabel();
@@ -88,15 +86,6 @@ public class clientProgress_GUI extends javax.swing.JFrame {
             jProgressTable.getColumnModel().getColumn(5).setResizable(false);
             jProgressTable.getColumnModel().getColumn(6).setResizable(false);
         }
-
-        jDisplayData.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jDisplayData.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jDisplayDataKeyReleased(evt);
-            }
-        });
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/2000px-vector_search_icon-svg.png"))); // NOI18N
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.setForeground(new java.awt.Color(153, 153, 153));
@@ -159,23 +148,13 @@ public class clientProgress_GUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(273, 273, 273)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDisplayData, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(292, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jDisplayData, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -194,7 +173,7 @@ public class clientProgress_GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     // Test code, feel like it is close to working but still not display and no errors
     
-    public ArrayList<CaseWorker_ProgressList> getProgressList(String ValToSearch) {
+    /*public ArrayList<CaseWorker_ProgressList> getProgressList(String ValToSearch) {
         ArrayList<CaseWorker_ProgressList> progressLists = new ArrayList<CaseWorker_ProgressList>();
     try {        
         st = con.createStatement();
@@ -236,10 +215,10 @@ public class clientProgress_GUI extends javax.swing.JFrame {
          
          model.addRow(row);
      } // end of for
-     jProgressTable.setModel(model);
-    } 
+     jProgressTable.setModel(model); 
+    } */
     
-    /*public void DisplayProgress() {
+    public void DisplayProgress() {
         
         
          try {
@@ -265,7 +244,7 @@ public class clientProgress_GUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(clientProgress_GUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
-    } */
+    } 
     
     private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
         // TODO add your handling code here:
@@ -283,11 +262,6 @@ public class clientProgress_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitButtonMouseClicked
-
-    private void jDisplayDataKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDisplayDataKeyReleased
-        // TODO add your handling code here:
-        show_ProgressList_caseworker();
-    }//GEN-LAST:event_jDisplayDataKeyReleased
 
     /**
      * @param args the command line arguments
@@ -327,8 +301,6 @@ public class clientProgress_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel backButton2;
-    private javax.swing.JTextField jDisplayData;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
