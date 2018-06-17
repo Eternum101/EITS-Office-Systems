@@ -7,7 +7,7 @@ package EITS;
 
 /**
  *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
- *@purpose This is a tab for the caseworker list.
+ *@purpose This is a class that displays a list of caseworkers in the clientCaseworkerAdmin_GUI intended for Admins.
  *@version control 1.0
  *@date 10/06/2018
  */
