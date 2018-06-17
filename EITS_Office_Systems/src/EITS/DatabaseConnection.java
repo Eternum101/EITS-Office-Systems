@@ -7,8 +7,10 @@ package EITS;
  */
 
 /**
- *
- * @author Brayden
+ *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@purpose This is the tab for the database connection.
+ *@version control 1.0
+ *@date 10/06/2018
  */
 import java.sql.*;
 import com.mysql.jdbc.Connection;

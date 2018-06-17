@@ -7,8 +7,10 @@ package EITS;
  */
 
 /**
- *
- * @author 2101560216
+ *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@purpose This is a screen of the list of users.
+ *@version control 1.0
+ *@date 10/06/2018
  */
 public class UserList {
     

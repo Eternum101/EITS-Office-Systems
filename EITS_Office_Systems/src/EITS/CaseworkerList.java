@@ -6,8 +6,10 @@
 package EITS;
 
 /**
- *
- * @author Brayden
+ *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@purpose This is a tab for the caseworker list.
+ *@version control 1.0
+ *@date 10/06/2018
  */
 public class CaseworkerList {
     private int caseworkerID;
