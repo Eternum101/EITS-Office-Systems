@@ -269,11 +269,7 @@ public class signup_GUI extends javax.swing.JFrame {
              thankyou_GUI s = new thankyou_GUI();
              s.setVisible(true);
              dispose();
-             if (txtFirstName.equals("") && txtLastName.equals("") && txtEmail.equals("") && txtPassword.equals(""));{
-                inputvaluesError_GUI e = new inputvaluesError_GUI();
-                e.setVisible(true);
-                dispose();
-         } 
+             
              } catch (Exception e) {
             System.out.println(e.getMessage()); 
          }
