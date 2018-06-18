@@ -31,8 +31,8 @@ public class inputvaluesError_GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        errorLabel = new javax.swing.JLabel();
+        inputLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         backButton2 = new javax.swing.JLabel();
         ExitButton = new javax.swing.JLabel();
@@ -45,14 +45,14 @@ public class inputvaluesError_GUI extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(458, 498));
         jPanel1.setRequestFocusEnabled(false);
 
-        jLabel1.setBackground(new java.awt.Color(51, 204, 255));
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 101)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 179, 255));
-        jLabel1.setText("ERROR");
+        errorLabel.setBackground(new java.awt.Color(51, 204, 255));
+        errorLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 101)); // NOI18N
+        errorLabel.setForeground(new java.awt.Color(0, 179, 255));
+        errorLabel.setText("ERROR");
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 25)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Please Input values ");
+        inputLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 25)); // NOI18N
+        inputLabel.setForeground(new java.awt.Color(255, 255, 255));
+        inputLabel.setText("Please Input values ");
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -104,10 +104,10 @@ public class inputvaluesError_GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(errorLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jLabel2)
+                        .addComponent(inputLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
@@ -116,9 +116,9 @@ public class inputvaluesError_GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(138, 138, 138)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(inputLabel)
                 .addContainerGap(209, Short.MAX_VALUE))
         );
 
@@ -190,8 +190,8 @@ public class inputvaluesError_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel backButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel errorLabel;
+    private javax.swing.JLabel inputLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
