@@ -7,7 +7,7 @@ package EITS;
  */
 
 /**
- *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@author Alex 7105395517
  *@purpose This page is used to alert the user that their email or password which they entered in to the login page is incorrect or invalid. 
  *@version control 1.0
  *@date 10/06/2018
