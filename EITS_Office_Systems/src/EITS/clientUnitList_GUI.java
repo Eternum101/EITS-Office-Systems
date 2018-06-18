@@ -67,16 +67,16 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        diplomaSoftwareDevLabel = new javax.swing.JLabel();
         enrolButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        jListUnits = new javax.swing.JList<>();
         jPanel3 = new javax.swing.JPanel();
         backButton3 = new javax.swing.JLabel();
         ExitButton = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        unitListLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        loggedInAsLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,9 +91,9 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(40, 40, 40));
         jPanel4.setForeground(new java.awt.Color(102, 102, 102));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Diploma of Software Development");
+        diplomaSoftwareDevLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        diplomaSoftwareDevLabel.setForeground(new java.awt.Color(255, 255, 255));
+        diplomaSoftwareDevLabel.setText("Diploma of Software Development");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -101,14 +101,14 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(92, 92, 92)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(diplomaSoftwareDevLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(94, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(diplomaSoftwareDevLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -122,7 +122,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setViewportView(jList2);
+        jScrollPane1.setViewportView(jListUnits);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -166,9 +166,9 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("UNIT LIST");
+        unitListLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+        unitListLabel.setForeground(new java.awt.Color(255, 255, 255));
+        unitListLabel.setText("UNIT LIST");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -176,7 +176,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(153, 153, 153)
-                .addComponent(jLabel2)
+                .addComponent(unitListLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(backButton3)
                 .addGap(18, 18, 18)
@@ -193,14 +193,14 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2))
+                .addComponent(unitListLabel))
         );
 
         nameLabel.setForeground(new java.awt.Color(255, 255, 255));
         nameLabel.setText("nameLabel");
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Logged in as: ");
+        loggedInAsLabel.setForeground(new java.awt.Color(255, 255, 255));
+        loggedInAsLabel.setText("Logged in as: ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -213,7 +213,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(loggedInAsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -231,7 +231,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nameLabel)
-                            .addComponent(jLabel3))
+                            .addComponent(loggedInAsLabel))
                         .addContainerGap())))
         );
 
@@ -262,7 +262,7 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
             m.addElement(id); 
             m.addElement(units); 
         }
-            jList2.setModel(m); 
+            jListUnits.setModel(m); 
         } catch (SQLException ex) {
             
         }
@@ -335,17 +335,17 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel backButton3;
+    private javax.swing.JLabel diplomaSoftwareDevLabel;
     private javax.swing.JButton enrolButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jListUnits;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel loggedInAsLabel;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel unitListLabel;
     // End of variables declaration//GEN-END:variables
 
     /**

@@ -31,9 +31,9 @@ public class thankyouEnrolment_GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        thankyouLabel = new javax.swing.JLabel();
+        forEnrollingLabel = new javax.swing.JLabel();
+        hearbackshortlyLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         backButton2 = new javax.swing.JLabel();
         ExitButton = new javax.swing.JLabel();
@@ -46,18 +46,18 @@ public class thankyouEnrolment_GUI extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(458, 498));
         jPanel1.setRequestFocusEnabled(false);
 
-        jLabel1.setBackground(new java.awt.Color(51, 204, 255));
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 80)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 179, 255));
-        jLabel1.setText("THANK YOU");
+        thankyouLabel.setBackground(new java.awt.Color(51, 204, 255));
+        thankyouLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 80)); // NOI18N
+        thankyouLabel.setForeground(new java.awt.Color(0, 179, 255));
+        thankyouLabel.setText("THANK YOU");
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("FOR ENROLLING ");
+        forEnrollingLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+        forEnrollingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        forEnrollingLabel.setText("FOR ENROLLING ");
 
-        jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("You will hear back from us Shortly");
+        hearbackshortlyLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        hearbackshortlyLabel.setForeground(new java.awt.Color(255, 255, 255));
+        hearbackshortlyLabel.setText("You will hear back from us Shortly");
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -108,12 +108,12 @@ public class thankyouEnrolment_GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(thankyouLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(forEnrollingLabel)
                         .addGap(68, 68, 68))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(hearbackshortlyLabel)
                         .addGap(25, 25, 25)))
                 .addGap(0, 40, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -123,11 +123,11 @@ public class thankyouEnrolment_GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(112, 112, 112)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(thankyouLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(forEnrollingLabel)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addComponent(hearbackshortlyLabel)
                 .addContainerGap(179, Short.MAX_VALUE))
         );
 
@@ -199,10 +199,10 @@ public class thankyouEnrolment_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel backButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel forEnrollingLabel;
+    private javax.swing.JLabel hearbackshortlyLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel thankyouLabel;
     // End of variables declaration//GEN-END:variables
 }

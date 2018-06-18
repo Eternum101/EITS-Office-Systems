@@ -31,11 +31,11 @@ public class signinError_GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        errorLabel = new javax.swing.JLabel();
+        invalidLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        backButton2 = new javax.swing.JLabel();
-        ExitButton = new javax.swing.JLabel();
+        backButton = new javax.swing.JLabel();
+        exitButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,33 +45,33 @@ public class signinError_GUI extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(458, 498));
         jPanel1.setRequestFocusEnabled(false);
 
-        jLabel1.setBackground(new java.awt.Color(51, 204, 255));
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 101)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 179, 255));
-        jLabel1.setText("ERROR");
+        errorLabel.setBackground(new java.awt.Color(51, 204, 255));
+        errorLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 101)); // NOI18N
+        errorLabel.setForeground(new java.awt.Color(0, 179, 255));
+        errorLabel.setText("ERROR");
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 25)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Invalid Email or Password");
+        invalidLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 25)); // NOI18N
+        invalidLabel.setForeground(new java.awt.Color(255, 255, 255));
+        invalidLabel.setText("Invalid Email or Password");
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
-        backButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/return_28px.png"))); // NOI18N
-        backButton2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/return_28px.png"))); // NOI18N
+        backButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                backButton2MouseMoved(evt);
+                backButtonMouseMoved(evt);
             }
         });
-        backButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        backButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                backButton2MouseClicked(evt);
+                backButtonMouseClicked(evt);
             }
         });
 
-        ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit_28px.png"))); // NOI18N
-        ExitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit_28px.png"))); // NOI18N
+        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ExitButtonMouseClicked(evt);
+                exitButtonMouseClicked(evt);
             }
         });
 
@@ -81,9 +81,9 @@ public class signinError_GUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(backButton2)
+                .addComponent(backButton)
                 .addGap(18, 18, 18)
-                .addComponent(ExitButton)
+                .addComponent(exitButton)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -91,8 +91,8 @@ public class signinError_GUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ExitButton)
-                    .addComponent(backButton2))
+                    .addComponent(exitButton)
+                    .addComponent(backButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -104,8 +104,8 @@ public class signinError_GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(errorLabel)
+                    .addComponent(invalidLabel))
                 .addContainerGap(96, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -113,9 +113,9 @@ public class signinError_GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(141, 141, 141)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(invalidLabel)
                 .addContainerGap(206, Short.MAX_VALUE))
         );
 
@@ -134,21 +134,21 @@ public class signinError_GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
    
-    private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
+    private void backButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseMoved
         // TODO add your handling code here:
-    }//GEN-LAST:event_backButton2MouseMoved
+    }//GEN-LAST:event_backButtonMouseMoved
 
-    private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
+    private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseClicked
         // TODO add your handling code here:
         dispose();
         startGUI s = new startGUI();
         s.setVisible(true);
-    }//GEN-LAST:event_backButton2MouseClicked
+    }//GEN-LAST:event_backButtonMouseClicked
 
-    private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
+    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_ExitButtonMouseClicked
+    }//GEN-LAST:event_exitButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -186,10 +186,10 @@ public class signinError_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ExitButton;
-    private javax.swing.JLabel backButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel backButton;
+    private javax.swing.JLabel errorLabel;
+    private javax.swing.JLabel exitButton;
+    private javax.swing.JLabel invalidLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

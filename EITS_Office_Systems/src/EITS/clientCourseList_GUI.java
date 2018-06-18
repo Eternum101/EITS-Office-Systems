@@ -41,15 +41,15 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        InformationCommunicationLabel = new javax.swing.JLabel();
+        technologyLabel = new javax.swing.JLabel();
+        diplomaSoftwareDevButton = new javax.swing.JButton();
+        diplomaWebsiteDevButton = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        backButton2 = new javax.swing.JLabel();
+        signoutButton = new javax.swing.JLabel();
         ExitButton = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        courseListLabel = new javax.swing.JLabel();
+        loggedInAsLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,13 +66,13 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(40, 40, 40));
         jPanel4.setForeground(new java.awt.Color(102, 102, 102));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Information Communication");
+        InformationCommunicationLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        InformationCommunicationLabel.setForeground(new java.awt.Color(255, 255, 255));
+        InformationCommunicationLabel.setText("Information Communication");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Technology");
+        technologyLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        technologyLabel.setForeground(new java.awt.Color(255, 255, 255));
+        technologyLabel.setText("Technology");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -82,39 +82,39 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(146, 146, 146)
-                        .addComponent(jLabel4))
+                        .addComponent(technologyLabel))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(77, 77, 77)
-                        .addComponent(jLabel1)))
+                        .addComponent(InformationCommunicationLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(InformationCommunicationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(technologyLabel)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(110, 110, 110));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("ICT369 Diploma of Software Development");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        diplomaSoftwareDevButton.setBackground(new java.awt.Color(110, 110, 110));
+        diplomaSoftwareDevButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        diplomaSoftwareDevButton.setForeground(new java.awt.Color(51, 51, 51));
+        diplomaSoftwareDevButton.setText("ICT369 Diploma of Software Development");
+        diplomaSoftwareDevButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                diplomaSoftwareDevButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(110, 110, 110));
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(51, 51, 51));
-        jButton2.setText("ICT50615 Diploma of Website Development");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        diplomaWebsiteDevButton.setBackground(new java.awt.Color(110, 110, 110));
+        diplomaWebsiteDevButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        diplomaWebsiteDevButton.setForeground(new java.awt.Color(51, 51, 51));
+        diplomaWebsiteDevButton.setText("ICT50615 Diploma of Website Development");
+        diplomaWebsiteDevButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                diplomaWebsiteDevButtonActionPerformed(evt);
             }
         });
 
@@ -126,8 +126,8 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(diplomaWebsiteDevButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(diplomaSoftwareDevButton, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37))
         );
         jPanel2Layout.setVerticalGroup(
@@ -135,24 +135,24 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(diplomaSoftwareDevButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(diplomaWebsiteDevButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(51, 51, 51));
         jPanel6.setForeground(new java.awt.Color(153, 153, 153));
 
-        backButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SignOutwhite_28px.png"))); // NOI18N
-        backButton2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        signoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SignOutwhite_28px.png"))); // NOI18N
+        signoutButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                backButton2MouseMoved(evt);
+                signoutButtonMouseMoved(evt);
             }
         });
-        backButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        signoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                backButton2MouseClicked(evt);
+                signoutButtonMouseClicked(evt);
             }
         });
 
@@ -163,9 +163,9 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("COURSE LIST");
+        courseListLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+        courseListLabel.setForeground(new java.awt.Color(255, 255, 255));
+        courseListLabel.setText("COURSE LIST");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -173,9 +173,9 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(courseListLabel)
                 .addGap(287, 287, 287)
-                .addComponent(backButton2)
+                .addComponent(signoutButton)
                 .addGap(18, 18, 18)
                 .addComponent(ExitButton)
                 .addContainerGap())
@@ -186,15 +186,15 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ExitButton)
-                    .addComponent(backButton2))
+                    .addComponent(signoutButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2))
+                .addComponent(courseListLabel))
         );
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Logged in as: ");
+        loggedInAsLabel.setForeground(new java.awt.Color(255, 255, 255));
+        loggedInAsLabel.setText("Logged in as: ");
 
         nameLabel.setForeground(new java.awt.Color(255, 255, 255));
         nameLabel.setText("nameLabel");
@@ -211,7 +211,7 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3)
+                        .addComponent(loggedInAsLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(242, Short.MAX_VALUE))
@@ -224,7 +224,7 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(loggedInAsLabel)
                     .addComponent(nameLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -237,42 +237,42 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void diplomaSoftwareDevButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diplomaSoftwareDevButtonActionPerformed
         // TODO add your handling code here:
         
         clientUnitList_GUI s = new clientUnitList_GUI(myUser, 2);
         s.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_diplomaSoftwareDevButtonActionPerformed
 
-    private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
+    private void signoutButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signoutButtonMouseMoved
         // TODO add your handling code here:
-    }//GEN-LAST:event_backButton2MouseMoved
+    }//GEN-LAST:event_signoutButtonMouseMoved
 
-    private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
+    private void signoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signoutButtonMouseClicked
         // TODO add your handling code here:
         dispose();
         startGUI s = new startGUI();
         s.setVisible(true);
-    }//GEN-LAST:event_backButton2MouseClicked
+    }//GEN-LAST:event_signoutButtonMouseClicked
 
     private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitButtonMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void diplomaWebsiteDevButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diplomaWebsiteDevButtonActionPerformed
         // TODO add your handling code here:
         clientUnitListAlternate_GUI s = new clientUnitListAlternate_GUI(myUser, 1);
         s.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_diplomaWebsiteDevButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,18 +312,18 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ExitButton;
-    private javax.swing.JLabel backButton2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel InformationCommunicationLabel;
+    private javax.swing.JLabel courseListLabel;
+    private javax.swing.JButton diplomaSoftwareDevButton;
+    private javax.swing.JButton diplomaWebsiteDevButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel loggedInAsLabel;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel signoutButton;
+    private javax.swing.JLabel technologyLabel;
     // End of variables declaration//GEN-END:variables
 
     /**

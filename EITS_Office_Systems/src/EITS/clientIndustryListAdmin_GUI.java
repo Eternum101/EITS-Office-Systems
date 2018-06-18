@@ -50,17 +50,17 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         backButton2 = new javax.swing.JLabel();
         ExitButton = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        industryListLabel = new javax.swing.JLabel();
         jInsertButton = new javax.swing.JButton();
         jUpdateButton = new javax.swing.JButton();
         jDeleteButton = new javax.swing.JButton();
         jTextField_IndustryName = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        industryNameLabel = new javax.swing.JLabel();
         clearButton1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jIndustryListTable = new javax.swing.JTable();
         jTextField_ID = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,23 +73,23 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(51, 51, 51));
         jPanel6.setForeground(new java.awt.Color(153, 153, 153));
 
-        backButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/back.png"))); // NOI18N
+        backButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/return_28px.png"))); // NOI18N
         backButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backButton2MouseClicked(evt);
             }
         });
 
-        ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
+        ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit_28px.png"))); // NOI18N
         ExitButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ExitButtonMouseClicked(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("INDUSTRY LIST");
+        industryListLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+        industryListLabel.setForeground(new java.awt.Color(255, 255, 255));
+        industryListLabel.setText("INDUSTRY LIST");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -97,10 +97,10 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jLabel2)
+                .addComponent(industryListLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(backButton2)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(ExitButton)
                 .addContainerGap())
         );
@@ -109,7 +109,7 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(industryListLabel)
                     .addComponent(ExitButton)
                     .addComponent(backButton2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -145,9 +145,9 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Industry Name:");
+        industryNameLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        industryNameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        industryNameLabel.setText("Industry Name:");
 
         clearButton1.setBackground(new java.awt.Color(0, 153, 255));
         clearButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -185,9 +185,9 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
             jIndustryListTable.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("ID:");
+        idLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        idLabel.setForeground(new java.awt.Color(255, 255, 255));
+        idLabel.setText("ID:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -209,9 +209,9 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
                             .addComponent(clearButton1)
                             .addGap(36, 36, 36))
                         .addComponent(jTextField_IndustryName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3)
+                    .addComponent(industryNameLabel)
                     .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(idLabel))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -226,11 +226,11 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
                         .addGap(48, 48, 48)
                         .addComponent(clearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
-                        .addComponent(jLabel4)
+                        .addComponent(idLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(industryNameLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_IndustryName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -415,12 +415,12 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel backButton2;
     private javax.swing.JButton clearButton1;
+    private javax.swing.JLabel idLabel;
+    private javax.swing.JLabel industryListLabel;
+    private javax.swing.JLabel industryNameLabel;
     private javax.swing.JButton jDeleteButton;
     private javax.swing.JTable jIndustryListTable;
     private javax.swing.JButton jInsertButton;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane3;

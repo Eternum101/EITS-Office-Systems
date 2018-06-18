@@ -52,19 +52,19 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         backButton3 = new javax.swing.JLabel();
         ExitButton = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        unitlistLabel = new javax.swing.JLabel();
         clearButton1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
         jTextField_ID = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField_UnitCode = new javax.swing.JTextField();
+        unitDescriptionLabel = new javax.swing.JLabel();
+        jTextField_Name = new javax.swing.JTextField();
         jInsertButton = new javax.swing.JButton();
         jUpdateButton = new javax.swing.JButton();
         jDeleteButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jUnitListTable = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        courseIDLabel = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
         jTextField_UnitDesc = new javax.swing.JTextField();
         jCourseComboBox = new javax.swing.JComboBox<>();
 
@@ -97,9 +97,9 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("UNIT LIST");
+        unitlistLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+        unitlistLabel.setForeground(new java.awt.Color(255, 255, 255));
+        unitlistLabel.setText("UNIT LIST");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -107,7 +107,7 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(jLabel2)
+                .addComponent(unitlistLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(backButton3)
                 .addGap(18, 18, 18)
@@ -119,7 +119,7 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(unitlistLabel)
                     .addComponent(ExitButton)
                     .addComponent(backButton3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -135,17 +135,17 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("ID:");
+        idLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        idLabel.setForeground(new java.awt.Color(255, 255, 255));
+        idLabel.setText("ID:");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Unit Description:");
+        unitDescriptionLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        unitDescriptionLabel.setForeground(new java.awt.Color(255, 255, 255));
+        unitDescriptionLabel.setText("Unit Description:");
 
-        jTextField_UnitCode.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_UnitCodeActionPerformed(evt);
+                jTextField_NameActionPerformed(evt);
             }
         });
 
@@ -208,13 +208,13 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
             jUnitListTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Course ID:");
+        courseIDLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        courseIDLabel.setForeground(new java.awt.Color(255, 255, 255));
+        courseIDLabel.setText("Course ID:");
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Name:");
+        nameLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        nameLabel.setText("Name:");
 
         jTextField_UnitDesc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,15 +234,15 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5)
+                            .addComponent(idLabel)
                             .addComponent(jDeleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jUpdateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
+                            .addComponent(unitDescriptionLabel)
+                            .addComponent(courseIDLabel)
                             .addComponent(jTextField_ID, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                             .addComponent(jTextField_UnitDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextField_UnitCode, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                            .addComponent(nameLabel)
+                            .addComponent(jTextField_Name, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                             .addComponent(jInsertButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCourseComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -260,20 +260,20 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
-                                .addComponent(jLabel5))
+                                .addComponent(idLabel))
                             .addComponent(clearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
+                        .addComponent(nameLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_UnitCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(unitDescriptionLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_UnitDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
+                        .addComponent(courseIDLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jCourseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -388,9 +388,9 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         s.setVisible(true);
     }//GEN-LAST:event_clearButton1ActionPerformed
 
-    private void jTextField_UnitCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_UnitCodeActionPerformed
+    private void jTextField_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_NameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_UnitCodeActionPerformed
+    }//GEN-LAST:event_jTextField_NameActionPerformed
 
     private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
         try {
@@ -398,7 +398,7 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
             String sql = "INSERT INTO units (name, unitDesc, courses_id) "+
                     " VALUES (?,?,?)";
             PreparedStatement ps =con.prepareStatement(sql);
-            ps.setString(1,jTextField_UnitCode.getText());
+            ps.setString(1,jTextField_Name.getText());
             ps.setString(2,jTextField_UnitDesc.getText());
             ps.setObject(3,jCourseComboBox.getSelectedItem());
             ps.execute();
@@ -419,7 +419,7 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
             String sql = "UPDATE units SET id=?, name=?, unitDesc=?, courses_id=? WHERE id="+value;
             PreparedStatement ps =con.prepareStatement(sql);
             ps.setString(1,jTextField_ID.getText());
-            ps.setString(2,jTextField_UnitCode.getText());
+            ps.setString(2,jTextField_Name.getText());
             ps.setString(3,jTextField_UnitDesc.getText());
             ps.setObject(4,jCourseComboBox.getSelectedItem());
             ps.execute();
@@ -442,7 +442,7 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         int i = jUnitListTable.getSelectedRow();
         TableModel model= jUnitListTable.getModel();
         jTextField_ID.setText(model.getValueAt(i,0).toString());
-        jTextField_UnitCode.setText(model.getValueAt(i,1).toString());
+        jTextField_Name.setText(model.getValueAt(i,1).toString());
         jTextField_UnitDesc.setText(model.getValueAt(i,2).toString());
         jCourseComboBox.setSelectedItem(model.getValueAt(i,3).toString());
     }//GEN-LAST:event_jUnitListTableMouseClicked
@@ -493,21 +493,21 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel backButton3;
     private javax.swing.JButton clearButton1;
+    private javax.swing.JLabel courseIDLabel;
+    private javax.swing.JLabel idLabel;
     private javax.swing.JComboBox<String> jCourseComboBox;
     private javax.swing.JButton jDeleteButton;
     private javax.swing.JButton jInsertButton;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField_ID;
-    private javax.swing.JTextField jTextField_UnitCode;
+    private javax.swing.JTextField jTextField_Name;
     private javax.swing.JTextField jTextField_UnitDesc;
     private javax.swing.JTable jUnitListTable;
     private javax.swing.JButton jUpdateButton;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel unitDescriptionLabel;
+    private javax.swing.JLabel unitlistLabel;
     // End of variables declaration//GEN-END:variables
 }

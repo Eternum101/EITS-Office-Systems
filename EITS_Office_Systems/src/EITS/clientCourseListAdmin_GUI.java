@@ -52,20 +52,20 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         backButton2 = new javax.swing.JLabel();
         ExitButton = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        CourselistAdmin = new javax.swing.JLabel();
         jInsertButton = new javax.swing.JButton();
         jUpdateButton = new javax.swing.JButton();
         jDeleteButton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        industryLabel = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
         jTextField_ID = new javax.swing.JTextField();
         clearButton1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jCourseListTable = new javax.swing.JTable();
         jTextField_Code = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        codeLabel = new javax.swing.JLabel();
         jTextField_Title = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
         jSelectIndustryComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,9 +93,9 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("COURSE LIST");
+        CourselistAdmin.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+        CourselistAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        CourselistAdmin.setText("COURSE LIST");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -103,7 +103,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jLabel2)
+                .addComponent(CourselistAdmin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(backButton2)
                 .addGap(18, 18, 18)
@@ -119,7 +119,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
                     .addComponent(backButton2))
                 .addGap(12, 12, 12))
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jLabel2)
+                .addComponent(CourselistAdmin)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -153,13 +153,13 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Industry ID:");
+        industryLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        industryLabel.setForeground(new java.awt.Color(255, 255, 255));
+        industryLabel.setText("Industry ID:");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("ID:");
+        idLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        idLabel.setForeground(new java.awt.Color(255, 255, 255));
+        idLabel.setText("ID:");
 
         clearButton1.setBackground(new java.awt.Color(0, 153, 255));
         clearButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
@@ -201,13 +201,13 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
             jCourseListTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Code:");
+        codeLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        codeLabel.setForeground(new java.awt.Color(255, 255, 255));
+        codeLabel.setText("Code:");
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Title:");
+        titleLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(255, 255, 255));
+        titleLabel.setText("Title:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -227,13 +227,13 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
                                     .addComponent(jDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel6)
+                            .addComponent(industryLabel)
+                            .addComponent(titleLabel)
                             .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
+                            .addComponent(idLabel))
                         .addGap(28, 28, 28)
                         .addComponent(clearButton1))
-                    .addComponent(jLabel4)
+                    .addComponent(codeLabel)
                     .addComponent(jTextField_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSelectIndustryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -246,21 +246,21 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(idLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(clearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(industryLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSelectIndustryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
-                        .addComponent(jLabel4)
+                        .addComponent(codeLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
-                        .addComponent(jLabel6)
+                        .addComponent(titleLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23)
@@ -270,7 +270,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -465,17 +465,16 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CourselistAdmin;
     private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel backButton2;
     private javax.swing.JButton clearButton1;
+    private javax.swing.JLabel codeLabel;
+    private javax.swing.JLabel idLabel;
+    private javax.swing.JLabel industryLabel;
     private javax.swing.JTable jCourseListTable;
     private javax.swing.JButton jDeleteButton;
     private javax.swing.JButton jInsertButton;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane3;
@@ -484,5 +483,6 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_ID;
     private javax.swing.JTextField jTextField_Title;
     private javax.swing.JButton jUpdateButton;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

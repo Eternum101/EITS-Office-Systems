@@ -62,11 +62,11 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="ClientButton" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ClientDataButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="courseListButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="unitListButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="industryListButton" alignment="1" max="32767" attributes="0"/>
-                              <Component id="caseworkerButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="caseworkerDataButton" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -79,9 +79,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="ClientButton" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="ClientDataButton" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="caseworkerButton" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="caseworkerDataButton" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="industryListButton" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -96,7 +96,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="ClientButton">
+        <Component class="javax.swing.JButton" name="ClientDataButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -110,7 +110,7 @@
             <Property name="text" type="java.lang.String" value="Client Data"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClientButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClientDataButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="SignoutButton">
@@ -159,7 +159,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="adminPanelLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="122" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -168,14 +168,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="44" max="32767" attributes="0"/>
-                      <Component id="jLabel4" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="adminPanelLabel" min="-2" pref="34" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="adminPanelLabel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -225,7 +225,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industryListButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="caseworkerButton">
+        <Component class="javax.swing.JButton" name="caseworkerDataButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -239,7 +239,7 @@
             <Property name="text" type="java.lang.String" value="Caseworker Data"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="caseworkerButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="caseworkerDataButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
