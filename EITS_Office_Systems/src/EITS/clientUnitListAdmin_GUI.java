@@ -19,7 +19,7 @@ import javax.swing.table.TableModel;
  */
 
 /**
- *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@author Brayden 2101560216
  *@purpose This page is the unit list admin page and displays all the units for each course for the admin to insert, update, and delete original or new units
  *@version control 1.0
  *@date 10/06/2018

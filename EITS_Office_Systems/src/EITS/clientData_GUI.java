@@ -20,7 +20,7 @@ import javax.swing.table.TableModel;
  */
 
 /**
- *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@author Brayden 2101560216
  *@purpose This page allows an admin to view, insert, update or delete client data inside the database. 
  *@version control 1.0
  *@date 10/06/2018
