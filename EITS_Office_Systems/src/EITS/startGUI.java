@@ -14,7 +14,7 @@ import java.util.Date;
  */
 
 /**
- *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@author Jakob 2104990817
  *@purpose The functionality for this page is to link and tie all pages together. The welcome page is used to enter an email and password which has already been given to you inside the database.
  *@version control 1.0
  *@date 10/06/2018

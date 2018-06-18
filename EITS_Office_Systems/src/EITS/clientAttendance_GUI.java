@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 
 /**
- *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@author Jakob 2104990817
  *@purpose This page allows a caseworker to view and search individual client attendance throughout the application and see when clients login
  *@version control 1.0
  *@date 10/06/2018

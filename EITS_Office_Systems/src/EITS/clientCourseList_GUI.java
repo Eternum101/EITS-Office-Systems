@@ -7,7 +7,7 @@ package EITS;
  */
 
 /**
- *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@author Jakob 2104990817
  *@purpose This page is the main page after the login screen clients will see when signing in. A client is displayed two courses to choose from.
  *@version control 1.0
  *@date 10/06/2018
