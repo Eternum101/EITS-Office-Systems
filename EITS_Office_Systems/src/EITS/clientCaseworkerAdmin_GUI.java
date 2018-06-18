@@ -401,7 +401,7 @@ public class clientCaseworkerAdmin_GUI extends javax.swing.JFrame {
     // Clears the values inputed on the form
     private void clearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton1ActionPerformed
         dispose();
-        clientData_GUI s = new clientData_GUI();
+        clientCaseworkerAdmin_GUI s = new clientCaseworkerAdmin_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_clearButton1ActionPerformed
 
