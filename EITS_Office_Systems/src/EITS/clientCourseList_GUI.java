@@ -26,7 +26,6 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
     
     public clientCourseList_GUI() {
         initComponents();
-        
     }
 
     /**
@@ -145,11 +144,6 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
         jPanel6.setForeground(new java.awt.Color(153, 153, 153));
 
         signoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SignOutwhite_28px.png"))); // NOI18N
-        signoutButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                signoutButtonMouseMoved(evt);
-            }
-        });
         signoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 signoutButtonMouseClicked(evt);
@@ -214,7 +208,7 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
                         .addComponent(loggedInAsLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,32 +237,27 @@ public class clientCourseList_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Displays clientUnitList_GUI form after button has been clicked and disposes current form
     private void diplomaSoftwareDevButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diplomaSoftwareDevButtonActionPerformed
-        // TODO add your handling code here:
-        
         clientUnitList_GUI s = new clientUnitList_GUI(myUser, 2);
         s.setVisible(true);
         dispose();
     }//GEN-LAST:event_diplomaSoftwareDevButtonActionPerformed
 
-    private void signoutButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signoutButtonMouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signoutButtonMouseMoved
-
+    // Allows the user to signout
     private void signoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signoutButtonMouseClicked
-        // TODO add your handling code here:
         dispose();
         startGUI s = new startGUI();
         s.setVisible(true);
     }//GEN-LAST:event_signoutButtonMouseClicked
 
+    // Exits out of the system
     private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitButtonMouseClicked
 
+    // Displays clientUnitListAlternate_GUI form after button has been clicked and disposes current form
     private void diplomaWebsiteDevButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diplomaWebsiteDevButtonActionPerformed
-        // TODO add your handling code here:
         clientUnitListAlternate_GUI s = new clientUnitListAlternate_GUI(myUser, 1);
         s.setVisible(true);
         dispose();

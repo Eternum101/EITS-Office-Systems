@@ -82,11 +82,6 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
             }
         });
         jClientDataTable1.getTableHeader().setReorderingAllowed(false);
-        jClientDataTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jClientDataTable1MouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(jClientDataTable1);
         if (jClientDataTable1.getColumnModel().getColumnCount() > 0) {
             jClientDataTable1.getColumnModel().getColumn(0).setResizable(false);
@@ -108,11 +103,6 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
         jPanel3.setForeground(new java.awt.Color(153, 153, 153));
 
         backButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/return_28px.png"))); // NOI18N
-        backButton2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                backButton2MouseMoved(evt);
-            }
-        });
         backButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backButton2MouseClicked(evt);
@@ -199,6 +189,8 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Acquires the Class CaseWorker_UserList and assigns it as an arraylist then selects all columns from the
+    // users table in the database, also allows for a search feature
     public ArrayList<CaseWorker_UserList> getUserList(String ValToSearch) {
         ArrayList<CaseWorker_UserList> usersList = new ArrayList<CaseWorker_UserList>();
 
@@ -224,13 +216,15 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
    
     }
     
+    // Displays the arraylist into the jTable and acquires ints and strings
+    // from the CaseWorker_UserList class to be assigned into rows in the jTable
     public void show_users_caseworker() {
-     ArrayList<CaseWorker_UserList> list = getUserList(jDisplayData.getText());
-     DefaultTableModel model = new DefaultTableModel();
-     model.setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Email"});
-     Object[] row = new Object[4];
+        ArrayList<CaseWorker_UserList> list = getUserList(jDisplayData.getText());
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Email"});
+        Object[] row = new Object[4];
      
-     for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
+     for(int i = 0; i < list.size(); i++) {
          row[0] = list.get(i).getuserID();
          row[1] = list.get(i).getFirstName();
          row[2] = list.get(i).getLastName();
@@ -238,33 +232,24 @@ public class clientDataLite_GUI extends javax.swing.JFrame {
          model.addRow(row);
      } // end of for
      jClientDataTable1.setModel(model);
-    } // end of show_users
+    } // end of show_users_caseworker
     
-    private void jClientDataTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jClientDataTable1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jClientDataTable1MouseClicked
-
+    // This enables the search feature
     private void jDisplayDataKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDisplayDataKeyReleased
-        // TODO add your handling code here:
-      show_users_caseworker();
+         show_users_caseworker();
     }//GEN-LAST:event_jDisplayDataKeyReleased
 
+    // Allows the user to go back to the previous form
     private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
-        // TODO add your handling code here:
         dispose();
         caseworkerMain_GUI s = new caseworkerMain_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_backButton2MouseClicked
 
+    // Exits out of the system
     private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitButtonMouseClicked
-
-    private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_backButton2MouseMoved
 
     /**
      * @param args the command line arguments

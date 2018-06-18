@@ -245,7 +245,9 @@ public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-        private void ListUnits() {
+    // Selects from the units table where the courses_id equals the value of 1
+    // then displays the query into a jList.
+    private void ListUnits() {
         DefaultListModel n = new DefaultListModel(); 
         try {
             String sq = "SELECT * FROM units WHERE courses_id = 1";
@@ -264,13 +266,14 @@ public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
         }
     }
     
+    // Exits out of the system
     private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitButtonMouseClicked
 
+    // Updates the user table in the database and sets the courses_id value to 1
+    // then displays thankyouEnrolment_GUI if query is successful
     private void enrolButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrolButton2ActionPerformed
-
          try {
             int userID = myUser.getMyUser();
             String sql = "UPDATE `users` SET `courses_id` = " + CourseID + " WHERE `userID` = " + userID + "";
@@ -285,8 +288,8 @@ public class clientUnitListAlternate_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_enrolButton2ActionPerformed
 
+    // Allows the user to go back to the previous form
     private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseClicked
-        // TODO add your handling code here:
         clientCourseList_GUI s = new clientCourseList_GUI(myUser);
         s.setVisible(true);
         dispose();

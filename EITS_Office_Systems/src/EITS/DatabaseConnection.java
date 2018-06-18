@@ -7,7 +7,7 @@ package EITS;
  */
 
 /**
- *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@author Brayden 2101560216
  *@purpose This is a class that allows for the database to connected to the application.
  *@version control 1.0
  *@date 10/06/2018

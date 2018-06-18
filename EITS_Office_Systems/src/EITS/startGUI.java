@@ -101,21 +101,10 @@ public class startGUI extends javax.swing.JFrame {
             }
         });
 
-        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPasswordKeyPressed(evt);
-            }
-        });
-
         signupButton.setBackground(new java.awt.Color(0, 25, 138));
         signupButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 20)); // NOI18N
         signupButton.setForeground(new java.awt.Color(255, 255, 255));
         signupButton.setText("SIGN UP");
-        signupButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                signupButtonMouseClicked(evt);
-            }
-        });
         signupButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signupButtonActionPerformed(evt);
@@ -150,19 +139,9 @@ public class startGUI extends javax.swing.JFrame {
         signinButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 20)); // NOI18N
         signinButton.setForeground(new java.awt.Color(255, 255, 255));
         signinButton.setText("SIGN IN");
-        signinButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                signinButtonMouseClicked(evt);
-            }
-        });
         signinButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signinButtonActionPerformed(evt);
-            }
-        });
-        signinButton.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                signinButtonKeyPressed(evt);
             }
         });
 
@@ -226,21 +205,20 @@ public class startGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void signinButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signinButtonMouseClicked
-
+    // Resets textboxes back to empty so values can be inputed again
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
-        // TODO add your handling code here:
         txtEmail.setText(null);
         txtPassword.setText(null);
     }//GEN-LAST:event_resetButtonActionPerformed
 
+    // Calls the login method
     private void signinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinButtonActionPerformed
         Login();
     }//GEN-LAST:event_signinButtonActionPerformed
 
 
+    // Selects email and password from the tables adminstrators, users and caseworkers then
+    // displays appropiate forms when sucessful, if not executed successfully a signIn_Error page is displayed.
     private void Login() {
         try {
             String sql = "SELECT * FROM administrators WHERE email=? AND password=?";
@@ -270,7 +248,6 @@ public class startGUI extends javax.swing.JFrame {
                 dispose();
                 caseworkerMain_GUI s = new caseworkerMain_GUI();
                 s.setVisible(true);
-                //signinError_GUI.setVisible(false);
                 isValid=true;
                 rs.close();
             }
@@ -278,7 +255,6 @@ public class startGUI extends javax.swing.JFrame {
              if(rs.next()) {
                 User track = new User(); 
                 int userID = rs.getInt("userID");
-                // This is a demo
                 track.setMyUser(rs.getInt("userID"));
                 track.setCourseID(rs.getInt("courses_id"));
                 track.setFirstName(rs.getString("fName"));
@@ -309,81 +285,19 @@ public class startGUI extends javax.swing.JFrame {
     }
     
      
+    // Exits out of the system
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
-    private void signupButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupButtonMouseClicked
-        // TODO add your handling code here:
-     
-    }//GEN-LAST:event_signupButtonMouseClicked
-
+    // Displays signup_GUI when signup buttons has been clicked
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
-        // TODO add your handling code here:
         dispose();
         signup_GUI s = new signup_GUI();
         s.setVisible(true);
         
     }//GEN-LAST:event_signupButtonActionPerformed
-
-    private void signinButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_signinButtonKeyPressed
-        // TODO add your handling code here
-
-    }//GEN-LAST:event_signinButtonKeyPressed
     
-    // Key Press Enter to sign in
-    private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
-        /*if(evt.getKeyCode()== KeyEvent.VK_ENTER){
-            try {
-            String username=txtEmail.getText();
-            char[] pwd=txtPassword.getPassword();
-            String password=new String(pwd);
-            
-            //Admin Login
-            if(username.equals("admin")&&password.equals("password")){
-                dispose();
-                 adminMain_GUI s = new adminMain_GUI();
-                 s.setVisible(true); 
-            }
-            
-            //User Login
-            else if (username.equals("user")&&password.equals("password")){
-                dispose();
-                clientCourseList_GUI s = new clientCourseList_GUI();
-                 s.setVisible(true);
-                }
-            
-            //Case worker Login
-            else if (username.equals("caseworker")&&password.equals("password")){
-                dispose();
-                caseworkerMain_GUI s = new caseworkerMain_GUI();
-                 s.setVisible(true);
-                }
-            
-            // If no input is entered signin will do nothing
-            else if (username.equals("")&&password.equals("")){
-                }
-            
-            //Sign in error message
-            else {
-                dispose();
-                signinError_GUI s = new signinError_GUI();
-                 s.setVisible(true);
-                
-                }
-            
-            }
-            
-            
-        
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-            
-        }*/
-    }//GEN-LAST:event_txtPasswordKeyPressed
-
     /**
      * @param args the command line arguments
      */

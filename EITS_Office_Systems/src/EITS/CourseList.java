@@ -7,7 +7,7 @@ package EITS;
  */
 
 /**
- *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@author Brayden 2101560216
  *@purpose This is a class that displays a list of courses in the clientCourseListAdmin_GUI intended for Admins.
  *@version control 1.0
  *@date 10/06/2018

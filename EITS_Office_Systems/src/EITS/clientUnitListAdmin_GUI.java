@@ -19,7 +19,7 @@ import javax.swing.table.TableModel;
  */
 
 /**
- *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@author Brayden 2101560216
  *@purpose This page is the unit list admin page and displays all the units for each course for the admin to insert, update, and delete original or new units
  *@version control 1.0
  *@date 10/06/2018
@@ -79,11 +79,6 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         jPanel3.setForeground(new java.awt.Color(153, 153, 153));
 
         backButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/return_28px.png"))); // NOI18N
-        backButton3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                backButton3MouseMoved(evt);
-            }
-        });
         backButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backButton3MouseClicked(evt);
@@ -142,12 +137,6 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         unitDescriptionLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         unitDescriptionLabel.setForeground(new java.awt.Color(255, 255, 255));
         unitDescriptionLabel.setText("Unit Description:");
-
-        jTextField_Name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_NameActionPerformed(evt);
-            }
-        });
 
         jInsertButton.setBackground(new java.awt.Color(51, 51, 51));
         jInsertButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
@@ -300,8 +289,9 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Selects the column id from the courses table in the database
+    // then adds it to the combox box for a drop down selection
     public void SelectComboBox() {
-        
         try {
             st = con.createStatement();
             rs = st.executeQuery("SELECT `id` FROM `courses`");
@@ -314,6 +304,7 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         }
     }
     
+    // Acquires the Class UnitList and assigns it as an arraylist then selects all columns from the database
     public ArrayList<UnitList> getUnitList() {
         ArrayList<UnitList> unitsList = new ArrayList<>();
         String sql = "SELECT * FROM units";
@@ -335,19 +326,21 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
    
     }
     
+    // Displays the arraylist into the jUnitListTable and acquires ints and strings
+    // from the UnitList class to be assigned into rows in the jUnitListTable
     public void show_units() {
      ArrayList<UnitList> list = getUnitList();
      DefaultTableModel model = (DefaultTableModel) jUnitListTable.getModel();
      Object[] row = new Object[4];
      
-     for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
+     for(int i = 0; i < list.size(); i++) {
          row[0] = list.get(i).getId();
          row[1] = list.get(i).getName();
          row[2] = list.get(i).getUnitDesc();
          row[3] = list.get(i).getCourses_id();
          model.addRow(row);
      } // end of for
-    } // end of show_users
+    } // end of show_units
     
     public void executeSQlQuery(String query, String message) {
         try {
@@ -365,36 +358,29 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         }
     }
     
-    private void backButton3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton3MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backButton3MouseMoved
-
+    // Allows the user to go back to the previous form
     private void backButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton3MouseClicked
-        // TODO add your handling code here:
         dispose();
         adminMain_GUI s = new adminMain_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_backButton3MouseClicked
 
+    // Exits out of the systems
     private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitButtonMouseClicked
 
+    // Clears the values inputed on the form
     private void clearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton1ActionPerformed
-        // TODO add your handling code here:
         dispose();
         clientUnitListAdmin_GUI s = new clientUnitListAdmin_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_clearButton1ActionPerformed
 
-    private void jTextField_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_NameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_NameActionPerformed
-
+    // Acquires the inputed values from the text fields then executes the query
+    // of inserting into the units table in the database
     private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
         try {
-            // TODO add your handling code here:
             String sql = "INSERT INTO units (name, unitDesc, courses_id) "+
                     " VALUES (?,?,?)";
             PreparedStatement ps =con.prepareStatement(sql);
@@ -411,9 +397,10 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jInsertButtonActionPerformed
 
+    // Acquires the selected row and inputed values from the text fields then executes the query
+    // of updating into the units table in the database
     private void jUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateButtonActionPerformed
         try {
-            // TODO add your handling code here:
             int row = jUnitListTable.getSelectedRow(); 
             String value = (jUnitListTable.getModel().getValueAt(row, 0).toString());
             String sql = "UPDATE units SET id=?, name=?, unitDesc=?, courses_id=? WHERE id="+value;
@@ -432,13 +419,15 @@ public class clientUnitListAdmin_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jUpdateButtonActionPerformed
 
+    // Deletes the selected row in the jTable from the database
     private void jDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteButtonActionPerformed
         String query = "DELETE FROM `units` WHERE id = " + this.jTextField_ID.getText();
         executeSQlQuery(query, "Deleted");
     }//GEN-LAST:event_jDeleteButtonActionPerformed
 
+    // Allows the user to select a specifc row in the Jtable and then output
+    // the columns in that row to their respected text fields
     private void jUnitListTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jUnitListTableMouseClicked
-        // TODO add your handling code here:
         int i = jUnitListTable.getSelectedRow();
         TableModel model= jUnitListTable.getModel();
         jTextField_ID.setText(model.getValueAt(i,0).toString());

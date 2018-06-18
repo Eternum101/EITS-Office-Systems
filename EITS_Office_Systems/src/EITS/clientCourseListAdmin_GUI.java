@@ -287,8 +287,9 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void SelectComboBox() {
-        
+    // Selects the column id from the industries table in the database
+    // then adds it to the combox box for a drop down selection
+    public void SelectComboBox() {    
         try {
             st = con.createStatement();
             rs = st.executeQuery("SELECT `id` FROM `industries`");
@@ -301,6 +302,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         }
     }
    
+    // Acquires the Class CourseList and assigns it as an arraylist then selects all columns from the database
     public ArrayList<CourseList> getCourseList() {
         ArrayList<CourseList> coursesList = new ArrayList<>();
         String sql = "SELECT * FROM courses";
@@ -323,7 +325,9 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
    
     }
     
-    public void course_list() {
+    // Displays the arraylist into the jCourseListTable and acquires ints and strings
+    // from the UnitList class to be assigned into rows in the jCourseListTable
+    public void course_list() {    
         ArrayList<CourseList> list = getCourseList();
         DefaultTableModel model = (DefaultTableModel) jCourseListTable.getModel();
         Object[] row = new Object[4];
@@ -335,7 +339,7 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
          row[3] = list.get(i).getTitle();
          model.addRow(row);
      } // end of for
-    } // end of show_users
+    } // end of course_list
     
     public void executeSQlQuery(String query, String message) {
         try {
@@ -353,22 +357,22 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         }
     }
     
-     
+    // Allows the user to go back to the previous form 
     private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
-        // TODO add your handling code here:
         dispose();
         adminMain_GUI s = new adminMain_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_backButton2MouseClicked
-
+    
+    // Exits out of the system
     private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitButtonMouseClicked
 
+    // Acquires the inputed values from the text fields then executes the query
+    // of inserting into the courses table in the database
     private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
         try {
-            // TODO add your handling code here:
             String sql = "INSERT INTO courses (industries_id, code, title) "+
                     " VALUES (?,?,?)";
             PreparedStatement ps =con.prepareStatement(sql);
@@ -385,9 +389,10 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jInsertButtonActionPerformed
 
+    // Acquires the selected row and inputed values from the text fields then executes the query
+    // of updating into the courses table in the database
     private void jUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateButtonActionPerformed
         try {
-            // TODO add your handling code here:
             int row = jCourseListTable.getSelectedRow(); 
             String value = (jCourseListTable.getModel().getValueAt(row, 0).toString());
             String sql = "UPDATE courses SET id=?, industries_id=?, code=?, title=? WHERE id="+value;
@@ -406,20 +411,22 @@ public class clientCourseListAdmin_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jUpdateButtonActionPerformed
 
+    // Deletes the selected row in the jTable from the database
     private void jDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteButtonActionPerformed
         String query = "DELETE FROM `courses` WHERE id = " + this.jTextField_ID.getText();
         executeSQlQuery(query, "Deleted");
     }//GEN-LAST:event_jDeleteButtonActionPerformed
 
+    // Clears the values inputed on the form
     private void clearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton1ActionPerformed
-        // TODO add your handling code here:
         dispose();
         clientCourseListAdmin_GUI s = new clientCourseListAdmin_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_clearButton1ActionPerformed
 
+    // Allows the user to select a specifc row in the Jtable and then output
+    // the columns in that row to their respected text fields
     private void jCourseListTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCourseListTableMouseClicked
-        // TODO add your handling code here:
         int i = jCourseListTable.getSelectedRow();
         TableModel model= jCourseListTable.getModel();
         jTextField_ID.setText(model.getValueAt(i,0).toString());

@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 /**
- *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@author Brayden 2101560216
  *@purpose This page allows a caseworker to only view and search the client data but does not allow them to insert, update or delete any information. 
  *@version control 1.0
  *@date 10/06/2018
@@ -131,12 +131,6 @@ public class clientCaseworkerAdmin_GUI extends javax.swing.JFrame {
         emailLabel.setForeground(new java.awt.Color(255, 255, 255));
         emailLabel.setText("Email");
 
-        jTextField_FirstName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_FirstNameActionPerformed(evt);
-            }
-        });
-
         passwordLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
         passwordLabel.setText("Password");
@@ -155,11 +149,6 @@ public class clientCaseworkerAdmin_GUI extends javax.swing.JFrame {
         jPanel3.setForeground(new java.awt.Color(153, 153, 153));
 
         backButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/return_28px.png"))); // NOI18N
-        backButton2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                backButton2MouseMoved(evt);
-            }
-        });
         backButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backButton2MouseClicked(evt);
@@ -297,6 +286,7 @@ public class clientCaseworkerAdmin_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Acquires the Class CaseworkerList and assigns it as an arraylist then selects all columns from the database
     public ArrayList<CaseworkerList> getCaseworkerList() {
         ArrayList<CaseworkerList> caseworkersList = new ArrayList<>();
         String sql = "SELECT * FROM caseworkers";
@@ -320,12 +310,14 @@ public class clientCaseworkerAdmin_GUI extends javax.swing.JFrame {
     }
     
     
-    public void show_caseworkers() {
-     ArrayList<CaseworkerList> list = getCaseworkerList();
-     DefaultTableModel model = (DefaultTableModel) jDisplayCaseworkerTable.getModel();
-     Object[] row = new Object[5];
+    // Displays the arraylist into the jDisplayCaseworkerTable and acquires ints and strings
+    // from the UnitList class to be assigned into rows in the jDisplayCaseworkerTable
+    public void show_caseworkers() { 
+        ArrayList<CaseworkerList> list = getCaseworkerList();
+        DefaultTableModel model = (DefaultTableModel) jDisplayCaseworkerTable.getModel();
+        Object[] row = new Object[5];
      
-     for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
+     for(int i = 0; i < list.size(); i++) {
          row[0] = list.get(i).getCaseworkerID();
          row[1] = list.get(i).getFirstName();
          row[2] = list.get(i).getLastName();
@@ -333,7 +325,7 @@ public class clientCaseworkerAdmin_GUI extends javax.swing.JFrame {
          row[4] = list.get(i).getPassword();
          model.addRow(row);
      } // end of for
-    } // end of show_users
+    } // end of show_caseworkers
     
     public void executeSQlQuery(String query, String message) {
         try {
@@ -351,9 +343,10 @@ public class clientCaseworkerAdmin_GUI extends javax.swing.JFrame {
         }
     }
     
+    // Acquires the selected row and inputed values from the text fields then executes the query
+    // of updating into the caseworkers table in the database
     private void jUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateButtonActionPerformed
-        try {
-            // TODO add your handling code here:
+            try {
             int row = jDisplayCaseworkerTable.getSelectedRow();
             String value = (jDisplayCaseworkerTable.getModel().getValueAt(row, 0).toString());
             String sql = "UPDATE caseworkers SET fName=?, lName=?, email=?, password=? WHERE caseworkerID="+value;
@@ -372,9 +365,10 @@ public class clientCaseworkerAdmin_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jUpdateButtonActionPerformed
 
+    // Acquires the inputed values from the text fields then executes the query
+    // of inserting into the caseworkers table in the database
     private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
-        try {
-            // TODO add your handling code here:
+            try {
             String sql = "INSERT INTO caseworkers (fName, lName, email, password) "+
             " VALUES (?,?,?,?)";
             PreparedStatement ps =con.prepareStatement(sql);
@@ -392,8 +386,9 @@ public class clientCaseworkerAdmin_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jInsertButtonActionPerformed
 
+    // Allows the user to select a specifc row in the Jtable and then output
+    // the columns in that row to their respected text fields
     private void jDisplayCaseworkerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDisplayCaseworkerTableMouseClicked
-        // TODO add your handling code here:
         int i = jDisplayCaseworkerTable.getSelectedRow();
         TableModel model= jDisplayCaseworkerTable.getModel();
         jTextField_ID.setText(model.getValueAt(i,0).toString());
@@ -403,30 +398,22 @@ public class clientCaseworkerAdmin_GUI extends javax.swing.JFrame {
         jTextField_Password.setText(model.getValueAt(i,4).toString());
     }//GEN-LAST:event_jDisplayCaseworkerTableMouseClicked
 
-    private void jTextField_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_FirstNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_FirstNameActionPerformed
-
+    // Clears the values inputed on the form
     private void clearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton1ActionPerformed
-        // TODO add your handling code here:
         dispose();
         clientData_GUI s = new clientData_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_clearButton1ActionPerformed
 
-    private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backButton2MouseMoved
-
+    // Allows the user to go back to the previous form
     private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
-        // TODO add your handling code here:
         dispose();
         adminMain_GUI s = new adminMain_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_backButton2MouseClicked
 
+    // Exits out of the system
     private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitButtonMouseClicked
 

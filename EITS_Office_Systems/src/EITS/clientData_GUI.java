@@ -20,7 +20,7 @@ import javax.swing.table.TableModel;
  */
 
 /**
- *@author Jakob 2104990817, Brayden 2101560216,  Alex 7105395517
+ *@author Brayden 2101560216
  *@purpose This page allows an admin to view, insert, update or delete client data inside the database. 
  *@version control 1.0
  *@date 10/06/2018
@@ -33,29 +33,12 @@ public class clientData_GUI extends javax.swing.JFrame {
     /**
      * Creates new form clientData_GUI
      */
-    public clientData_GUI() {
-        
-        
+    public clientData_GUI() {               
         initComponents();
         con = DatabaseConnection.getConnection();
         show_users();
-        //Drag and drop
         this.clientdataTable.setDragEnabled(true);
-        //this.jTextField_FirstName.setDragEnabled(true);
-        //this.jTextField_LastName.setDragEnabled(true);
         this.jTextField_drophere.setDragEnabled(true);
-        //jTextField1.setEditable(false);
-        
-        /*
-        int i = jTable1.getSelectedRow(); 
-        TableModel model= jTable1.getModel();
-        jTextField_ID.setText(model.getValueAt(i,0).toString());
-        jTextField_FirstName.setText(model.getValueAt(i,1).toString());
-        jTextField_LastName.setText(model.getValueAt(i,2).toString());
-        jTextField_Email.setText(model.getValueAt(i,3).toString());
-        jTextField_Password.setText(model.getValueAt(i,4).toString());
-        */
-        
     }
 
     /**
@@ -144,11 +127,6 @@ public class clientData_GUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        clientdataTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clientdataTableMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(clientdataTable);
         if (clientdataTable.getColumnModel().getColumnCount() > 0) {
             clientdataTable.getColumnModel().getColumn(0).setResizable(false);
@@ -174,18 +152,6 @@ public class clientData_GUI extends javax.swing.JFrame {
         emailLabel.setForeground(new java.awt.Color(255, 255, 255));
         emailLabel.setText("Email");
 
-        jTextField_ID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_IDActionPerformed(evt);
-            }
-        });
-
-        jTextField_FirstName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_FirstNameActionPerformed(evt);
-            }
-        });
-
         passwordLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
         passwordLabel.setText("Password");
@@ -204,11 +170,6 @@ public class clientData_GUI extends javax.swing.JFrame {
         jPanel3.setForeground(new java.awt.Color(153, 153, 153));
 
         backButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/return_28px.png"))); // NOI18N
-        backButton2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                backButton2MouseMoved(evt);
-            }
-        });
         backButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backButton2MouseClicked(evt);
@@ -255,16 +216,6 @@ public class clientData_GUI extends javax.swing.JFrame {
         jTextField_drophere.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jTextField_drophereMouseEntered(evt);
-            }
-        });
-        jTextField_drophere.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_drophereActionPerformed(evt);
-            }
-        });
-        jTextField_drophere.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
-            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
-                jTextField_drophereVetoableChange(evt);
             }
         });
 
@@ -382,6 +333,8 @@ public class clientData_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Acquires the Class UserList and assigns it as an arraylist then selects all columns from the
+    // users table in the database
     public ArrayList<UserList> getUserList() {
         ArrayList<UserList> usersList = new ArrayList<>();
         String sql = "SELECT * FROM users";
@@ -404,13 +357,14 @@ public class clientData_GUI extends javax.swing.JFrame {
    
     }
     
-    
+    // Displays the arraylist into the clientdataTable and acquires ints and strings
+    // from the UserList class to be assigned into rows in the clientdataTable
     public void show_users() {
      ArrayList<UserList> list = getUserList();
      DefaultTableModel model = (DefaultTableModel) clientdataTable.getModel();
      Object[] row = new Object[5];
      
-     for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
+     for(int i = 0; i < list.size(); i++) {
          row[0] = list.get(i).getuserID();
          row[1] = list.get(i).getFirstName();
          row[2] = list.get(i).getLastName();
@@ -436,9 +390,10 @@ public class clientData_GUI extends javax.swing.JFrame {
         }
     }
     
+    // Acquires the selected row and inputed values from the text fields then executes the query
+    // of updating into the users table in the database
     private void jUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateButtonActionPerformed
          try {
-            // TODO add your handling code here:
             int row = clientdataTable.getSelectedRow(); 
             String value = (clientdataTable.getModel().getValueAt(row, 0).toString());
             String sql = "UPDATE users SET fName=?, lName=?, email=?, password=? WHERE userID="+value;
@@ -457,29 +412,16 @@ public class clientData_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jUpdateButtonActionPerformed
 
+    // Deletes the selected row in the jTable from the database
     private void jDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteButtonActionPerformed
         String query = "DELETE FROM `users` WHERE userID = " + this.jTextField_ID.getText();
         executeSQlQuery(query, "Deleted"); 
     }//GEN-LAST:event_jDeleteButtonActionPerformed
 
-    private void jTextField_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_FirstNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_FirstNameActionPerformed
-
-    private void clientdataTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientdataTableMouseClicked
-        // TODO add your handling code here:
-       /* int i = jTable1.getSelectedRow(); 
-        TableModel model= jTable1.getModel();
-        jTextField_ID.setText(model.getValueAt(i,0).toString());
-        jTextField_FirstName.setText(model.getValueAt(i,1).toString());
-        jTextField_LastName.setText(model.getValueAt(i,2).toString());
-        jTextField_Email.setText(model.getValueAt(i,3).toString());
-        jTextField_Password.setText(model.getValueAt(i,4).toString()); */
-    }//GEN-LAST:event_clientdataTableMouseClicked
-
+    // Acquires the inputed values from the text fields then executes the query
+    // of inserting into the industries table in the database
     private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
         try {
-            // TODO add your handling code here:
             String sql = "INSERT INTO users (fName, lName, email, password) "+
                     " VALUES (?,?,?,?)";
             PreparedStatement ps =con.prepareStatement(sql);
@@ -497,59 +439,28 @@ public class clientData_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jInsertButtonActionPerformed
 
+    // Clears the values inputed on the form
     private void clearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton1ActionPerformed
-        // TODO add your handling code here:
         dispose();
         clientData_GUI s = new clientData_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_clearButton1ActionPerformed
 
-    private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_backButton2MouseMoved
-
+    // Allows the user to go back to the previous form
     private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
-        // TODO add your handling code here:
         dispose();
         adminMain_GUI s = new adminMain_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_backButton2MouseClicked
 
+    // Exits out of the system
     private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitButtonMouseClicked
 
-    private void jTextField_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_IDActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jTextField_IDActionPerformed
-
-    private void jTextField_drophereVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jTextField_drophereVetoableChange
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jTextField_drophereVetoableChange
-
-    private void jTextField_drophereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_drophereActionPerformed
-        // TODO add your handling code here:
-        /*try {
-            if () {
-            int i = jTable1.getSelectedRow(); 
-        TableModel model= jTable1.getModel();
-        jTextField_ID.setText(model.getValueAt(i,0).toString());
-        jTextField_FirstName.setText(model.getValueAt(i,1).toString());
-        jTextField_LastName.setText(model.getValueAt(i,2).toString());
-        jTextField_Email.setText(model.getValueAt(i,3).toString());
-        jTextField_Password.setText(model.getValueAt(i,4).toString());
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        */
-    }//GEN-LAST:event_jTextField_drophereActionPerformed
-
+    // Allows the user to select a drag and drop a specifc row in the Jtable and then output
+    // the columns in that row to their respected text fields
     private void jTextField_drophereMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_drophereMouseEntered
-        // TODO add your handling code here:
         int i = clientdataTable.getSelectedRow(); 
         TableModel model= clientdataTable.getModel();
         jTextField_ID.setText(model.getValueAt(i,0).toString());

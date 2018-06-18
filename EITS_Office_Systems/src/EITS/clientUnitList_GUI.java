@@ -249,6 +249,8 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Selects from the units table where the courses_id equals the value of 2
+    // then displays the query into a jList
     private void ListUnits() {
         DefaultListModel m = new DefaultListModel(); 
         try {
@@ -268,8 +270,9 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
         }
     }
     
+    // Updates the user table in the database and sets the courses_id value to 2
+    // then displays thankyouEnrolment_GUI if query is successful
     private void enrolButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrolButtonActionPerformed
-
         try {
             int userID = myUser.getMyUser();
             String sql = "UPDATE `users` SET `courses_id` = " + CourseID + " WHERE `userID` = " + userID + "";
@@ -284,17 +287,17 @@ public class clientUnitList_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_enrolButtonActionPerformed
 
+    // Exits out of the system
+    private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_ExitButtonMouseClicked
+
+    // Allows the user to go back to the previous form
     private void backButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton3MouseClicked
-        // TODO add your handling code here:
         dispose();
         clientCourseList_GUI s = new clientCourseList_GUI(myUser);
         s.setVisible(true);
     }//GEN-LAST:event_backButton3MouseClicked
-
-    private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_ExitButtonMouseClicked
 
     /**
      * @param args the command line arguments

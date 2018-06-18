@@ -57,11 +57,6 @@ public class signinError_GUI extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/return_28px.png"))); // NOI18N
-        backButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                backButtonMouseMoved(evt);
-            }
-        });
         backButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backButtonMouseClicked(evt);
@@ -134,20 +129,16 @@ public class signinError_GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
    
-    private void backButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backButtonMouseMoved
-
+    // Allows the user to back to the previous form
     private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseClicked
-        // TODO add your handling code here:
-        dispose();
+       dispose();
         startGUI s = new startGUI();
         s.setVisible(true);
     }//GEN-LAST:event_backButtonMouseClicked
 
+    // Exits out of the system
     private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
+       System.exit(0);
     }//GEN-LAST:event_exitButtonMouseClicked
 
     /**
