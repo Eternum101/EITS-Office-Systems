@@ -52,7 +52,6 @@ public class signup_GUI extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
         signupButton1 = new javax.swing.JButton();
-        txtInputvalues = new javax.swing.JLabel();
         xLabel1 = new javax.swing.JLabel();
         xLabel2 = new javax.swing.JLabel();
         xLabel3 = new javax.swing.JLabel();
@@ -113,39 +112,13 @@ public class signup_GUI extends javax.swing.JFrame {
         lastnameLabel.setForeground(new java.awt.Color(255, 255, 255));
         lastnameLabel.setText("Last Name");
 
-        txtLastName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLastNameActionPerformed(evt);
-            }
-        });
-
         signupButton1.setBackground(new java.awt.Color(0, 25, 138));
         signupButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 20)); // NOI18N
         signupButton1.setForeground(new java.awt.Color(255, 255, 255));
         signupButton1.setText("SIGN UP");
-        signupButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                signupButton1MouseClicked(evt);
-            }
-        });
         signupButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signupButton1ActionPerformed(evt);
-            }
-        });
-
-        txtInputvalues.setBackground(new java.awt.Color(60, 60, 60));
-        txtInputvalues.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtInputvalues.setForeground(new java.awt.Color(60, 60, 60));
-        txtInputvalues.setText("Please Input Correct Values");
-        txtInputvalues.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentHidden(java.awt.event.ComponentEvent evt) {
-                txtInputvaluesComponentHidden(evt);
-            }
-        });
-        txtInputvalues.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                txtInputvaluesPropertyChange(evt);
             }
         });
 
@@ -195,36 +168,36 @@ public class signup_GUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(firstnameLabel)
-                            .addComponent(lastnameLabel)
-                            .addComponent(emailLabel)
-                            .addComponent(passwordLabel)
-                            .addComponent(txtFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(txtEmail)
-                            .addComponent(txtPassword)
-                            .addComponent(txtLastName))
-                        .addGap(4, 4, 4)
+                        .addGap(108, 108, 108)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(xLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(xLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(xLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(xLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(signupButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtInputvalues))))
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(firstnameLabel)
+                                    .addComponent(lastnameLabel)
+                                    .addComponent(emailLabel)
+                                    .addComponent(passwordLabel)
+                                    .addComponent(txtFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                    .addComponent(txtEmail)
+                                    .addComponent(txtPassword)
+                                    .addComponent(txtLastName))
+                                .addGap(4, 4, 4)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(xLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(xLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(xLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(xLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(signupButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,17 +228,14 @@ public class signup_GUI extends javax.swing.JFrame {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(xLabel4))
                 .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(signupButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtInputvalues)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(signupButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(exitButton)
-                            .addComponent(returnButton))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addComponent(exitButton)
+                    .addComponent(returnButton))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -282,14 +252,9 @@ public class signup_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   
-    private void signupButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupButton1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signupButton1MouseClicked
-    
-    //Sign Up Button
+    // Retrieves inputed values from the textboxes and inserts them into the database
+    // then displays thankyou_GUI if the query has been executed successfully
     private void signupButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButton1ActionPerformed
-        // TODO add your handling code here:
          String FirstName = txtFirstName.getText(); 
          String LastName = txtLastName.getText();
          String Email = txtEmail.getText(); 
@@ -312,64 +277,14 @@ public class signup_GUI extends javax.swing.JFrame {
              } catch (Exception e) {
             System.out.println(e.getMessage()); 
          }
-         
-         
-        
-        
-        /*try {
-            String firstname=txtFirstName.getText();
-            String lastname=txtLastName.getText();
-            String email=txtEmail1.getText();
-            char[] pwd=txtPassword.getPassword();
-            String password=new String(pwd);
-            
-            if(firstname.equals("jakob")&&lastname.equals("farrow")&&email.equals("jakobpaul13@gmail.com")&&password.equals("password")){
-                dispose();
-                 startGUI s = new startGUI();
-                 s.setVisible(true); 
-            } 
-
-            else if (firstname.equals("")) {      
-                txtInputvalues.setForeground(Color.red);
-                }
-            else if (lastname.equals("")){
-                txtInputvalues.setForeground(Color.red);
-
-            }
-            else if (email.equals("")){
-                txtInputvalues.setForeground(Color.red);
-
-            }
-            else if (password.equals("")){
-                txtInputvalues.setForeground(Color.red);
-
-            }
-
-            }
-        
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }*/
     }//GEN-LAST:event_signupButton1ActionPerformed
 
-    private void txtLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLastNameActionPerformed
-
-    private void txtInputvaluesComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_txtInputvaluesComponentHidden
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtInputvaluesComponentHidden
-
-    private void txtInputvaluesPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtInputvaluesPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtInputvaluesPropertyChange
-
-    //Exit Button
+    // Exits out of the system
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
-
+    
+    // Allows the user to go back to the previous form
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         dispose();
         startGUI s = new startGUI();
@@ -429,7 +344,6 @@ public class signup_GUI extends javax.swing.JFrame {
     private javax.swing.JButton signupButton1;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstName;
-    private javax.swing.JLabel txtInputvalues;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JLabel xLabel1;

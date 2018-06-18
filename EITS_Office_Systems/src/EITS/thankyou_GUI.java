@@ -65,30 +65,15 @@ public class thankyou_GUI extends javax.swing.JFrame {
         signinButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 20)); // NOI18N
         signinButton.setForeground(new java.awt.Color(255, 255, 255));
         signinButton.setText("Sign In");
-        signinButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                signinButtonMouseClicked(evt);
-            }
-        });
         signinButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signinButtonActionPerformed(evt);
-            }
-        });
-        signinButton.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                signinButtonKeyPressed(evt);
             }
         });
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
         backButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/return_28px.png"))); // NOI18N
-        backButton2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                backButton2MouseMoved(evt);
-            }
-        });
         backButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backButton2MouseClicked(evt);
@@ -173,10 +158,7 @@ public class thankyou_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void signinButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signinButtonMouseClicked
-
+    // Displays the startGUI after the sign in button has been clicked
     private void signinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinButtonActionPerformed
         dispose(); 
         startGUI s = new startGUI();
@@ -184,23 +166,15 @@ public class thankyou_GUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_signinButtonActionPerformed
 
-    private void signinButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_signinButtonKeyPressed
-        // TODO add your handling code here
-    }//GEN-LAST:event_signinButtonKeyPressed
-
-    private void backButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backButton2MouseMoved
-
+    // Allow's the user to go back to the previous form
     private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
-        // TODO add your handling code here:
         dispose();
         signup_GUI s = new signup_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_backButton2MouseClicked
 
+    // Exits out of the system
     private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitButtonMouseClicked
 

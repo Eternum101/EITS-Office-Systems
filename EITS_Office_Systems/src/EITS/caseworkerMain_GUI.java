@@ -151,29 +151,29 @@ public class caseworkerMain_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Displays clientAttendance_GUI after the button has been clicked
     private void clientAttendanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientAttendanceButtonActionPerformed
-        // TODO add your handling code here:
         dispose();
         clientAttendance_GUI s = new clientAttendance_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_clientAttendanceButtonActionPerformed
 
+    // Displays clientDataLite_GUI after the button has been clicked
     private void clientDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientDataButtonActionPerformed
-        // TODO add your handling code here:
        dispose();
        clientDataLite_GUI s = new clientDataLite_GUI();
        s.setVisible(true); 
     }//GEN-LAST:event_clientDataButtonActionPerformed
 
+    // Allows the user to signout of the program
     private void SignoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignoutButtonActionPerformed
-        // TODO add your handling code here:
         dispose();
         startGUI s = new startGUI();
         s.setVisible(true);
     }//GEN-LAST:event_SignoutButtonActionPerformed
 
+    // Displays clientProgress_GUI after the button has been clicked
     private void clientProgressButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientProgressButtonActionPerformed
-        // TODO add your handling code here:
         dispose();
         clientProgress_GUI s = new clientProgress_GUI();
         s.setVisible(true);

@@ -256,6 +256,8 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Acquires the Class IndustryList and assigns it as an arraylist then selects all columns from the
+    // industries table in the database
     public ArrayList<IndustryList> getIndustryList() {
         ArrayList<IndustryList> industriesList = new ArrayList<>();
         String sql = "SELECT * FROM industries";
@@ -277,17 +279,19 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
    
     }
     
+    // Displays the arraylist into the jIndustryListTable and acquires ints and strings
+    // from the IndustryList class to be assigned into rows in the jIndustryListTable
     public void industry_list() {
      ArrayList<IndustryList> list = getIndustryList();
      DefaultTableModel model = (DefaultTableModel) jIndustryListTable.getModel();
      Object[] row = new Object[2];
      
-     for(int i = 0; i < list.size(); i++) {// note no list.length() but size()
+     for(int i = 0; i < list.size(); i++) {
          row[0] = list.get(i).getID();
          row[1] = list.get(i).getindustryDesc();
          model.addRow(row);
      } // end of for
-    } // end of show_users
+    } // end of industry_list
     
     public void executeSQlQuery(String query, String message) {
         try {
@@ -305,23 +309,22 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
         }
     }
    
+    // Allows the user to go back to the previous form
     private void backButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButton2MouseClicked
-        // TODO add your handling code here:
         dispose();
         adminMain_GUI s = new adminMain_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_backButton2MouseClicked
-
+    
+    // Exits out of the system
     private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
+          System.exit(0);
     }//GEN-LAST:event_ExitButtonMouseClicked
 
-    
-    
+    // Acquires the inputed values from the text fields then executes the query
+    // of inserting into the industries table in the database
     private void jInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertButtonActionPerformed
         try {
-            // TODO add your handling code here:
             String sql = "INSERT INTO industries (industryDesc) "+
                     " VALUES (?)";
             PreparedStatement ps =con.prepareStatement(sql);
@@ -336,9 +339,10 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jInsertButtonActionPerformed
 
+    // Acquires the selected row and inputed values from the text fields then executes the query
+    // of updating into the industries table in the database
     private void jUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdateButtonActionPerformed
          try {
-            // TODO add your handling code here:
             int row = jIndustryListTable.getSelectedRow(); 
             String value = (jIndustryListTable.getModel().getValueAt(row, 0).toString());
             String sql = "UPDATE industries SET id=?, industryDesc=? WHERE id="+value;
@@ -355,20 +359,22 @@ public class clientIndustryListAdmin_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jUpdateButtonActionPerformed
 
+    // Deletes the selected row in the jTable from the database
     private void jDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteButtonActionPerformed
         String query = "DELETE FROM `industries` WHERE id = " + this.jTextField_ID.getText();
         executeSQlQuery(query, "Deleted");
     }//GEN-LAST:event_jDeleteButtonActionPerformed
 
+    // Clears the values inputed on the form
     private void clearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton1ActionPerformed
-        // TODO add your handling code here:
         dispose();
         clientIndustryListAdmin_GUI s = new clientIndustryListAdmin_GUI();
         s.setVisible(true);
     }//GEN-LAST:event_clearButton1ActionPerformed
-
+    
+    // Allows the user to select a specifc row in the Jtable and then output
+    // the columns in that row to their respected text fields
     private void jIndustryListTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIndustryListTableMouseClicked
-        // TODO add your handling code here:                                               
        int i = jIndustryListTable.getSelectedRow();
        TableModel model= jIndustryListTable.getModel();
        jTextField_ID.setText(model.getValueAt(i,0).toString());

@@ -264,9 +264,6 @@
         <Component class="javax.swing.JTextField" name="jTextField_ID">
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField_FirstName">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_FirstNameActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField_LastName">
         </Component>
@@ -348,7 +345,6 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="backButton2MouseMoved"/>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="backButton2MouseClicked"/>
               </Events>
             </Component>

@@ -184,43 +184,43 @@ public class adminMain_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Displays clientData_GUI after the button has been clicked
     private void ClientDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientDataButtonActionPerformed
-        // TODO add your handling code here:
-        clientData_GUI s = new clientData_GUI();
+       clientData_GUI s = new clientData_GUI();
         s.setVisible(true);
         dispose();
     }//GEN-LAST:event_ClientDataButtonActionPerformed
 
+    // Allows the user to signout of the program
     private void SignoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignoutButtonActionPerformed
-        // TODO add your handling code here:
         startGUI s = new startGUI();
         s.setVisible(true);
         dispose();
     }//GEN-LAST:event_SignoutButtonActionPerformed
 
+    // Displays clientCourseListAdmin_GUI after the button has been clicked
     private void courseListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseListButtonActionPerformed
-        // TODO add your handling code here:
         clientCourseListAdmin_GUI s = new clientCourseListAdmin_GUI();
         s.setVisible(true);
         dispose();
     }//GEN-LAST:event_courseListButtonActionPerformed
 
+    // Displays clientUnitListAdmin_GUI after the button has been clicked
     private void unitListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitListButtonActionPerformed
-        // TODO add your handling code here:
         clientUnitListAdmin_GUI s = new clientUnitListAdmin_GUI();
         s.setVisible(true);
         dispose();
     }//GEN-LAST:event_unitListButtonActionPerformed
 
+    // Displays clientIndustryListAdmin_GUI after the button has been clicked
     private void industryListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industryListButtonActionPerformed
-        // TODO add your handling code here:
         clientIndustryListAdmin_GUI s = new clientIndustryListAdmin_GUI();
         s.setVisible(true);
         dispose();
     }//GEN-LAST:event_industryListButtonActionPerformed
 
+    // Displays clientCaseworkerAdmin_GUI after the button has been clicked
     private void caseworkerDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caseworkerDataButtonActionPerformed
-        // TODO add your handling code here:
         clientCaseworkerAdmin_GUI s = new clientCaseworkerAdmin_GUI();
         s.setVisible(true);
         dispose();
