@@ -62,7 +62,7 @@ public class startGUI extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         welcomeLabel = new javax.swing.JLabel();
         signinButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        loginHelp = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,7 +146,12 @@ public class startGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/question.png"))); // NOI18N
+        loginHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/question.png"))); // NOI18N
+        loginHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginHelpMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,7 +178,7 @@ public class startGUI extends javax.swing.JFrame {
                                     .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(109, 109, 109))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(loginHelp)
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -197,7 +202,7 @@ public class startGUI extends javax.swing.JFrame {
                     .addComponent(resetButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(loginHelp)
                 .addContainerGap())
         );
 
@@ -307,6 +312,13 @@ public class startGUI extends javax.swing.JFrame {
         s.setVisible(true);
         
     }//GEN-LAST:event_signupButtonActionPerformed
+
+    private void loginHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginHelpMouseClicked
+        
+        loginHelp_GUI s = new loginHelp_GUI();
+        s.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_loginHelpMouseClicked
     
     /**
      * @param args the command line arguments
@@ -346,9 +358,9 @@ public class startGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel emailLabel;
     private javax.swing.JButton exitButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel loginHelp;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JButton resetButton;
     private javax.swing.JButton signinButton;
