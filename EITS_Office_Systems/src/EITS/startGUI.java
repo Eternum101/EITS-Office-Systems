@@ -62,7 +62,7 @@ public class startGUI extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         welcomeLabel = new javax.swing.JLabel();
         signinButton = new javax.swing.JButton();
-        loginHelp = new javax.swing.JLabel();
+        loginHelpButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,10 +146,10 @@ public class startGUI extends javax.swing.JFrame {
             }
         });
 
-        loginHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/question.png"))); // NOI18N
-        loginHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+        loginHelpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/question.png"))); // NOI18N
+        loginHelpButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginHelpMouseClicked(evt);
+                loginHelpButtonMouseClicked(evt);
             }
         });
 
@@ -178,7 +178,7 @@ public class startGUI extends javax.swing.JFrame {
                                     .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(109, 109, 109))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(loginHelp)
+                        .addComponent(loginHelpButton)
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -202,7 +202,7 @@ public class startGUI extends javax.swing.JFrame {
                     .addComponent(resetButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(loginHelp)
+                .addComponent(loginHelpButton)
                 .addContainerGap())
         );
 
@@ -313,12 +313,12 @@ public class startGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_signupButtonActionPerformed
 
-    private void loginHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginHelpMouseClicked
+    private void loginHelpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginHelpButtonMouseClicked
         
         loginHelp_GUI s = new loginHelp_GUI();
         s.setVisible(true);
         dispose();
-    }//GEN-LAST:event_loginHelpMouseClicked
+    }//GEN-LAST:event_loginHelpButtonMouseClicked
     
     /**
      * @param args the command line arguments
@@ -360,7 +360,7 @@ public class startGUI extends javax.swing.JFrame {
     private javax.swing.JButton exitButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel loginHelp;
+    private javax.swing.JLabel loginHelpButton;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JButton resetButton;
     private javax.swing.JButton signinButton;
