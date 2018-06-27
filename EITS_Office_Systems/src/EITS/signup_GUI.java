@@ -58,7 +58,7 @@ public class signup_GUI extends javax.swing.JFrame {
         xLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        signupHelp = new javax.swing.JLabel();
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel8.setText("X");
@@ -164,7 +164,12 @@ public class signup_GUI extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/question.png"))); // NOI18N
+        signupHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/question.png"))); // NOI18N
+        signupHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signupHelpMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -201,7 +206,7 @@ public class signup_GUI extends javax.swing.JFrame {
                                             .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2))))
+                                .addComponent(signupHelp))))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(72, 72, 72))
         );
@@ -246,7 +251,7 @@ public class signup_GUI extends javax.swing.JFrame {
                         .addContainerGap(28, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
+                        .addComponent(signupHelp)
                         .addContainerGap())))
         );
 
@@ -299,6 +304,13 @@ public class signup_GUI extends javax.swing.JFrame {
         s.setVisible(true);
     }//GEN-LAST:event_returnButtonActionPerformed
 
+    private void signupHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupHelpMouseClicked
+        
+        signupHelp_GUI s = new signupHelp_GUI();
+        s.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_signupHelpMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -342,7 +354,6 @@ public class signup_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel firstnameLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -351,6 +362,7 @@ public class signup_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton signupButton1;
+    private javax.swing.JLabel signupHelp;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;
