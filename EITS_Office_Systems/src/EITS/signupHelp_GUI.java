@@ -29,31 +29,31 @@ public class signupHelp_GUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        signupLabel = new javax.swing.JLabel();
+        signupHelpLabel = new javax.swing.JLabel();
         backButton2 = new javax.swing.JLabel();
         ExitButton = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
+        emailtxt = new javax.swing.JTextArea();
+        signupLabel = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jLabel4 = new javax.swing.JLabel();
+        signuptxt = new javax.swing.JTextArea();
+        passwordLabel = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
+        passwordtxt = new javax.swing.JTextArea();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
+        returntxt = new javax.swing.JTextArea();
+        returnLabel = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea7 = new javax.swing.JTextArea();
-        jLabel6 = new javax.swing.JLabel();
+        exittxt = new javax.swing.JTextArea();
+        exitLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTextArea8 = new javax.swing.JTextArea();
-        jLabel7 = new javax.swing.JLabel();
+        firstnametxt = new javax.swing.JTextArea();
+        firstnameLabel = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTextArea9 = new javax.swing.JTextArea();
-        jLabel8 = new javax.swing.JLabel();
+        lastnametxt = new javax.swing.JTextArea();
+        lastnameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,10 +65,10 @@ public class signupHelp_GUI extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
-        signupLabel.setBackground(new java.awt.Color(255, 255, 255));
-        signupLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
-        signupLabel.setForeground(new java.awt.Color(255, 255, 255));
-        signupLabel.setText("SIGNUP HELP");
+        signupHelpLabel.setBackground(new java.awt.Color(255, 255, 255));
+        signupHelpLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+        signupHelpLabel.setForeground(new java.awt.Color(255, 255, 255));
+        signupHelpLabel.setText("SIGNUP HELP");
 
         backButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/return_28px.png"))); // NOI18N
         backButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -90,7 +90,7 @@ public class signupHelp_GUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addComponent(signupLabel)
+                .addComponent(signupHelpLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(backButton2)
                 .addGap(18, 18, 18)
@@ -104,100 +104,100 @@ public class signupHelp_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(backButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(signupLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(signupHelpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Email text field: ");
+        emailLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        emailLabel.setForeground(new java.awt.Color(255, 255, 255));
+        emailLabel.setText("Email text field: ");
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea2.setTabSize(0);
-        jTextArea2.setText("In the email text field you will want to enter you \nemail which you have entered when signing up");
-        jTextArea2.setAutoscrolls(false);
-        jScrollPane2.setViewportView(jTextArea2);
+        emailtxt.setEditable(false);
+        emailtxt.setBackground(new java.awt.Color(255, 255, 255));
+        emailtxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        emailtxt.setForeground(new java.awt.Color(0, 0, 0));
+        emailtxt.setTabSize(0);
+        emailtxt.setText("In the email text field you will want to enter you \nemail which you have entered when signing up");
+        emailtxt.setAutoscrolls(false);
+        jScrollPane2.setViewportView(emailtxt);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Signup button: ");
+        signupLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        signupLabel.setForeground(new java.awt.Color(255, 255, 255));
+        signupLabel.setText("Signup button: ");
 
-        jTextArea3.setEditable(false);
-        jTextArea3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea3.setColumns(20);
-        jTextArea3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea3.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea3.setRows(3);
-        jTextArea3.setText("The sign up button will check all your credentials you \nhave entered and if approved will input you in to the \ndatabase. You can then use those credentials to log in.");
-        jScrollPane3.setViewportView(jTextArea3);
+        signuptxt.setEditable(false);
+        signuptxt.setBackground(new java.awt.Color(255, 255, 255));
+        signuptxt.setColumns(20);
+        signuptxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        signuptxt.setForeground(new java.awt.Color(0, 0, 0));
+        signuptxt.setRows(3);
+        signuptxt.setText("The sign up button will check all your credentials you \nhave entered and if approved will input you in to the \ndatabase. You can then use those credentials to log in.");
+        jScrollPane3.setViewportView(signuptxt);
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Password text field: ");
+        passwordLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
+        passwordLabel.setText("Password text field: ");
 
-        jTextArea5.setEditable(false);
-        jTextArea5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea5.setColumns(20);
-        jTextArea5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea5.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea5.setRows(2);
-        jTextArea5.setText("In the password text field you will want to enter you \npassword which you have entered when signing up");
-        jScrollPane5.setViewportView(jTextArea5);
+        passwordtxt.setEditable(false);
+        passwordtxt.setBackground(new java.awt.Color(255, 255, 255));
+        passwordtxt.setColumns(20);
+        passwordtxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        passwordtxt.setForeground(new java.awt.Color(0, 0, 0));
+        passwordtxt.setRows(2);
+        passwordtxt.setText("In the password text field you will want to enter you \npassword which you have entered when signing up");
+        jScrollPane5.setViewportView(passwordtxt);
 
-        jTextArea6.setEditable(false);
-        jTextArea6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea6.setColumns(20);
-        jTextArea6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea6.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea6.setRows(2);
-        jTextArea6.setText("The reset button will clear all information you have \nentered in to the email and password text fields");
-        jScrollPane6.setViewportView(jTextArea6);
+        returntxt.setEditable(false);
+        returntxt.setBackground(new java.awt.Color(255, 255, 255));
+        returntxt.setColumns(20);
+        returntxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        returntxt.setForeground(new java.awt.Color(0, 0, 0));
+        returntxt.setRows(2);
+        returntxt.setText("The reset button will clear all information you have \nentered in to the email and password text fields");
+        jScrollPane6.setViewportView(returntxt);
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Return button:");
+        returnLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        returnLabel.setForeground(new java.awt.Color(255, 255, 255));
+        returnLabel.setText("Return button:");
 
-        jTextArea7.setEditable(false);
-        jTextArea7.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea7.setColumns(20);
-        jTextArea7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea7.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea7.setRows(2);
-        jTextArea7.setText("The exit button will completely exit the user out of \n the whole application");
-        jScrollPane7.setViewportView(jTextArea7);
+        exittxt.setEditable(false);
+        exittxt.setBackground(new java.awt.Color(255, 255, 255));
+        exittxt.setColumns(20);
+        exittxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        exittxt.setForeground(new java.awt.Color(0, 0, 0));
+        exittxt.setRows(2);
+        exittxt.setText("The exit button will completely exit the user out of \n the whole application");
+        jScrollPane7.setViewportView(exittxt);
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Exit button:");
+        exitLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        exitLabel.setForeground(new java.awt.Color(255, 255, 255));
+        exitLabel.setText("Exit button:");
 
-        jTextArea8.setEditable(false);
-        jTextArea8.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea8.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea8.setTabSize(0);
-        jTextArea8.setText("In the first name text field you will want to enter your\nfirst name");
-        jTextArea8.setAutoscrolls(false);
-        jScrollPane8.setViewportView(jTextArea8);
+        firstnametxt.setEditable(false);
+        firstnametxt.setBackground(new java.awt.Color(255, 255, 255));
+        firstnametxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        firstnametxt.setForeground(new java.awt.Color(0, 0, 0));
+        firstnametxt.setTabSize(0);
+        firstnametxt.setText("In the first name text field you will want to enter your\nfirst name");
+        firstnametxt.setAutoscrolls(false);
+        jScrollPane8.setViewportView(firstnametxt);
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("First Name text field: ");
+        firstnameLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        firstnameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        firstnameLabel.setText("First Name text field: ");
 
-        jTextArea9.setEditable(false);
-        jTextArea9.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea9.setColumns(20);
-        jTextArea9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea9.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea9.setRows(2);
-        jTextArea9.setText("In the last name text field you will want to enter your \nlast name");
-        jScrollPane9.setViewportView(jTextArea9);
+        lastnametxt.setEditable(false);
+        lastnametxt.setBackground(new java.awt.Color(255, 255, 255));
+        lastnametxt.setColumns(20);
+        lastnametxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lastnametxt.setForeground(new java.awt.Color(0, 0, 0));
+        lastnametxt.setRows(2);
+        lastnametxt.setText("In the last name text field you will want to enter your \nlast name");
+        jScrollPane9.setViewportView(lastnametxt);
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Last Name button:");
+        lastnameLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lastnameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        lastnameLabel.setText("Last Name button:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -209,29 +209,29 @@ public class signupHelp_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel7)
+                            .addComponent(firstnameLabel)
                             .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
+                            .addComponent(lastnameLabel)
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)))
                     .addComponent(jSeparator1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel6)
+                                .addComponent(exitLabel)
                                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2)
+                                .addComponent(emailLabel)
+                                .addComponent(signupLabel)
                                 .addComponent(jScrollPane3)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5)
+                            .addComponent(returnLabel)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
                             .addComponent(jScrollPane6)
-                            .addComponent(jLabel4))))
+                            .addComponent(passwordLabel))))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -242,16 +242,16 @@ public class signupHelp_GUI extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                    .addComponent(firstnameLabel)
+                    .addComponent(lastnameLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4))
+                    .addComponent(emailLabel)
+                    .addComponent(passwordLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,15 +259,15 @@ public class signupHelp_GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(signupLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(returnLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane6)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
+                .addComponent(exitLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
@@ -335,13 +335,12 @@ public class signupHelp_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel backButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel emailLabel;
+    private javax.swing.JTextArea emailtxt;
+    private javax.swing.JLabel exitLabel;
+    private javax.swing.JTextArea exittxt;
+    private javax.swing.JLabel firstnameLabel;
+    private javax.swing.JTextArea firstnametxt;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
@@ -352,13 +351,14 @@ public class signupHelp_GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea6;
-    private javax.swing.JTextArea jTextArea7;
-    private javax.swing.JTextArea jTextArea8;
-    private javax.swing.JTextArea jTextArea9;
+    private javax.swing.JLabel lastnameLabel;
+    private javax.swing.JTextArea lastnametxt;
+    private javax.swing.JLabel passwordLabel;
+    private javax.swing.JTextArea passwordtxt;
+    private javax.swing.JLabel returnLabel;
+    private javax.swing.JTextArea returntxt;
+    private javax.swing.JLabel signupHelpLabel;
     private javax.swing.JLabel signupLabel;
+    private javax.swing.JTextArea signuptxt;
     // End of variables declaration//GEN-END:variables
 }
